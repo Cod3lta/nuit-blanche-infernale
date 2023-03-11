@@ -1,12 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://cw0qba7h4jdi7"]
+[gd_scene load_steps=4 format=3 uid="uid://cw0qba7h4jdi7"]
 
 [ext_resource type="ArrayMesh" uid="uid://bcp5wao5e7vre" path="res://objects/mural/Mural.obj" id="1_qj7ct"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4rh8r"]
 albedo_color = Color(0.6, 0.6, 0.6, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_h28t3"]
+
 [node name="Mural" type="Node3D"]
 
 [node name="Mural" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_4rh8r")
 mesh = ExtResource("1_qj7ct")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.163014, 0, 0, 0, 1.2485, 0, 0, 0, 1.95179, 0.0547007, 0.650375, 0)
+shape = SubResource("BoxShape3D_h28t3")

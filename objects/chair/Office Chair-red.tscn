@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch7xk5fw20qye"]
+
+[ext_resource type="PackedScene" uid="uid://4fjc1gqjbq7i" path="res://objects/chair/Office Chair-red.glb" id="1_nihak"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Office Chair-red" parent="." instance=ExtResource("1_nihak")]
