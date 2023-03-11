@@ -5,12 +5,13 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cmxcr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ged56"]
-albedo_color = Color(0.292412, 0.483929, 0.264183, 1)
+albedo_color = Color(0.247059, 0.454902, 0.568627, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_by0fn"]
 material = SubResource("StandardMaterial3D_ged56")
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 3
 script = ExtResource("1_3qagp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

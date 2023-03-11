@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cixcsyv16m3bd"]
+
+[node name="TableCarre" type="CSGCombiner3D"]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+size = Vector3(1, 0.131111, 1)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 2.98023e-08)
+radius = 0.101851
+height = 1.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.063, 0)
+height = 0.125
+sides = 5
+cone = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0.3)
+operation = 2
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0.3)
+operation = 2
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, -0.3)
+operation = 2
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, -0.3)
+operation = 2
+size = Vector3(0.5, 0.5, 0.5)

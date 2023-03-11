@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+class_name Player
+
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 5.5
@@ -37,6 +39,5 @@ func _physics_process(delta):
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		print("Mouse Motion at: ", event.relative)
 		rotation.y -= deg_to_rad(event.relative.x * ROTATION_SPEED)
 		camera.rotation.x -= deg_to_rad(event.relative.y * ROTATION_SPEED)
