@@ -1,0 +1,23 @@
+- [X]  Porte qui s’ouvre / se ferme si tu veux
+- [ ]  Les musiques
+- [X]  Bruits de pas
+
+**Événements**
+
+- Faim
+    - [X]  Son du développeur qui a faim (boucle)
+    - [X]  Développeur qui a reçu à manger
+
+- Électricité / internet
+    - [X]  Ordinateur qui crépite
+
+- Toilettes
+    - [X]  Bruit d’eau (boucle)
+    - [X]  Bruit des toilettes qui se débouchent (splotch splotch ?)
+
+- Soif
+    - [X]  Bruit de fuite d’eau ?
+
+- Incendie
+    - [X]  Bruit de feu (boucle)
+    - [X]  Bruit de sirène (boucle)

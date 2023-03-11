@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://crj1w1d6ugkft"
+path="res://.godot/imported/Layer 5.ogg-bb215585d35f2a0e2b85c4d57cc34edf.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Music/Layer 5.ogg"
+dest_files=["res://.godot/imported/Layer 5.ogg-bb215585d35f2a0e2b85c4d57cc34edf.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

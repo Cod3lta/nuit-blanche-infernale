@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cbbmtr5kxyqk0"]
+[gd_scene load_steps=21 format=3 uid="uid://cbbmtr5kxyqk0"]
 
 [ext_resource type="Texture2D" uid="uid://coyr5u4qch1hp" path="res://levels/floor_plan.jpg" id="1_lvkq3"]
 [ext_resource type="PackedScene" uid="uid://cixcsyv16m3bd" path="res://objects/table/table_square.tscn" id="2_qqk18"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dtjadfhyck24s" path="res://objects/computer/pc_tower.tscn" id="7_4uv62"]
 [ext_resource type="PackedScene" uid="uid://cw0qba7h4jdi7" path="res://objects/mural/Mural.tscn" id="7_gu3ho"]
 [ext_resource type="PackedScene" uid="uid://ckodd8lv0blhf" path="res://objects/computer/pc_screen.tscn" id="8_slx8f"]
+[ext_resource type="PackedScene" uid="uid://ch7xk5fw20qye" path="res://objects/chair/Office Chair-red.tscn" id="11_mkjph"]
 [ext_resource type="PackedScene" uid="uid://dpegiv5tdnc6d" path="res://objects/chair/Office Chair-blue.tscn" id="11_t0pti"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cync4"]
@@ -355,6 +356,12 @@ skeleton = NodePath("../../Office Chair")
 
 [node name="Office Chair" parent="." instance=ExtResource("11_t0pti")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.74159, 2.38419e-07, -23.6059)
+
+[node name="Node3D" parent="." instance=ExtResource("11_mkjph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.36962, 0, -23.8985)
+
+[node name="Node3D2" parent="." instance=ExtResource("11_mkjph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.36962, 0, -25.9797)
 
 [editable path="CylinderChair"]
 [editable path="CylinderChair2"]

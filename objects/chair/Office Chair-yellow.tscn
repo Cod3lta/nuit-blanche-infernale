@@ -3,5 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://cqqvscgx71mwu" path="res://objects/chair/Office Chair-yellow.glb" id="1_822v4"]
 
 [node name="Node3D" type="Node3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Office Chair-yellow" parent="." instance=ExtResource("1_822v4")]
