@@ -188,7 +188,7 @@ operation = 2
 size = Vector3(0.6, 2.5, 1.5)
 
 [node name="DoorFrame6" type="CSGBox3D" parent="InnerWalls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3, 1.25, -8.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3, 1.25, -9)
 operation = 2
 size = Vector3(0.6, 2.5, 1.5)
 
@@ -258,6 +258,12 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.6, 0
 [node name="TableRectangleBrown4" parent="." instance=ExtResource("4_33pps")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.8, 0, -12.2)
 
+[node name="TableRectangleBrown7" parent="." instance=ExtResource("4_33pps")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.6, 0, -8)
+
+[node name="TableRectangleBrown8" parent="." instance=ExtResource("4_33pps")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.8, 0, -8)
+
 [node name="TableRectangleBrown5" parent="." instance=ExtResource("4_33pps")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.6, 0, -15.9)
 
@@ -268,21 +274,42 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.8, 0
 
 [node name="Door" parent="Doors" instance=ExtResource("4_6o575")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.9, 0, -6.9)
+open_side = 1
+
+[node name="Door7" parent="Doors" instance=ExtResource("4_6o575")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 2.3, 0, -5.8)
+
+[node name="Door10" parent="Doors" instance=ExtResource("4_6o575")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -5.2, 0, -5.4)
+open_side = 1
+
+[node name="Door11" parent="Doors" instance=ExtResource("4_6o575")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.1, 0, -4.3)
+open_side = 1
+
+[node name="Door8" parent="Doors" instance=ExtResource("4_6o575")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -0.2, 0, 0.4)
+open_side = 1
+
+[node name="Door9" parent="Doors" instance=ExtResource("4_6o575")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 2.3, 0, -3.2)
 
 [node name="Door2" parent="Doors" instance=ExtResource("4_6o575")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.3, 0, -8.6)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.3, 0, -9)
+open_side = 1
 
 [node name="Door3" parent="Doors" instance=ExtResource("4_6o575")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.3, 0, -15)
+open_side = 1
 
 [node name="Door4" parent="Doors" instance=ExtResource("4_6o575")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.3, 0, -18)
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 2.3, 0, -18)
 
 [node name="Door5" parent="Doors" instance=ExtResource("4_6o575")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.3, 0, -22.8)
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 2.3, 0, -22.8)
 
 [node name="Door6" parent="Doors" instance=ExtResource("4_6o575")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.3, 0, -28)
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 2.3, 0, -28)
 
 [node name="Laptop" parent="." instance=ExtResource("6_l7oyr")]
 transform = Transform3D(-0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, -0.906308, -2.065, 1, -18.351)

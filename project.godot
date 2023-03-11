@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 RuntimeManager="*res://addons/FMOD/runtime/runtime_manager.gd"
 BeehaveGlobalMetrics="*res://addons/beehave/metrics/beehave_global_metrics.gd"
+Accesser="*res://accesser.gd"
 
 [editor_plugins]
 
@@ -77,3 +78,4 @@ right={
 [layer_names]
 
 3d_physics/layer_2="door_detector"
+3d_physics/layer_3="player_raycast"

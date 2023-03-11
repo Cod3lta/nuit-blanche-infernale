@@ -1,12 +1,20 @@
 extends Node3D
 
-@export_enum("positive", "negative") var open_side: int
-@export var open: bool = false:
+@export_enum("POSITIVE", "NEGATIVE") var open_side: int
+@export var open: bool:
 	set(val): 
+		# C'est dégeulasse mais bon hein ok
 		if val:
-			$AnimationPlayer.play("opening")
+			if open_side == 0:
+				$AnimationPlayer.play("opening_positive")
+			else: 
+				$AnimationPlayer.play("opening_negative")
 		else:
-			$AnimationPlayer.play("closing")
+			if open_side == 0:
+				$AnimationPlayer.play("closing_positive")
+			else: 
+				$AnimationPlayer.play("closing_negative")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

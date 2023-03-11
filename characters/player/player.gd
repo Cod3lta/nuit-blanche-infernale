@@ -14,6 +14,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	#pass
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -41,3 +42,7 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		rotation.y -= deg_to_rad(event.relative.x * ROTATION_SPEED)
 		camera.rotation.x -= deg_to_rad(event.relative.y * ROTATION_SPEED)
+	if event is InputEventMouseButton:
+		var collider: Node = $Camera3D/RayCast3D.get_collider()
+		if collider and collider.has_method("click"):
+			collider.click()

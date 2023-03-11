@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://c35txdgt1teww"]
+
+[ext_resource type="Script" path="res://triggers/pizza_trigger.gd" id="1_s51ln"]
+[ext_resource type="PackedScene" uid="uid://b407hx4fklh5w" path="res://objects/pizza/Pizza.tscn" id="1_svusp"]
+[ext_resource type="Script" path="res://triggers/pizza_collider.gd" id="3_p1ocy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_77o8n"]
+albedo_color = Color(0.286275, 0.333333, 0.694118, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hb7w3"]
+
+[node name="PizzaTrigger" type="Node3D"]
+script = ExtResource("1_s51ln")
+
+[node name="Pizza" parent="." instance=ExtResource("1_svusp")]
+transform = Transform3D(-0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, -0.906308, -0.0211434, 0.005, -0.0420895)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0)
+size = Vector3(0.6, 0.05, 0.6)
+material = SubResource("StandardMaterial3D_77o8n")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0436776, 0)
+operation = 2
+size = Vector3(0.569, 0.075, 0.558)
+material = SubResource("StandardMaterial3D_77o8n")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 4
+script = ExtResource("3_p1ocy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_hb7w3")
+
+[connection signal="clicked" from="Area3D" to="." method="_on_area_3d_clicked"]
