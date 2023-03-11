@@ -1,0 +1,114 @@
+[gd_scene load_steps=6 format=3 uid="uid://bp7c74fymgtnu"]
+
+[ext_resource type="Texture2D" uid="uid://coyr5u4qch1hp" path="res://levels/floor_plan.jpg" id="1_lvkq3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cync4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mgl2r"]
+size = Vector3(17, 1, 63.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_36vi0"]
+albedo_color = Color(0.576471, 0.576471, 0.576471, 1)
+albedo_texture = ExtResource("1_lvkq3")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ptqfx"]
+material = SubResource("StandardMaterial3D_36vi0")
+size = Vector2(10, 3.88)
+
+[node name="MainLevel" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="Outer" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+size = Vector3(17, 4, 63.2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+operation = 2
+size = Vector3(15.8, 3, 62)
+material = SubResource("StandardMaterial3D_cync4")
+
+[node name="Collisions" type="StaticBody3D" parent="."]
+
+[node name="Floor" type="CollisionShape3D" parent="Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_mgl2r")
+
+[node name="FloorPlan" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.79665e-07, 0, 6.398, 0, 6.398, 0, -6.398, 0, -2.79665e-07, -1.3, 0.01, 0)
+mesh = SubResource("PlaneMesh_ptqfx")
+
+[node name="InnerWalls" type="Node3D" parent="."]
+
+[node name="InnerWall" type="CSGBox3D" parent="InnerWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3, 1, -16.7)
+size = Vector3(0.4, 4, 29.8)
+
+[node name="InnerWall2" type="CSGBox3D" parent="InnerWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3, 1, -26.8)
+size = Vector3(6.2, 4, 0.4)
+
+[node name="InnerWall3" type="CSGBox3D" parent="InnerWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3, 1, -21.6)
+size = Vector3(6.2, 4, 0.4)
+
+[node name="InnerWall4" type="CSGBox3D" parent="InnerWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3, 1, -16.6)
+size = Vector3(6.2, 4, 0.4)
+
+[node name="InnerWall5" type="CSGBox3D" parent="InnerWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3, 1, -11.5)
+size = Vector3(6.2, 4, 0.4)
+
+[node name="InnerWall6" type="CSGBox3D" parent="InnerWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3, 1, -7.3)
+size = Vector3(6.2, 4, 0.4)
+
+[node name="InnerWall7" type="CSGBox3D" parent="InnerWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3, 1, -4.7)
+size = Vector3(6.2, 4, 0.4)
+
+[node name="InnerWall8" type="CSGBox3D" parent="InnerWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3, 1, -2)
+size = Vector3(6.2, 4, 0.4)
+
+[node name="InnerWall10" type="CSGBox3D" parent="InnerWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 1, -6.5)
+size = Vector3(8, 4, 0.4)
+
+[node name="InnerWall11" type="CSGBox3D" parent="InnerWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 1, -6.9)
+size = Vector3(2.6, 4, 0.4)
+
+[node name="InnerWall9" type="CSGBox3D" parent="InnerWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 1, -2.2)
+size = Vector3(0.4, 4, 4.8)
+
+[node name="InnerWall17" type="CSGBox3D" parent="InnerWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 1, 4.2)
+size = Vector3(0.4, 4, 4.8)
+
+[node name="InnerWall12" type="CSGBox3D" parent="InnerWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 1, 3.1)
+size = Vector3(0.4, 4, 3.6)
+
+[node name="InnerWall13" type="CSGBox3D" parent="InnerWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8, 1, 3.2)
+size = Vector3(1, 4, 3.6)
+
+[node name="InnerWall14" type="CSGBox3D" parent="InnerWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1, 1, 1.5)
+size = Vector3(7.8, 4, 0.4)
+
+[node name="InnerWall15" type="CSGBox3D" parent="InnerWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 1, -2.1)
+size = Vector3(7.8, 4, 0.4)
+
+[node name="InnerWall18" type="CSGBox3D" parent="InnerWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8, 1, 6.6)
+size = Vector3(10.2, 4, 0.4)
+
+[node name="InnerWall16" type="CSGBox3D" parent="InnerWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9, 1, 2)
+size = Vector3(5.8, 4, 0.4)

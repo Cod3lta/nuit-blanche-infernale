@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgs37crakouai"]
+
+[ext_resource type="Script" path="res://characters/player/player.gd" id="1_3qagp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cmxcr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ged56"]
+albedo_color = Color(0.292412, 0.483929, 0.264183, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_by0fn"]
+material = SubResource("StandardMaterial3D_ged56")
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_3qagp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_cmxcr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_by0fn")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
