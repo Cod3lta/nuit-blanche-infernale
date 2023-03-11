@@ -18,10 +18,11 @@ config/icon="res://icon.svg"
 [autoload]
 
 RuntimeManager="*res://addons/FMOD/runtime/runtime_manager.gd"
+BeehaveGlobalMetrics="*res://addons/beehave/metrics/beehave_global_metrics.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/FMOD/plugin.cfg", "res://addons/beehave-2.7.1/addons/beehave/plugin.cfg", "res://addons/beehave/plugin.cfg", "res://addons/imjp94.yafsm/plugin.cfg")
+enabled=PackedStringArray("res://addons/FMOD/plugin.cfg", "res://addons/beehave/plugin.cfg", "res://addons/imjp94.yafsm/plugin.cfg")
 
 [fmod]
 

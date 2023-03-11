@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbbmtr5kxyqk0"]
+[gd_scene load_steps=15 format=3 uid="uid://cbbmtr5kxyqk0"]
 
 [ext_resource type="Texture2D" uid="uid://coyr5u4qch1hp" path="res://levels/floor_plan.jpg" id="1_lvkq3"]
 [ext_resource type="PackedScene" uid="uid://cixcsyv16m3bd" path="res://objects/table/table_square.tscn" id="2_qqk18"]
 [ext_resource type="PackedScene" uid="uid://wrc6oaamtuhq" path="res://objects/table/table_rectangle.tscn" id="2_v57kj"]
 [ext_resource type="PackedScene" uid="uid://vhqwywf7xtwd" path="res://objects/door/door.tscn" id="4_6o575"]
 [ext_resource type="PackedScene" uid="uid://cr1gx2adsrj1x" path="res://objects/table/table_rectangle_brown.tscn" id="4_33pps"]
+[ext_resource type="PackedScene" uid="uid://bbhg82i7nesqw" path="res://objects/chair/cylinder_chair.tscn" id="6_sod10"]
+[ext_resource type="PackedScene" uid="uid://cw0qba7h4jdi7" path="res://objects/mural/Mural.tscn" id="7_gu3ho"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cync4"]
 
@@ -20,6 +22,12 @@ material = SubResource("StandardMaterial3D_36vi0")
 size = Vector2(10, 3.88)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ln8vp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qy8an"]
+albedo_color = Color(0.819608, 0.360784, 0.235294, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hqukl"]
+albedo_color = Color(0.0705882, 1, 1, 1)
 
 [node name="MainLevel" type="Node3D"]
 
@@ -211,7 +219,19 @@ mesh = SubResource("CapsuleMesh_ln8vp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -18)
 
 [node name="TableRectangle2" parent="." instance=ExtResource("2_v57kj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.54889, 0, -23.4315)
+
+[node name="TableRectangle3" parent="." instance=ExtResource("2_v57kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.65102, -0.40372, -23.4315)
+
+[node name="TableRectangle5" parent="." instance=ExtResource("2_v57kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.65102, -0.40372, -25.9333)
+
+[node name="TableRectangle6" parent="." instance=ExtResource("2_v57kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.71548, -0.40372, -25.9333)
+
+[node name="TableRectangle4" parent="." instance=ExtResource("2_v57kj")]
+transform = Transform3D(-4.37114e-08, 0, 1.4849, 0, 1, 0, -1, 0, -6.49069e-08, -5.66755, -0.405213, -21.9046)
 
 [node name="TableRectangleBrown" parent="." instance=ExtResource("4_33pps")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -13.1)
@@ -247,3 +267,26 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.3, 0
 
 [node name="Door6" parent="Doors" instance=ExtResource("4_6o575")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.3, 0, -28)
+
+[node name="CylinderChair" parent="." instance=ExtResource("6_sod10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57696, -0.0526956, -13.6173)
+
+[node name="CylinderChair" parent="CylinderChair" index="0"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -5.00422, 0, -6.38863)
+material_override = SubResource("StandardMaterial3D_qy8an")
+
+[node name="CylinderChair2" parent="." instance=ExtResource("6_sod10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57696, -0.0526956, -12.0516)
+
+[node name="CylinderChair" parent="CylinderChair2" index="0"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -2.17449, 0, -10.5001)
+material_override = SubResource("StandardMaterial3D_hqukl")
+
+[node name="Mural" parent="." instance=ExtResource("7_gu3ho")]
+transform = Transform3D(-1.11984e-08, 0, 1.15495, 0, 1.10749, 0, -0.25619, 0, -5.04843e-08, -6.68988, 0, -24.7292)
+
+[node name="Mural2" parent="." instance=ExtResource("7_gu3ho")]
+transform = Transform3D(-1.11984e-08, 0, 1.15495, 0, 1.10749, 0, -0.25619, 0, -5.04843e-08, -4.35848, 0, -24.7288)
+
+[editable path="CylinderChair"]
+[editable path="CylinderChair2"]

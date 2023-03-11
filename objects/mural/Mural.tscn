@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw0qba7h4jdi7"]
+
+[ext_resource type="ArrayMesh" uid="uid://bcp5wao5e7vre" path="res://objects/mural/Mural.obj" id="1_qj7ct"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4rh8r"]
+albedo_color = Color(0.6, 0.6, 0.6, 1)
+
+[node name="Mural" type="Node3D"]
+
+[node name="Mural" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_4rh8r")
+mesh = ExtResource("1_qj7ct")
