@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cw0qba7h4jdi7" path="res://objects/mural/Mural.tscn" id="7_gu3ho"]
 [ext_resource type="PackedScene" uid="uid://ckodd8lv0blhf" path="res://objects/computer/pc_screen.tscn" id="8_slx8f"]
 [ext_resource type="PackedScene" uid="uid://ch7xk5fw20qye" path="res://objects/chair/Office Chair-red.tscn" id="11_mkjph"]
-[ext_resource type="PackedScene" uid="uid://dpegiv5tdnc6d" path="res://objects/chair/Office Chair-blue.tscn" id="11_t0pti"]
+[ext_resource type="PackedScene" path="res://objects/chair/Office Chair-blue.tscn" id="11_t0pti"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cync4"]
 

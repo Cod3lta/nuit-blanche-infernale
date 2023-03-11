@@ -13,11 +13,6 @@ script = ExtResource("3_s1m3b")
 name = "Entry"
 metadata/graph_offset = Vector2(304, 121.5)
 
-[sub_resource type="Resource" id="Resource_a8lmp"]
-script = ExtResource("3_s1m3b")
-name = "hungry"
-metadata/graph_offset = Vector2(439, 261.5)
-
 [sub_resource type="Resource" id="Resource_exbec"]
 script = ExtResource("3_s1m3b")
 name = "Exit"
@@ -28,24 +23,16 @@ script = ExtResource("3_s1m3b")
 name = "bring_food"
 metadata/graph_offset = Vector2(584, 121.5)
 
+[sub_resource type="Resource" id="Resource_a8lmp"]
+script = ExtResource("3_s1m3b")
+name = "hungry"
+metadata/graph_offset = Vector2(439, 261.5)
+
 [sub_resource type="Resource" id="Resource_14prl"]
 script = ExtResource("4_d30nn")
 from = "Entry"
 to = "hungry"
 conditions = {}
-priority = 0
-
-[sub_resource type="Resource" id="Resource_mpxgr"]
-script = ExtResource("5_ydukx")
-name = "get_pizza"
-
-[sub_resource type="Resource" id="Resource_q812b"]
-script = ExtResource("4_d30nn")
-from = "hungry"
-to = "bring_food"
-conditions = {
-"get_pizza": SubResource("Resource_mpxgr")
-}
 priority = 0
 
 [sub_resource type="Resource" id="Resource_b7qgk"]
@@ -58,6 +45,19 @@ from = "bring_food"
 to = "Exit"
 conditions = {
 "feed_developer": SubResource("Resource_b7qgk")
+}
+priority = 0
+
+[sub_resource type="Resource" id="Resource_1hwfo"]
+script = ExtResource("5_ydukx")
+name = "t(\"get_pizza\")"
+
+[sub_resource type="Resource" id="Resource_q812b"]
+script = ExtResource("4_d30nn")
+from = "hungry"
+to = "bring_food"
+conditions = {
+"t(\"get_pizza\")": SubResource("Resource_1hwfo")
 }
 priority = 0
 
