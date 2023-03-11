@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbhg82i7nesqw"]
+
+[ext_resource type="ArrayMesh" uid="uid://cbursr3ehq66l" path="res://objects/chair/Cylinder Chair.obj" id="1_81y0q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7e8ge"]
+
+[node name="CylinderChair" type="Node3D"]
+
+[node name="CylinderChair" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_7e8ge")
+mesh = ExtResource("1_81y0q")

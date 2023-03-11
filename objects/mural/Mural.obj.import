@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bcp5wao5e7vre"
+path="res://.godot/imported/Mural.obj-a20124c61f0c5e25e920c792fc7d1fad.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Mural.obj-a20124c61f0c5e25e920c792fc7d1fad.mesh"]
+
+source_file="res://objects/mural/Mural.obj"
+dest_files=["res://.godot/imported/Mural.obj-a20124c61f0c5e25e920c792fc7d1fad.mesh", "res://.godot/imported/Mural.obj-a20124c61f0c5e25e920c792fc7d1fad.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

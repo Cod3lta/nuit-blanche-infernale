@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://d08sjs8e8kag2" path="res://objects/computer/laptop.tscn" id="6_l7oyr"]
 [ext_resource type="PackedScene" uid="uid://dtjadfhyck24s" path="res://objects/computer/pc_tower.tscn" id="7_4uv62"]
 [ext_resource type="PackedScene" uid="uid://ckodd8lv0blhf" path="res://objects/computer/pc_screen.tscn" id="8_slx8f"]
+[ext_resource type="PackedScene" uid="uid://bbhg82i7nesqw" path="res://objects/chair/cylinder_chair.tscn" id="6_sod10"]
+[ext_resource type="PackedScene" uid="uid://cw0qba7h4jdi7" path="res://objects/mural/Mural.tscn" id="7_gu3ho"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cync4"]
 
@@ -23,6 +25,12 @@ material = SubResource("StandardMaterial3D_36vi0")
 size = Vector2(10, 3.88)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ln8vp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qy8an"]
+albedo_color = Color(0.819608, 0.360784, 0.235294, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hqukl"]
+albedo_color = Color(0.0705882, 1, 1, 1)
 
 [node name="MainLevel" type="Node3D"]
 
@@ -214,7 +222,19 @@ mesh = SubResource("CapsuleMesh_ln8vp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -18)
 
 [node name="TableRectangle2" parent="." instance=ExtResource("2_v57kj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.54889, 0, -23.4315)
+
+[node name="TableRectangle3" parent="." instance=ExtResource("2_v57kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.65102, -0.40372, -23.4315)
+
+[node name="TableRectangle5" parent="." instance=ExtResource("2_v57kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.65102, -0.40372, -25.9333)
+
+[node name="TableRectangle6" parent="." instance=ExtResource("2_v57kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.71548, -0.40372, -25.9333)
+
+[node name="TableRectangle4" parent="." instance=ExtResource("2_v57kj")]
+transform = Transform3D(-4.37114e-08, 0, 1.4849, 0, 1, 0, -1, 0, -6.49069e-08, -5.66755, -0.405213, -21.9046)
 
 [node name="TableRectangle3" parent="." instance=ExtResource("2_v57kj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0, -15)
@@ -265,3 +285,25 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.3, 
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.70777, 2.49918, -17.1102)
+[node name="CylinderChair" parent="." instance=ExtResource("6_sod10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57696, -0.0526956, -13.6173)
+
+[node name="CylinderChair" parent="CylinderChair" index="0"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -5.00422, 0, -6.38863)
+material_override = SubResource("StandardMaterial3D_qy8an")
+
+[node name="CylinderChair2" parent="." instance=ExtResource("6_sod10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57696, -0.0526956, -12.0516)
+
+[node name="CylinderChair" parent="CylinderChair2" index="0"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -2.17449, 0, -10.5001)
+material_override = SubResource("StandardMaterial3D_hqukl")
+
+[node name="Mural" parent="." instance=ExtResource("7_gu3ho")]
+transform = Transform3D(-1.11984e-08, 0, 1.15495, 0, 1.10749, 0, -0.25619, 0, -5.04843e-08, -6.68988, 0, -24.7292)
+
+[node name="Mural2" parent="." instance=ExtResource("7_gu3ho")]
+transform = Transform3D(-1.11984e-08, 0, 1.15495, 0, 1.10749, 0, -0.25619, 0, -5.04843e-08, -4.35848, 0, -24.7288)
+
+[editable path="CylinderChair"]
+[editable path="CylinderChair2"]
