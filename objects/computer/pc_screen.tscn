@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckodd8lv0blhf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oeeyo"]
+albedo_color = Color(0.227451, 0.227451, 0.227451, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xnqnk"]
+albedo_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+metallic = 1.0
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wyuyi"]
+albedo_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+
+[node name="PCScreen" type="CSGCombiner3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.991883, 0.127151, 0, -0.127151, 0.991883, 0, 0.223318, 0)
+size = Vector3(0.4, 0.24, 0.0249499)
+material = SubResource("StandardMaterial3D_oeeyo")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.991883, 0.127151, 0, -0.127151, 0.991883, 0, 0.223318, 0.0119219)
+operation = 2
+size = Vector3(0.375952, 0.217458, 0.0032436)
+material = SubResource("StandardMaterial3D_xnqnk")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.991883, 0.127151, 0, -0.127151, 0.991883, 0, 0.223318, -0.0205132)
+size = Vector3(0.27225, 0.0919919, 0.0249499)
+material = SubResource("StandardMaterial3D_oeeyo")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, -0.0350676)
+radius = 0.0167626
+height = 0.25
+material = SubResource("StandardMaterial3D_wyuyi")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.008, -0.034)
+size = Vector3(0.103, 0.015, 0.109)
+material = SubResource("StandardMaterial3D_wyuyi")

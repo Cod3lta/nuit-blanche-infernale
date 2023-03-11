@@ -1,10 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbbmtr5kxyqk0"]
+[gd_scene load_steps=14 format=3 uid="uid://cbbmtr5kxyqk0"]
 
 [ext_resource type="Texture2D" uid="uid://coyr5u4qch1hp" path="res://levels/floor_plan.jpg" id="1_lvkq3"]
 [ext_resource type="PackedScene" uid="uid://cixcsyv16m3bd" path="res://objects/table/table_square.tscn" id="2_qqk18"]
 [ext_resource type="PackedScene" uid="uid://wrc6oaamtuhq" path="res://objects/table/table_rectangle.tscn" id="2_v57kj"]
 [ext_resource type="PackedScene" uid="uid://vhqwywf7xtwd" path="res://objects/door/door.tscn" id="4_6o575"]
 [ext_resource type="PackedScene" uid="uid://cr1gx2adsrj1x" path="res://objects/table/table_rectangle_brown.tscn" id="4_33pps"]
+[ext_resource type="PackedScene" uid="uid://d08sjs8e8kag2" path="res://objects/computer/laptop.tscn" id="6_l7oyr"]
+[ext_resource type="PackedScene" uid="uid://dtjadfhyck24s" path="res://objects/computer/pc_tower.tscn" id="7_4uv62"]
+[ext_resource type="PackedScene" uid="uid://ckodd8lv0blhf" path="res://objects/computer/pc_screen.tscn" id="8_slx8f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cync4"]
 
@@ -28,9 +31,9 @@ use_collision = true
 
 [node name="Outer" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-size = Vector3(17, 4, 63.2)
+size = Vector3(17, 5, 63.2)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+[node name="Inner" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 operation = 2
 size = Vector3(15.8, 3, 62)
@@ -131,8 +134,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8, 1, 6.6)
 size = Vector3(10, 4, 0.4)
 
 [node name="InnerWall16" type="CSGBox3D" parent="InnerWalls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9, 1, 2)
-size = Vector3(5.8, 4, 0.4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 2)
+size = Vector3(6, 4, 0.4)
 
 [node name="InnerWall11" type="CSGBox3D" parent="InnerWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 1, -6.9)
@@ -213,6 +216,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -18)
 [node name="TableRectangle2" parent="." instance=ExtResource("2_v57kj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -15)
 
+[node name="TableRectangle3" parent="." instance=ExtResource("2_v57kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0, -15)
+
 [node name="TableRectangleBrown" parent="." instance=ExtResource("4_33pps")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -13.1)
 
@@ -247,3 +253,15 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.3, 0
 
 [node name="Door6" parent="Doors" instance=ExtResource("4_6o575")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.3, 0, -28)
+
+[node name="Laptop" parent="." instance=ExtResource("6_l7oyr")]
+transform = Transform3D(-0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, -0.906308, -2.065, 1, -18.351)
+
+[node name="PCTower" parent="." instance=ExtResource("7_4uv62")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, 1, -18.2)
+
+[node name="PCScreen" parent="." instance=ExtResource("8_slx8f")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.3, 1, -17.9)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.70777, 2.49918, -17.1102)

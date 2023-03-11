@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtjadfhyck24s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gb2ug"]
+albedo_color = Color(0.584314, 0.486275, 0.466667, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_syg8s"]
+albedo_color = Color(0.87451, 0.317647, 0.34902, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w0ehy"]
+albedo_color = Color(0.27451, 0.0470588, 0.0705882, 1)
+
+[node name="PCTower" type="CSGCombiner3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.175, 0)
+size = Vector3(0.15, 0.35, 0.3)
+material = SubResource("StandardMaterial3D_gb2ug")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0135753, 0.199712, 0)
+operation = 2
+size = Vector3(0.129864, 0.250084, 0.248031)
+material = SubResource("StandardMaterial3D_syg8s")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.253784, -0.104513)
+radius = 0.0519355
+height = 0.0432671
+
+[node name="RTX5090TITANti" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00352784, 0.175, -0.0201349)
+size = Vector3(0.107211, 0.051751, 0.196856)
+material = SubResource("StandardMaterial3D_w0ehy")
