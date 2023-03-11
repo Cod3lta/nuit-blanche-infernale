@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cbbmtr5kxyqk0"]
+[gd_scene load_steps=17 format=3 uid="uid://cbbmtr5kxyqk0"]
 
 [ext_resource type="Texture2D" uid="uid://coyr5u4qch1hp" path="res://levels/floor_plan.jpg" id="1_lvkq3"]
 [ext_resource type="PackedScene" uid="uid://cixcsyv16m3bd" path="res://objects/table/table_square.tscn" id="2_qqk18"]
@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://vhqwywf7xtwd" path="res://objects/door/door.tscn" id="4_6o575"]
 [ext_resource type="PackedScene" uid="uid://cr1gx2adsrj1x" path="res://objects/table/table_rectangle_brown.tscn" id="4_33pps"]
 [ext_resource type="PackedScene" uid="uid://d08sjs8e8kag2" path="res://objects/computer/laptop.tscn" id="6_l7oyr"]
-[ext_resource type="PackedScene" uid="uid://dtjadfhyck24s" path="res://objects/computer/pc_tower.tscn" id="7_4uv62"]
-[ext_resource type="PackedScene" uid="uid://ckodd8lv0blhf" path="res://objects/computer/pc_screen.tscn" id="8_slx8f"]
 [ext_resource type="PackedScene" uid="uid://bbhg82i7nesqw" path="res://objects/chair/cylinder_chair.tscn" id="6_sod10"]
+[ext_resource type="PackedScene" uid="uid://dtjadfhyck24s" path="res://objects/computer/pc_tower.tscn" id="7_4uv62"]
 [ext_resource type="PackedScene" uid="uid://cw0qba7h4jdi7" path="res://objects/mural/Mural.tscn" id="7_gu3ho"]
+[ext_resource type="PackedScene" uid="uid://ckodd8lv0blhf" path="res://objects/computer/pc_screen.tscn" id="8_slx8f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cync4"]
 
@@ -23,8 +23,6 @@ albedo_texture = ExtResource("1_lvkq3")
 [sub_resource type="PlaneMesh" id="PlaneMesh_ptqfx"]
 material = SubResource("StandardMaterial3D_36vi0")
 size = Vector2(10, 3.88)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ln8vp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qy8an"]
 albedo_color = Color(0.819608, 0.360784, 0.235294, 1)
@@ -180,7 +178,7 @@ operation = 2
 size = Vector3(0.6, 2.5, 1.5)
 
 [node name="DoorFrame6" type="CSGBox3D" parent="InnerWalls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3, 1.25, -8.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3, 1.25, -9)
 operation = 2
 size = Vector3(0.6, 2.5, 1.5)
 
@@ -214,10 +212,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3, 1.25, -5.8)
 operation = 2
 size = Vector3(0.6, 2.5, 1.5)
 
-[node name="Dev" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -16)
-mesh = SubResource("CapsuleMesh_ln8vp")
-
 [node name="TableCarre" parent="." instance=ExtResource("2_qqk18")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -18)
 
@@ -248,6 +242,12 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.6, 0
 [node name="TableRectangleBrown4" parent="." instance=ExtResource("4_33pps")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.8, 0, -12.2)
 
+[node name="TableRectangleBrown7" parent="." instance=ExtResource("4_33pps")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.6, 0, -8)
+
+[node name="TableRectangleBrown8" parent="." instance=ExtResource("4_33pps")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.8, 0, -8)
+
 [node name="TableRectangleBrown5" parent="." instance=ExtResource("4_33pps")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.6, 0, -15.9)
 
@@ -258,21 +258,42 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.8, 0
 
 [node name="Door" parent="Doors" instance=ExtResource("4_6o575")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.9, 0, -6.9)
+open_side = 1
+
+[node name="Door7" parent="Doors" instance=ExtResource("4_6o575")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 2.3, 0, -5.8)
+
+[node name="Door10" parent="Doors" instance=ExtResource("4_6o575")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -5.2, 0, -5.4)
+open_side = 1
+
+[node name="Door11" parent="Doors" instance=ExtResource("4_6o575")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.1, 0, -4.3)
+open_side = 1
+
+[node name="Door8" parent="Doors" instance=ExtResource("4_6o575")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -0.2, 0, 0.4)
+open_side = 1
+
+[node name="Door9" parent="Doors" instance=ExtResource("4_6o575")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 2.3, 0, -3.2)
 
 [node name="Door2" parent="Doors" instance=ExtResource("4_6o575")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.3, 0, -8.6)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.3, 0, -9)
+open_side = 1
 
 [node name="Door3" parent="Doors" instance=ExtResource("4_6o575")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.3, 0, -15)
+open_side = 1
 
 [node name="Door4" parent="Doors" instance=ExtResource("4_6o575")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.3, 0, -18)
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 2.3, 0, -18)
 
 [node name="Door5" parent="Doors" instance=ExtResource("4_6o575")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.3, 0, -22.8)
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 2.3, 0, -22.8)
 
 [node name="Door6" parent="Doors" instance=ExtResource("4_6o575")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.3, 0, -28)
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 2.3, 0, -28)
 
 [node name="Laptop" parent="." instance=ExtResource("6_l7oyr")]
 transform = Transform3D(-0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, -0.906308, -2.065, 1, -18.351)
@@ -285,6 +306,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.3, 
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.70777, 2.49918, -17.1102)
+
 [node name="CylinderChair" parent="." instance=ExtResource("6_sod10")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57696, -0.0526956, -13.6173)
 
