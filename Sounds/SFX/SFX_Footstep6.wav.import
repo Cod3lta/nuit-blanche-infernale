@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ccowds2qmav8g"
-path="res://.godot/imported/SFX_Footstep6.wav-39d1576d11701f56c940d77bc151e240.sample"
+path="res://.godot/imported/SFX_Footstep6.wav-4a1a9b205c605f8f2755fdc81c3c78cd.sample"
 
 [deps]
 
-source_file="res://sounds/SFX/SFX_Footstep6.wav"
-dest_files=["res://.godot/imported/SFX_Footstep6.wav-39d1576d11701f56c940d77bc151e240.sample"]
+source_file="res://Sounds/SFX/SFX_Footstep6.wav"
+dest_files=["res://.godot/imported/SFX_Footstep6.wav-4a1a9b205c605f8f2755fdc81c3c78cd.sample"]
 
 [params]
 
