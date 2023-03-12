@@ -1,7 +1,5 @@
 extends Node
 
-@export var event_start_hungry: EventAsset
-
 var hungry_developers : Array[Developer]
 var pizza_ressource = preload("res://objects/pizza/Pizza.tscn")
 @onready var pizza_trigger = get_node("/root/Game/PizzaTrigger")
@@ -9,6 +7,7 @@ var pizza_ressource = preload("res://objects/pizza/Pizza.tscn")
 
 func _ready():
 	pass
+
 
 func waiting():
 	pass
@@ -23,7 +22,6 @@ func start_event():
 	var hungry_dev = hungry_possibly_developers[i]
 	hungry_dev.start_animation("hungry")
 	# Play sound
-	RuntimeManager.play_one_shot_attached(event_start_hungry, hungry_dev)
 	
 	hungry_developers.push_back(hungry_dev)
 	# Add a new pizza in the kitchen
@@ -53,6 +51,7 @@ func feed_developer(dev: Developer):
 	Accesser.get_player().hold_stop()
 	dev.stop_animation()
 	hungry_developers.erase(dev)
+	
 	if hungry_developers.size() > 0:
 		$StateMachinePlayer.set_trigger("still_hungry")
 	else:

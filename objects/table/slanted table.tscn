@@ -1,15 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://0a4neq1y0jgu"]
+[gd_scene load_steps=4 format=3 uid="uid://0a4neq1y0jgu"]
 
 [ext_resource type="ArrayMesh" uid="uid://ckl6p7jimh4pw" path="res://objects/table/Slanted Table.obj" id="1_s1j7a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e0so8"]
+size = Vector3(3.6, 1.8, 2)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_p6022"]
+points = PackedVector3Array(0, 0, 2, 2, 0, 0, 0, 0, 0, 2, 0, -2)
 
 [node name="Node3D" type="StaticBody3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="SlantedTable" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
 mesh = ExtResource("1_s1j7a")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.51248, 1.16977, 0.933831)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81248, 0.86977, 1.03383)
 shape = SubResource("BoxShape3D_e0so8")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.78918, 0)
+shape = SubResource("ConvexPolygonShape3D_p6022")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 1.05269, 1.7, -0.0627441)
+size = Vector3(4.4, 0.2, 1.4)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.58169, 1.7, -1)
+operation = 2
+size = Vector3(1.2, 0.4, 2.35176)

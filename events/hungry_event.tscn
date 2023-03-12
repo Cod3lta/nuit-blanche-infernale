@@ -1,9 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://cnn7ifuvnrysv"]
+[gd_scene load_steps=21 format=3 uid="uid://cnn7ifuvnrysv"]
 
 [ext_resource type="Script" path="res://events/hungry_event.gd" id="1_7mcn2"]
 [ext_resource type="Script" path="res://addons/imjp94.yafsm/src/StateMachinePlayer.gd" id="1_048ru"]
 [ext_resource type="Script" path="res://addons/imjp94.yafsm/src/states/StateMachine.gd" id="2_kfilr"]
-[ext_resource type="EventAsset" uid="uid://b3i45v21j16vj" path="res://addons/FMOD/editor/resources/events/{852da110-48a2-4dcf-88bc-f48a7b40c6d1}.tres" id="2_pg3mn"]
 [ext_resource type="Script" path="res://addons/imjp94.yafsm/src/states/State.gd" id="3_s1m3b"]
 [ext_resource type="Script" path="res://addons/imjp94.yafsm/src/transitions/Transition.gd" id="4_d30nn"]
 [ext_resource type="Script" path="res://addons/imjp94.yafsm/src/conditions/ExpressionCondition.gd" id="5_ydukx"]
@@ -114,7 +113,6 @@ name = ""
 
 [node name="HungryEvent" type="Node"]
 script = ExtResource("1_7mcn2")
-event_start_hungry = ExtResource("2_pg3mn")
 
 [node name="StateMachinePlayer" type="Node" parent="."]
 script = ExtResource("1_048ru")
