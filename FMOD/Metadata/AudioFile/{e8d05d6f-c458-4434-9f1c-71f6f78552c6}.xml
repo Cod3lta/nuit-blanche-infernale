@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{e8d05d6f-c458-4434-9f1c-71f6f78552c6}">
+		<property name="assetPath">
+			<value>SFX_WifiFail-Loop.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>7.3365416666666663</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f3c7d398-c37d-4a45-b0ba-ac05d527954f}</destination>
+		</relationship>
+	</object>
+</objects>
