@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cbbmtr5kxyqk0"]
+[gd_scene load_steps=29 format=3 uid="uid://cbbmtr5kxyqk0"]
 
 [ext_resource type="Texture2D" uid="uid://coyr5u4qch1hp" path="res://levels/floor_plan.jpg" id="1_lvkq3"]
 [ext_resource type="PackedScene" uid="uid://cixcsyv16m3bd" path="res://objects/table/table_square.tscn" id="2_qqk18"]
@@ -12,14 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://ckodd8lv0blhf" path="res://objects/computer/pc_screen.tscn" id="8_slx8f"]
 [ext_resource type="PackedScene" uid="uid://ch7xk5fw20qye" path="res://objects/chair/Office Chair-red.tscn" id="11_mkjph"]
 [ext_resource type="PackedScene" uid="uid://dpegiv5tdnc6d" path="res://objects/chair/Office Chair-blue.tscn" id="11_t0pti"]
-[ext_resource type="PackedScene" uid="uid://b1ubux5w5f88j" path="res://objects/wifi-box/wifi_box.tscn" id="13_ctmlv"]
+[ext_resource type="PackedScene" path="res://objects/wifi-box/wifi_box.tscn" id="13_ctmlv"]
 [ext_resource type="ArrayMesh" uid="uid://cxn7k8k4x67ys" path="res://objects/toilet/Toilet.obj" id="14_ri6yt"]
-[ext_resource type="PackedScene" uid="uid://cf620pwxbhf7p" path="res://objects/fountain/fountain.tscn" id="15_pk4lq"]
-[ext_resource type="PackedScene" uid="uid://bsre2wvnbmryh" path="res://objects/couch/couch.tscn" id="16_uouem"]
+[ext_resource type="PackedScene" path="res://objects/couch/couch.tscn" id="16_uouem"]
 [ext_resource type="PackedScene" uid="uid://biawqc5fths72" path="res://objects/chair/Office Chair-yellow.tscn" id="17_yenun"]
 [ext_resource type="ArrayMesh" uid="uid://ckl6p7jimh4pw" path="res://objects/table/Slanted Table.obj" id="18_wq2sj"]
-[ext_resource type="PackedScene" uid="uid://c5iar8y1nttbe" path="res://objects/extinguisher/extinguisher.tscn" id="19_bm0tw"]
-[ext_resource type="PackedScene" uid="uid://bccu4y7wjngm7" path="res://objects/table/hexagonal table.tscn" id="20_7h80l"]
+[ext_resource type="PackedScene" path="res://objects/extinguisher/extinguisher.tscn" id="19_bm0tw"]
+[ext_resource type="PackedScene" path="res://objects/table/hexagonal table.tscn" id="20_7h80l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cync4"]
 
@@ -366,7 +365,6 @@ transform = Transform3D(1.49442, 0, -0.129247, 0, 1.5, 0, 0.129247, 0, 1.49442, 
 transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -5.61043, 0.926189, -13.4772)
 
 [node name="CSGBox3D" parent="PCTower3" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.175, 0)
 material = SubResource("StandardMaterial3D_14cnj")
 
 [node name="CSGBox3D2" parent="PCTower3" index="1"]
@@ -374,7 +372,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0135751, 0.199712, 0)
 material = SubResource("StandardMaterial3D_14cnj")
 
 [node name="CSGCylinder3D" parent="PCTower3" index="2"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.253784, -0.104513)
 material = SubResource("StandardMaterial3D_14cnj")
 
 [node name="RTX5090TITANti" parent="PCTower3" index="3"]
@@ -564,9 +561,6 @@ mesh = ExtResource("14_ri6yt")
 [node name="Toilet3" type="MeshInstance3D" parent="."]
 transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, -6.72644, 0, -3.4018)
 mesh = ExtResource("14_ri6yt")
-
-[node name="fountain" parent="." instance=ExtResource("15_pk4lq")]
-transform = Transform3D(-0.75, 0, -6.55671e-08, 0, 0.75, 0, 6.55671e-08, 0, -0.75, -1.43958, 0, -7.44385)
 
 [node name="couch" parent="." instance=ExtResource("16_uouem")]
 transform = Transform3D(-2.96057e-08, 0, -0.490271, 0, 0.649352, 0, 0.6773, 0, -2.14304e-08, 1.55709, 0, -20.5665)

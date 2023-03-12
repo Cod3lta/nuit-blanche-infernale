@@ -12,10 +12,10 @@ script = ExtResource("3_s1m3b")
 name = "Entry"
 metadata/graph_offset = Vector2(344, 281.5)
 
-[sub_resource type="Resource" id="Resource_caae8"]
+[sub_resource type="Resource" id="Resource_1nl84"]
 script = ExtResource("3_s1m3b")
-name = "waiting"
-metadata/graph_offset = Vector2(438.5, 201.5)
+name = "bring_exctinctor"
+metadata/graph_offset = Vector2(933, 341.5)
 
 [sub_resource type="Resource" id="Resource_a8lmp"]
 script = ExtResource("3_s1m3b")
@@ -27,10 +27,10 @@ script = ExtResource("3_s1m3b")
 name = "return_exctinctor"
 metadata/graph_offset = Vector2(606.5, 341.5)
 
-[sub_resource type="Resource" id="Resource_1nl84"]
+[sub_resource type="Resource" id="Resource_caae8"]
 script = ExtResource("3_s1m3b")
-name = "bring_exctinctor"
-metadata/graph_offset = Vector2(933, 341.5)
+name = "waiting"
+metadata/graph_offset = Vector2(438.5, 201.5)
 
 [sub_resource type="Resource" id="Resource_14prl"]
 script = ExtResource("4_d30nn")
@@ -39,16 +39,16 @@ to = "waiting"
 conditions = {}
 priority = 0
 
-[sub_resource type="Resource" id="Resource_w2ke4"]
+[sub_resource type="Resource" id="Resource_j0ew5"]
 script = ExtResource("5_ydukx")
-name = "t(\"new_fire\")"
+name = "t(\"exctinct_all_fires\")"
 
-[sub_resource type="Resource" id="Resource_0ckop"]
+[sub_resource type="Resource" id="Resource_fbru8"]
 script = ExtResource("4_d30nn")
-from = "waiting"
-to = "fire"
+from = "bring_exctinctor"
+to = "return_exctinctor"
 conditions = {
-"t(\"new_fire\")": SubResource("Resource_w2ke4")
+"t(\"exctinct_all_fires\")": SubResource("Resource_j0ew5")
 }
 priority = 0
 
@@ -65,19 +65,6 @@ conditions = {
 }
 priority = 0
 
-[sub_resource type="Resource" id="Resource_v6ncx"]
-script = ExtResource("5_ydukx")
-name = "t(\"bring_back_exctinctor\")"
-
-[sub_resource type="Resource" id="Resource_a63d7"]
-script = ExtResource("4_d30nn")
-from = "return_exctinctor"
-to = "waiting"
-conditions = {
-"t(\"bring_back_exctinctor\")": SubResource("Resource_v6ncx")
-}
-priority = 0
-
 [sub_resource type="Resource" id="Resource_f1lag"]
 script = ExtResource("5_ydukx")
 name = "t(\"new_fire\")"
@@ -91,16 +78,29 @@ conditions = {
 }
 priority = 0
 
-[sub_resource type="Resource" id="Resource_j0ew5"]
+[sub_resource type="Resource" id="Resource_v6ncx"]
 script = ExtResource("5_ydukx")
-name = "t(\"exctinct_all_fires\")"
+name = "t(\"bring_back_exctinctor\")"
 
-[sub_resource type="Resource" id="Resource_fbru8"]
+[sub_resource type="Resource" id="Resource_a63d7"]
 script = ExtResource("4_d30nn")
-from = "bring_exctinctor"
-to = "return_exctinctor"
+from = "return_exctinctor"
+to = "waiting"
 conditions = {
-"t(\"exctinct_all_fires\")": SubResource("Resource_j0ew5")
+"t(\"bring_back_exctinctor\")": SubResource("Resource_v6ncx")
+}
+priority = 0
+
+[sub_resource type="Resource" id="Resource_w2ke4"]
+script = ExtResource("5_ydukx")
+name = "t(\"new_fire\")"
+
+[sub_resource type="Resource" id="Resource_0ckop"]
+script = ExtResource("4_d30nn")
+from = "waiting"
+to = "fire"
+conditions = {
+"t(\"new_fire\")": SubResource("Resource_w2ke4")
 }
 priority = 0
 
