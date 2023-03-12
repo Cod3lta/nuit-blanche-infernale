@@ -1,6 +1,7 @@
-[gd_scene load_steps=33 format=3 uid="uid://c86eafvesv12k"]
+[gd_scene load_steps=35 format=3 uid="uid://c86eafvesv12k"]
 
 [ext_resource type="Script" path="res://objects/fire/fire.gd" id="1_3gyo7"]
+[ext_resource type="PackedScene" uid="uid://dm0n1lgblhgtm" path="res://triggers/clickable_area_3d.tscn" id="2_xslho"]
 
 [sub_resource type="Curve" id="Curve_y1ksp"]
 min_value = -1.0
@@ -218,6 +219,9 @@ _data = {
 "light_flicker": SubResource("Animation_a41ic")
 }
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_krkk5"]
+radius = 1.635
+
 [node name="Fire" type="Node3D"]
 script = ExtResource("1_3gyo7")
 
@@ -252,3 +256,12 @@ autoplay = "light_flicker"
 libraries = {
 "": SubResource("AnimationLibrary_lg3jg")
 }
+
+[node name="ClickableArea3D" parent="." instance=ExtResource("2_xslho")]
+
+[node name="CollisionShape3D" parent="ClickableArea3D" index="0"]
+shape = SubResource("SphereShape3D_krkk5")
+
+[connection signal="clicked" from="ClickableArea3D" to="." method="_on_area_3d_clicked"]
+
+[editable path="ClickableArea3D"]

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://d1b1002u87atu"
-path="res://.godot/imported/Hell Nighter Layer 2.wav-47385f1295b37cba1b997bb8c86ebdbb.sample"
+path="res://.godot/imported/Hell Nighter Layer 2.wav-2574aae0b5bcb148f9aafe774a00ab6a.sample"
 
 [deps]
 
-source_file="res://sounds/Music/Hell Nighter Layer 2.wav"
-dest_files=["res://.godot/imported/Hell Nighter Layer 2.wav-47385f1295b37cba1b997bb8c86ebdbb.sample"]
+source_file="res://Sounds/Music/Hell Nighter Layer 2.wav"
+dest_files=["res://.godot/imported/Hell Nighter Layer 2.wav-2574aae0b5bcb148f9aafe774a00ab6a.sample"]
 
 [params]
 

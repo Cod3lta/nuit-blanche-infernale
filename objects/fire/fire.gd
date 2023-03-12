@@ -2,22 +2,29 @@ extends Node3D
 
 class_name Fire
 
-var fire_elements: Array[Node] = [
+func _ready():
+	hide_fire()
+
+signal extinguish
+
+@onready var fire_elements: Array[Node] = [
 	$GPUParticles3D,
 	$GPUParticles3D2,
 	$GPUParticles3D3,
 	$GPUParticles3D4
 ]
 
-signal exctincted
 
-func start_fire():
+func show_fire():
 	for fire_element in fire_elements:
 		fire_element.set_emitting(true)
+	$OmniLight3D.set_visible(true)
 
-func stop_animation():
+func hide_fire():
 	for fire_element in fire_elements:
 		fire_element.set_emitting(false)
+	$OmniLight3D.set_visible(false)
 
 func _on_area_3d_clicked():
-	emit_signal("exctincted", self)
+	print("fire detected the click")
+	emit_signal("extinguish", self)

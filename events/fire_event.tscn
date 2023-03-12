@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bbtxhws78pdgp"]
+[gd_scene load_steps=24 format=3 uid="uid://bbtxhws78pdgp"]
 
 [ext_resource type="Script" path="res://events/fire_event.gd" id="1_4btyr"]
 [ext_resource type="Script" path="res://addons/imjp94.yafsm/src/StateMachinePlayer.gd" id="1_048ru"]
@@ -10,7 +10,7 @@
 [sub_resource type="Resource" id="Resource_ui2fb"]
 script = ExtResource("3_s1m3b")
 name = "Entry"
-metadata/graph_offset = Vector2(284, 341.5)
+metadata/graph_offset = Vector2(344, 281.5)
 
 [sub_resource type="Resource" id="Resource_caae8"]
 script = ExtResource("3_s1m3b")
@@ -20,17 +20,17 @@ metadata/graph_offset = Vector2(438.5, 201.5)
 [sub_resource type="Resource" id="Resource_a8lmp"]
 script = ExtResource("3_s1m3b")
 name = "fire"
-metadata/graph_offset = Vector2(839, 201.5)
-
-[sub_resource type="Resource" id="Resource_1nl84"]
-script = ExtResource("3_s1m3b")
-name = "bring_extinctor"
-metadata/graph_offset = Vector2(1033, 341.5)
+metadata/graph_offset = Vector2(764, 201.5)
 
 [sub_resource type="Resource" id="Resource_3k84o"]
 script = ExtResource("3_s1m3b")
 name = "return_exctinctor"
-metadata/graph_offset = Vector2(626.5, 341.5)
+metadata/graph_offset = Vector2(606.5, 341.5)
+
+[sub_resource type="Resource" id="Resource_1nl84"]
+script = ExtResource("3_s1m3b")
+name = "bring_exctinctor"
+metadata/graph_offset = Vector2(933, 341.5)
 
 [sub_resource type="Resource" id="Resource_14prl"]
 script = ExtResource("4_d30nn")
@@ -54,40 +54,14 @@ priority = 0
 
 [sub_resource type="Resource" id="Resource_1hwfo"]
 script = ExtResource("5_ydukx")
-name = "t(\"get_extinctor\")"
+name = "t(\"get_exctinctor\")"
 
 [sub_resource type="Resource" id="Resource_q812b"]
 script = ExtResource("4_d30nn")
 from = "fire"
-to = "bring_extinctor"
+to = "bring_exctinctor"
 conditions = {
-"t(\"get_extinctor\")": SubResource("Resource_1hwfo")
-}
-priority = 0
-
-[sub_resource type="Resource" id="Resource_ms0fx"]
-script = ExtResource("5_ydukx")
-name = "t(\"still_fire\")"
-
-[sub_resource type="Resource" id="Resource_6qb06"]
-script = ExtResource("4_d30nn")
-from = "bring_extinctor"
-to = "fire"
-conditions = {
-"t(\"still_fire\")": SubResource("Resource_ms0fx")
-}
-priority = 0
-
-[sub_resource type="Resource" id="Resource_j0ew5"]
-script = ExtResource("5_ydukx")
-name = "t(\"exctinct_all_fires\")"
-
-[sub_resource type="Resource" id="Resource_fbru8"]
-script = ExtResource("4_d30nn")
-from = "bring_extinctor"
-to = "return_exctinctor"
-conditions = {
-"t(\"exctinct_all_fires\")": SubResource("Resource_j0ew5")
+"t(\"get_exctinctor\")": SubResource("Resource_1hwfo")
 }
 priority = 0
 
@@ -111,9 +85,22 @@ name = "t(\"new_fire\")"
 [sub_resource type="Resource" id="Resource_aalro"]
 script = ExtResource("4_d30nn")
 from = "return_exctinctor"
-to = "fire"
+to = "bring_exctinctor"
 conditions = {
 "t(\"new_fire\")": SubResource("Resource_f1lag")
+}
+priority = 0
+
+[sub_resource type="Resource" id="Resource_j0ew5"]
+script = ExtResource("5_ydukx")
+name = "t(\"exctinct_all_fires\")"
+
+[sub_resource type="Resource" id="Resource_fbru8"]
+script = ExtResource("4_d30nn")
+from = "bring_exctinctor"
+to = "return_exctinctor"
+conditions = {
+"t(\"exctinct_all_fires\")": SubResource("Resource_j0ew5")
 }
 priority = 0
 
@@ -121,7 +108,7 @@ priority = 0
 script = ExtResource("2_kfilr")
 states = {
 "Entry": SubResource("Resource_ui2fb"),
-"bring_extinctor": SubResource("Resource_1nl84"),
+"bring_exctinctor": SubResource("Resource_1nl84"),
 "fire": SubResource("Resource_a8lmp"),
 "return_exctinctor": SubResource("Resource_3k84o"),
 "waiting": SubResource("Resource_caae8")
@@ -130,15 +117,14 @@ transitions = {
 "Entry": {
 "waiting": SubResource("Resource_14prl")
 },
-"bring_extinctor": {
-"fire": SubResource("Resource_6qb06"),
+"bring_exctinctor": {
 "return_exctinctor": SubResource("Resource_fbru8")
 },
 "fire": {
-"bring_extinctor": SubResource("Resource_q812b")
+"bring_exctinctor": SubResource("Resource_q812b")
 },
 "return_exctinctor": {
-"fire": SubResource("Resource_aalro"),
+"bring_exctinctor": SubResource("Resource_aalro"),
 "waiting": SubResource("Resource_a63d7")
 },
 "waiting": {

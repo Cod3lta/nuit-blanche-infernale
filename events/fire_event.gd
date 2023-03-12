@@ -1,7 +1,8 @@
 extends Node
 
 var fires : Array[Fire]
-var exctinctor_ressource = preload("res://objects/pizza/Pizza.tscn")
+var exctinctor_ressource = preload("res://objects/extinguisher/exctinguisher.tscn")
+@onready var exctinctor_trigger = get_node("/root/Game/ExctinctorTrigger")
 
 func _ready():
 	pass
@@ -15,43 +16,50 @@ func new_fire():
 	possible_fires = possible_fires.filter(func(fire): return fire not in fires)
 	if possible_fires.size() < 1:
 		return
-	var fire
 	var i = randi_range(0, possible_fires.size() - 1)
-	fire = possible_fires[i]
-	fire.start_fire()
-	fires.push_back(fires)
-	# Add a new pizza in the kitchen
-	Accesser.get_pizza_trigger().add_pizza()
-	
+	var fire = possible_fires[i]
+	fire.show_fire()
+	fires.push_back(fire)
+	# Make the exctinguisher available
+	if $StateMachinePlayer.get_current() == "bring_exctinctor":
+		fire.connect("extinguish", exctinct_fire)
 	$StateMachinePlayer.set_trigger("new_fire")
 
 
 func fire() -> void:
-	Accesser.get_pizza_trigger().connect("get_exctinctor", get_exctinctor)
-	for dev in fires:
-		dev.disconnect("exctincted", exctinct_fire)
+	exctinctor_trigger.connect("click_exctinctor", get_exctinctor)
 
 
 func get_exctinctor() -> void:
-	Accesser.get_pizza_trigger().remove_pizza()
+	exctinctor_trigger.hide_exctinctor()
 	Accesser.get_player().hold_node(exctinctor_ressource.instantiate())
 	$StateMachinePlayer.set_trigger("get_exctinctor")
 
 
-func bring_food() -> void:
-	Accesser.get_pizza_trigger().disconnect("get_exctinctor", get_exctinctor)
-	for dev in fires:
-		dev.connect("exctincted", exctinct_fire)
+func bring_exctinctor() -> void:
+	exctinctor_trigger.disconnect("click_exctinctor", get_exctinctor)
+	for fire in fires:
+		fire.connect("extinguish", exctinct_fire)
 
 
-func exctinct_fire(dev: Developer):
+func return_exctinctor() -> void:
+	exctinctor_trigger.connect("click_exctinctor", bring_back_exctinctor)
+
+
+func bring_back_exctinctor() -> void:
+	exctinctor_trigger.show_exctinctor()
+	print("exctinctor back")
+	exctinctor_trigger.disconnect("click_exctinctor", bring_back_exctinctor)
 	Accesser.get_player().hold_stop()
-	dev.stop_animation()
-	fires.erase(dev)
-	if fires.size() > 0:
-		$StateMachinePlayer.set_trigger("still_hungry")
-	else:
-		$StateMachinePlayer.set_trigger("fed_all_developers")
+	$StateMachinePlayer.set_trigger("bring_back_exctinctor")
+
+
+func exctinct_fire(fire: Fire):
+	fire.disconnect("extinguish", exctinct_fire)
+	fire.hide_fire()
+	fires.erase(fire)
+	if fires.size() == 0:
+		$StateMachinePlayer.set_trigger("exctinct_all_fires")
 
 
 func _on_state_machine_player_transited(from, to):
@@ -60,8 +68,10 @@ func _on_state_machine_player_transited(from, to):
 			waiting()
 		"fire":
 			fire()
-		"bring_food":
-			bring_food()
+		"bring_exctinctor":
+			bring_exctinctor()
+		"return_exctinctor":
+			return_exctinctor()
 
 
 func _on_event_timer_timeout():
