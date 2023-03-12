@@ -1,8 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://bop1kj48f8fji"]
+[gd_scene load_steps=3 format=3 uid="uid://bop1kj48f8fji"]
 
 [ext_resource type="ArrayMesh" uid="uid://cxn7k8k4x67ys" path="res://objects/toilet/Toilet.obj" id="1_cblt7"]
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_a6d5w"]
+height = 0.781275
+radius = 0.649214
+
+[node name="Node3D" type="StaticBody3D"]
 
 [node name="Toilet" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_cblt7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32068, 0.448904, 0)
+shape = SubResource("CylinderShape3D_a6d5w")

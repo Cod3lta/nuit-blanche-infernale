@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dhndts6cwx7r5"
-path="res://.godot/imported/SFX_Extinguisher-Loop.wav-0952dcfad95acf4dd6a2135b21334854.sample"
+path="res://.godot/imported/SFX_Extinguisher-Loop.wav-35ed4da6a17660cded12e2772e297d60.sample"
 
 [deps]
 
-source_file="res://Sounds/SFX/SFX_Extinguisher-Loop.wav"
-dest_files=["res://.godot/imported/SFX_Extinguisher-Loop.wav-0952dcfad95acf4dd6a2135b21334854.sample"]
+source_file="res://sounds/SFX/SFX_Extinguisher-Loop.wav"
+dest_files=["res://.godot/imported/SFX_Extinguisher-Loop.wav-35ed4da6a17660cded12e2772e297d60.sample"]
 
 [params]
 
