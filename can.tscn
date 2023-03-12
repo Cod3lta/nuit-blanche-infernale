@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dss07jfvruoqf"]
+
+[ext_resource type="PackedScene" uid="uid://bwtf7dwy2bf17" path="res://objects/containers/can.glb" id="1_idmba"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2befe"]
+height = 0.44482
+radius = 0.127968
+
+[node name="Can" type="StaticBody3D"]
+
+[node name="can" parent="." instance=ExtResource("1_idmba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0298557, 0, 0.0237558)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0303663, 0.247244, 0.00613189)
+shape = SubResource("CylinderShape3D_2befe")

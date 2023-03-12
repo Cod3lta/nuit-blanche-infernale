@@ -2,13 +2,13 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://c4v8kaceyygde"
-path="res://.godot/imported/BGM_Music_Layer3.ogg-b1b9d0254261483ae8c6bdf27a2e178e.oggvorbisstr"
+uid="uid://dgc70c47bhdma"
+path="res://.godot/imported/BGM_Music_Layer3.ogg-808efd52708fb3461642ce7839a77c9a.oggvorbisstr"
 
 [deps]
 
-source_file="res://Sounds/Music/BGM_Music_Layer3.ogg"
-dest_files=["res://.godot/imported/BGM_Music_Layer3.ogg-b1b9d0254261483ae8c6bdf27a2e178e.oggvorbisstr"]
+source_file="res://sounds/Music/BGM_Music_Layer3.ogg"
+dest_files=["res://.godot/imported/BGM_Music_Layer3.ogg-808efd52708fb3461642ce7839a77c9a.oggvorbisstr"]
 
 [params]
 

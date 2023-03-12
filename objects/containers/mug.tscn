@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7kiufu5q7pr5"]
+
+[ext_resource type="ArrayMesh" uid="uid://b0iv2ou7mqmqt" path="res://objects/containers/Mug.obj" id="1_1jokt"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hgkn2"]
+height = 0.530606
+radius = 0.295694
+
+[node name="Node3D" type="StaticBody3D"]
+
+[node name="Mug" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0203357, 0, 0.0111625)
+mesh = ExtResource("1_1jokt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.243274, 0.0178607)
+shape = SubResource("CylinderShape3D_hgkn2")

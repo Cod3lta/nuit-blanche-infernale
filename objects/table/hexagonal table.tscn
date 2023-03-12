@@ -1,9 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://bccu4y7wjngm7"]
+[gd_scene load_steps=4 format=3 uid="uid://bccu4y7wjngm7"]
 
 [ext_resource type="ArrayMesh" uid="uid://dkk6w32lbjli4" path="res://objects/table/Hexagonal Table.obj" id="1_donyd"]
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_kwrlw"]
+size = Vector3(1.53296, 0.258059, 3.94332)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r5fjw"]
+size = Vector3(2.90556, 1, 2.48095)
+
+[node name="Node3D" type="StaticBody3D"]
 
 [node name="HexagonalTable" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.470597, 0, 0.43358)
 mesh = ExtResource("1_donyd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.73605, 0)
+shape = SubResource("BoxShape3D_kwrlw")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.800083, 0, 0.59989, 0, 1, 0, -0.59989, 0, 0.800083, 0.00177538, 1.40825, -0.0537975)
+shape = SubResource("BoxShape3D_r5fjw")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.800878, 0, 0.598828, 0, 1, 0, -0.598828, 0, -0.800878, 0.00177538, 1.40825, -0.0537975)
+shape = SubResource("BoxShape3D_r5fjw")

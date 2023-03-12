@@ -1,10 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5iar8y1nttbe"]
+[gd_scene load_steps=3 format=3 uid="uid://c5iar8y1nttbe"]
 
 [ext_resource type="ArrayMesh" uid="uid://balxj7ev858vk" path="res://objects/extinguisher/Extinguisher.obj" id="1_1umc3"]
 
-[node name="Extinguisher" type="Node3D"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uwhhv"]
+radius = 1.17403
+height = 6.6552
+
+[node name="Extinguisher" type="StaticBody3D"]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 
 [node name="Extinguisher" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.483498, 1.19209e-07, -0.293126)
 mesh = ExtResource("1_1umc3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.236935, 1.81565, -0.304774)
+shape = SubResource("CapsuleShape3D_uwhhv")
