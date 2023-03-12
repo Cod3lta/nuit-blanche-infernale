@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cbbmtr5kxyqk0"]
+[gd_scene load_steps=34 format=3 uid="uid://cbbmtr5kxyqk0"]
 
 [ext_resource type="Texture2D" uid="uid://coyr5u4qch1hp" path="res://levels/floor_plan.jpg" id="1_lvkq3"]
 [ext_resource type="PackedScene" uid="uid://cixcsyv16m3bd" path="res://objects/table/table_square.tscn" id="2_qqk18"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bimkwxg8w3a0w" path="res://objects/computer/keyboard.tscn" id="19_lk1by"]
 [ext_resource type="PackedScene" uid="uid://bccu4y7wjngm7" path="res://objects/table/hexagonal table.tscn" id="20_7h80l"]
 [ext_resource type="PackedScene" uid="uid://dfuqxxa87bwdq" path="res://objects/computer/mouse.tscn" id="20_yu68c"]
+[ext_resource type="ArrayMesh" uid="uid://b0iv2ou7mqmqt" path="res://objects/containers/Mug.obj" id="21_71cxn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cync4"]
 
@@ -48,6 +49,21 @@ albedo_color = Color(0.0705882, 1, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dffkc"]
 albedo_color = Color(0.376471, 0.145098, 0.0196078, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8hp8"]
+emission_enabled = true
+emission = Color(0.968627, 0.894118, 0, 1)
+emission_energy_multiplier = 1.06
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2gg2s"]
+emission_enabled = true
+emission = Color(0.968627, 0.894118, 0, 1)
+emission_energy_multiplier = 0.23
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pj58x"]
+emission_enabled = true
+emission = Color(0.968627, 0.894118, 0, 1)
+emission_energy_multiplier = 0.23
 
 [node name="MainLevel" type="Node3D"]
 
@@ -573,9 +589,6 @@ transform = Transform3D(0.190182, 0, -1.48789, 0, 1.5, 0, 1.48789, 0, 0.190182, 
 [node name="PCScreen5" parent="." instance=ExtResource("8_slx8f")]
 transform = Transform3D(-1.48187, 0, -0.232532, 0, 1.5, 0, 0.232532, 0, -1.48187, -5.25163, 0.665421, -27.3784)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.70777, 2.49918, -17.1102)
-
 [node name="CylinderChair" parent="." instance=ExtResource("6_sod10")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.57696, -0.0526956, -13.6173)
 
@@ -833,7 +846,7 @@ transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 5.72869, 0, -17.9497)
 
 [node name="Node3D9" parent="." instance=ExtResource("17_yenun")]
-transform = Transform3D(0.0305156, 0, -0.499068, 0, 0.5, 0, 0.499068, 0, 0.0305156, -4.59513, 0.00350499, -10.0138)
+transform = Transform3D(0.0305156, -0.000305433, -0.499068, 1.86409e-05, 0.5, -0.000304863, 0.499068, 0, 0.0305156, -4.59513, 0.00350499, -10.0138)
 
 [node name="Node3D10" parent="." instance=ExtResource("17_yenun")]
 transform = Transform3D(0.456285, 0, 0.20446, 0, 0.5, 0, -0.20446, 0, 0.456285, -5.83829, 0.0151739, -8.03895)
@@ -1306,6 +1319,83 @@ transform = Transform3D(0.115246, 0, -0.486537, 0, 0.5, 0, 0.486537, 0, 0.115246
 
 [node name="Node3D50" parent="." instance=ExtResource("20_yu68c")]
 transform = Transform3D(-0.417937, 0, -0.27446, 0, 0.5, 0, 0.27446, 0, -0.417937, -2.41468, 0.88487, -13.0254)
+
+[node name="Mug" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0557743, 0, -0.243699, 0, 0.25, 0, 0.243699, 0, 0.0557743, -4.75016, 0.660342, -21.9264)
+mesh = ExtResource("21_71cxn")
+
+[node name="Mug2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0557743, 0, -0.243699, 0, 0.25, 0, 0.243699, 0, 0.0557743, -6.28657, 0.929764, -16.534)
+mesh = ExtResource("21_71cxn")
+
+[node name="Mug3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.240315, 0, 0.0689094, 0, 0.25, 0, -0.0689094, 0, 0.240315, -6.3903, 0.929764, -13.9802)
+mesh = ExtResource("21_71cxn")
+
+[node name="Mug5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.240315, 0, 0.0689094, 0, 0.25, 0, -0.0689094, 0, 0.240315, 5.46545, 1.00293, -10.8947)
+mesh = ExtResource("21_71cxn")
+
+[node name="Mug6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.105524, 0, 0.226638, 0, 0.25, 0, -0.226638, 0, 0.105524, 5.46545, 1.00293, -10.7321)
+mesh = ExtResource("21_71cxn")
+
+[node name="Mug8" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.105524, 0, 0.226638, 0, 0.25, 0, -0.226638, 0, 0.105524, 5.56903, 0.919834, -19.112)
+mesh = ExtResource("21_71cxn")
+
+[node name="Mug7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.231372, 0.00259609, -0.0953074, 0.00235587, -0.250233, -0.00109691, -0.0953137, 0.000116934, -0.231384, 5.46545, 1.25669, -10.8095)
+mesh = ExtResource("21_71cxn")
+
+[node name="Mug4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.240315, 1.0555e-09, 0.0689094, -0.00115213, -0.249965, 0.00401794, 0.0688997, -0.00417986, -0.240282, 1.77853, 1.15811, -10.3333)
+mesh = ExtResource("21_71cxn")
+
+[node name="NeonLight" type="CSGBox3D" parent="." groups=["light"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.272318, 2.96764, -9.37316)
+size = Vector3(1, 0.0377888, 2.13391)
+material = SubResource("StandardMaterial3D_w8hp8")
+
+[node name="NeonLight9" type="CSGBox3D" parent="." groups=["light"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.13169, 2.96764, 4.22959)
+size = Vector3(1, 0.0377888, 2.13391)
+material = SubResource("StandardMaterial3D_w8hp8")
+
+[node name="NeonLight2" type="CSGBox3D" parent="." groups=["light"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.272318, 2.96764, -15.0219)
+size = Vector3(1, 0.0377888, 2.13391)
+material = SubResource("StandardMaterial3D_2gg2s")
+
+[node name="NeonLight3" type="CSGBox3D" parent="." groups=["light"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.272318, 2.96764, -20.6026)
+size = Vector3(1, 0.0377888, 2.13391)
+material = SubResource("StandardMaterial3D_2gg2s")
+
+[node name="NeonLight4" type="CSGBox3D" parent="." groups=["light"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.272318, 2.96764, -26.3052)
+size = Vector3(1, 0.0377888, 2.13391)
+material = SubResource("StandardMaterial3D_2gg2s")
+
+[node name="NeonLight5" type="CSGBox3D" parent="." groups=["light"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.16537, 2.96764, -9.37316)
+size = Vector3(1, 0.0377888, 2.13391)
+material = SubResource("StandardMaterial3D_w8hp8")
+
+[node name="NeonLight6" type="CSGBox3D" parent="." groups=["light"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.16537, 2.96764, -15.0219)
+size = Vector3(1, 0.0377888, 2.13391)
+material = SubResource("StandardMaterial3D_pj58x")
+
+[node name="NeonLight8" type="CSGBox3D" parent="." groups=["light"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0919, 2.96764, -26.3113)
+size = Vector3(1, 0.0377888, 2.13391)
+material = SubResource("StandardMaterial3D_pj58x")
+
+[node name="NeonLight7" type="CSGBox3D" parent="." groups=["light"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.16537, 2.96764, -20.6026)
+size = Vector3(1, 0.0377888, 2.13391)
+material = SubResource("StandardMaterial3D_w8hp8")
 
 [editable path="PCTower3"]
 [editable path="PCTower16"]
