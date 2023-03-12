@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{caa2ccf9-ffde-4bc1-b78e-e6662b117ba7}">
+		<property name="assetPath">
+			<value>SFX_EventWifi_Start.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.8461458333333334</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{6f0a9e2a-85ba-47fb-a69d-59b8682d8fdc}</destination>
+		</relationship>
+	</object>
+</objects>

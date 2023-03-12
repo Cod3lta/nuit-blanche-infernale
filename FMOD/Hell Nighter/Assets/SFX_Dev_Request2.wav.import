@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://1i62riajc43g"
+path="res://.godot/imported/SFX_Dev_Request2.wav-fed10fbf98f6fb198d0a007b529d42c4.sample"
+
+[deps]
+
+source_file="res://FMOD/Hell Nighter/Assets/SFX_Dev_Request2.wav"
+dest_files=["res://.godot/imported/SFX_Dev_Request2.wav-fed10fbf98f6fb198d0a007b529d42c4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
