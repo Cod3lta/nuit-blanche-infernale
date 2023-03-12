@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c5fldib31v12y"
+path="res://.godot/imported/SFX_EventThirsty_Start.ogg-03c4206c19ee8a68ae5b26f6e515d3cd.oggvorbisstr"
+
+[deps]
+
+source_file="res://FMOD/Hell Nighter/Assets/SFX_EventThirsty_Start.ogg"
+dest_files=["res://.godot/imported/SFX_EventThirsty_Start.ogg-03c4206c19ee8a68ae5b26f6e515d3cd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
