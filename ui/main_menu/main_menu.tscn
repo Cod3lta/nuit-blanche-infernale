@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsdmekfav2e30"]
+
+[ext_resource type="Theme" uid="uid://dty4q6p8pvtqo" path="res://ui/main_theme.tres" id="1_dy8hg"]
+
+[sub_resource type="Gradient" id="Gradient_3558v"]
+colors = PackedColorArray(0.999991, 0.941576, 0.931532, 1, 0.993289, 0.888887, 0.885962, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vwil7"]
+gradient = SubResource("Gradient_3558v")
+height = 9
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_vwil7")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = -84.0
+offset_right = 206.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_dy8hg")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Bienvenue dans Hell Nighters ! Dans ce jeu infernal, vous devez gérer votre propre Game Jam en résolvant les problèmes empêchant les développeurs de travailler tranquillement sur leur jeux.
+Bonne chance !"
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_dy8hg")
+text = "START"

@@ -1,0 +1,41 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dty4q6p8pvtqo"]
+
+[ext_resource type="FontFile" uid="uid://0lvto8u0mi3c" path="res://ui/PermanentMarker-Regular.ttf" id="1_vsoev"]
+[ext_resource type="StyleBox" uid="uid://c5v43q7u3qasc" path="res://ui/button_style_flat.tres" id="2_8mb7t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sh510"]
+bg_color = Color(0.862745, 0.27451, 0.392157, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 3.0
+expand_margin_right = 5.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ja4lj"]
+bg_color = Color(0.682353, 0.172549, 0.286275, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 3.0
+expand_margin_right = 5.0
+expand_margin_bottom = 3.0
+
+[resource]
+default_font = ExtResource("1_vsoev")
+Button/fonts/font = ExtResource("1_vsoev")
+Button/styles/hover = SubResource("StyleBoxFlat_sh510")
+Button/styles/normal = ExtResource("2_8mb7t")
+Button/styles/pressed = SubResource("StyleBoxFlat_ja4lj")

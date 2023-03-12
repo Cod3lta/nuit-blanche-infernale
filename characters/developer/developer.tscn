@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqvatuqmhk55a"]
+[gd_scene load_steps=9 format=3 uid="uid://bqvatuqmhk55a"]
 
 [ext_resource type="Script" path="res://characters/developer/developer.gd" id="1_8ishv"]
-[ext_resource type="Script" path="res://triggers/pizza_collider.gd" id="2_f0w7r"]
+[ext_resource type="PackedScene" uid="uid://dm0n1lgblhgtm" path="res://triggers/clickable_area_3d.tscn" id="2_5bxol"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_f1i24"]
 radius = 0.25
@@ -73,9 +73,6 @@ _data = {
 "hungry": SubResource("Animation_nfsvc")
 }
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u3egi"]
-height = 1.51429
-
 [node name="Developer" type="CharacterBody3D"]
 script = ExtResource("1_8ishv")
 
@@ -96,12 +93,7 @@ libraries = {
 "": SubResource("AnimationLibrary_kpx8d")
 }
 
-[node name="Area3D" type="Area3D" parent="."]
-collision_layer = 4
-script = ExtResource("2_f0w7r")
+[node name="ClickableArea3D" parent="." instance=ExtResource("2_5bxol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26616, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
-shape = SubResource("CapsuleShape3D_u3egi")
-
-[connection signal="clicked" from="Area3D" to="." method="_on_area_3d_clicked"]
+[connection signal="clicked" from="ClickableArea3D" to="." method="_on_area_3d_clicked"]
