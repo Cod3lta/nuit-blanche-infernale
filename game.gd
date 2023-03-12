@@ -1,10 +1,11 @@
 extends Node3D
 
+var game_started: bool = false
 
 @export var music_event: EventAsset
 var music_instance: EventInstance
 
-var level_duration: int = 5
+var level_duration: int = 30
 var level: int = 1
 var events_queue: Array[Node] = []
 # The order is important!
@@ -21,7 +22,7 @@ var events_queue: Array[Node] = []
 ]
 
 #var level_timeouts: Array[int] = [ 25, 20, 15, 12, 10 ]
-var level_timeouts: Array[int] = [ 3, 3, 3, 3, 3 ]
+var level_timeouts: Array[int] = [ 10, 9, 8, 7, 7 ]
 
 @onready var events_timer: Timer = $EventTimer
 @onready var level_timer: Timer = $LevelTimer
@@ -30,7 +31,6 @@ var level_timeouts: Array[int] = [ 3, 3, 3, 3, 3 ]
 func _ready():
 	randomize()
 	
-	play_event()
 	var nb_levels:int = events.size()
 	game_timer.start(nb_levels * level_duration)
 	level_timer.start(level_duration)
@@ -48,7 +48,6 @@ func _process(delta):
 	var progression = (level * level_duration + (1 - level_timer.time_left)) / (nb_levels * level_duration)
 	progression *= nb_levels - 1
 	progression += 1
-	print(progression)
 	music_instance.set_parameter_by_name("intensity", progression, false)
 
 # Returns the wait time between events based on the current level
@@ -90,3 +89,8 @@ func _on_game_timer_timeout():
 	events_timer.stop()
 	level_timer.stop()
 	game_timer.stop()
+
+
+func _on_timer_before_start_timeout():
+	# start_game()
+	game_started = true

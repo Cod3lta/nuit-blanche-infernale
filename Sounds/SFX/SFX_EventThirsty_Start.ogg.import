@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://cwyludjc3topf"
-path="res://.godot/imported/SFX_EventThirsty_Start.ogg-cd264ebcfa8189f38fed92a1ed99f9db.oggvorbisstr"
+path="res://.godot/imported/SFX_EventThirsty_Start.ogg-96253070331f215c3700b17892077726.oggvorbisstr"
 
 [deps]
 
-source_file="res://sounds/SFX/SFX_EventThirsty_Start.ogg"
-dest_files=["res://.godot/imported/SFX_EventThirsty_Start.ogg-cd264ebcfa8189f38fed92a1ed99f9db.oggvorbisstr"]
+source_file="res://Sounds/SFX/SFX_EventThirsty_Start.ogg"
+dest_files=["res://.godot/imported/SFX_EventThirsty_Start.ogg-96253070331f215c3700b17892077726.oggvorbisstr"]
 
 [params]
 

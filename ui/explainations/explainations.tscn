@@ -1,0 +1,134 @@
+[gd_scene load_steps=11 format=3 uid="uid://cmjghjeytoevr"]
+
+[ext_resource type="Script" path="res://ui/explainations/explainations.gd" id="1_kolie"]
+[ext_resource type="Theme" uid="uid://dty4q6p8pvtqo" path="res://ui/main_theme.tres" id="1_plkdo"]
+[ext_resource type="Texture2D" uid="uid://dkbul3eetck5b" path="res://ui/explainations/event_locations.png" id="2_138ah"]
+[ext_resource type="FontFile" uid="uid://0lvto8u0mi3c" path="res://ui/PermanentMarker-Regular.ttf" id="3_ojk76"]
+[ext_resource type="StyleBox" uid="uid://c5v43q7u3qasc" path="res://ui/button_style_flat.tres" id="4_hmef2"]
+
+[sub_resource type="Gradient" id="Gradient_3558v"]
+colors = PackedColorArray(0.999991, 0.941576, 0.931532, 1, 0.993289, 0.888887, 0.885962, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_885bt"]
+gradient = SubResource("Gradient_3558v")
+height = 9
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sh510"]
+bg_color = Color(0.862745, 0.27451, 0.392157, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 3.0
+expand_margin_right = 5.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ja4lj"]
+bg_color = Color(0.682353, 0.172549, 0.286275, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 3.0
+expand_margin_right = 5.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="Theme" id="Theme_afgjk"]
+default_font = ExtResource("3_ojk76")
+Button/fonts/font = ExtResource("3_ojk76")
+Button/styles/hover = SubResource("StyleBoxFlat_sh510")
+Button/styles/normal = ExtResource("4_hmef2")
+Button/styles/pressed = SubResource("StyleBoxFlat_ja4lj")
+
+[node name="Explainations" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kolie")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_885bt")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 90.0
+offset_top = -181.0
+offset_right = 434.0
+offset_bottom = 101.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_plkdo")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+text = "Here's the map you will soon 
+discover. Try to remember the
+location of the key places!
+Also, you will encounter
+developers in this place. Feed
+them as they please
+
+Good luck!"
+autowrap_mode = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 97.0
+offset_top = 123.0
+offset_right = 421.0
+offset_bottom = 179.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_afgjk")
+text = "START"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(-191, 34)
+scale = Vector2(0.518333, 0.518333)
+texture = ExtResource("2_138ah")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

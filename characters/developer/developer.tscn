@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqvatuqmhk55a"]
+[gd_scene load_steps=10 format=3 uid="uid://bqvatuqmhk55a"]
 
 [ext_resource type="Script" path="res://characters/developer/developer.gd" id="1_8ishv"]
 [ext_resource type="PackedScene" uid="uid://dm0n1lgblhgtm" path="res://triggers/clickable_area_3d.tscn" id="2_5bxol"]
@@ -36,11 +36,35 @@ tracks/1/keys = {
 "points": PackedFloat32Array(1.05, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CSGCombiner3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 6.28319, 0.261799)]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CSGCombiner3D:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_nfsvc"]
 resource_name = "hungry"
-length = 0.5
+length = 0.7
 loop_mode = 1
+step = 0.0363
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -49,8 +73,8 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0.95, -0.25, 0, 0.25, 0, 1.05, -0.25, 0, 0.25, 0, 0.95, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.1, 0.3, 0.5)
+"points": PackedFloat32Array(0.95, -0.25, 0, 0.0726, 0.147943, 1.159, -0.1685, 0.00134397, 0.1582, -0.00194025, 0.95, -0.0829, 0.124953, 0.25, 0),
+"times": PackedFloat32Array(0, 0.35, 0.7)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
@@ -60,8 +84,31 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1.5, -0.25, 0, 0.25, 0, 1.6, -0.25, 0, 0.25, 0, 1.5, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.2, 0.4)
+"points": PackedFloat32Array(1.5, -0.25, 0, 0.0726, 0.156268, 1.78, -0.1322, -0.00549889, 0.1582, -0.0153517, 1.5, -0.0829, 0.169405, 0.25, 0),
+"times": PackedFloat32Array(0, 0.35, 0.7)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CSGCombiner3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.700564),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.261799), Vector3(0, 6.26573, 0.261799)]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CSGCombiner3D:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1.9, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0, 1.9, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.354235, 0.698645)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kpx8d"]
@@ -69,6 +116,9 @@ _data = {
 "RESET": SubResource("Animation_hi2js"),
 "hungry": SubResource("Animation_nfsvc")
 }
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1yq16"]
+albedo_color = Color(1, 0.137255, 0.231373, 1)
 
 [node name="Developer" type="CharacterBody3D"]
 script = ExtResource("1_8ishv")
@@ -92,5 +142,20 @@ libraries = {
 
 [node name="ClickableArea3D" parent="." instance=ExtResource("2_5bxol")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26616, 0)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(0.965926, -0.258819, 1.74846e-07, 0.258819, 0.965926, 0, -1.68888e-07, 4.52534e-08, 1, 0, 2, 0)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.506197, 0)
+radius = 0.11
+height = 0.4
+cone = true
+material = SubResource("StandardMaterial3D_1yq16")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.999984, 0.00557873, 0.000503007, -0.00557879, 0.999984, 0.000110387, -0.000502384, -0.000113188, 1, 0, 0.136328, 0)
+radius = 0.0792934
+material = SubResource("StandardMaterial3D_1yq16")
 
 [connection signal="clicked" from="ClickableArea3D" to="." method="_on_area_3d_clicked"]
