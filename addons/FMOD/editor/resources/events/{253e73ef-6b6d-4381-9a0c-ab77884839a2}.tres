@@ -1,0 +1,9 @@
+[gd_resource type="EventAsset" format=3 uid="uid://dnulpqi55rlns"]
+
+[resource]
+is_3d = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/Fire/event_fire"
+guid = "{253e73ef-6b6d-4381-9a0c-ab77884839a2}"
+name = "event_fire"

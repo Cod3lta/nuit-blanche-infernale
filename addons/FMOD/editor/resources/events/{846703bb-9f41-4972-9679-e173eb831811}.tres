@@ -1,0 +1,9 @@
+[gd_resource type="EventAsset" format=3 uid="uid://dybpr2ib3e6r"]
+
+[resource]
+is_3d = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/Hungry/event_dev_angry"
+guid = "{846703bb-9f41-4972-9679-e173eb831811}"
+name = "event_dev_angry"

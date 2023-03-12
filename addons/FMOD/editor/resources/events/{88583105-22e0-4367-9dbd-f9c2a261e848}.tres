@@ -1,0 +1,8 @@
+[gd_resource type="EventAsset" format=3 uid="uid://drpd0d7nbcbx5"]
+
+[resource]
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/Fire/event_extinguisher"
+guid = "{88583105-22e0-4367-9dbd-f9c2a261e848}"
+name = "event_extinguisher"

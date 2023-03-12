@@ -2,7 +2,7 @@
 
 [resource]
 file_path = "res://FMOD/Build/Desktop/SFX.bank"
-modified_time = 1678613253
+modified_time = 1678623783
 path = "bank:/SFX"
 guid = "{1de1fa6c-94dd-49b3-a184-482294b08b4f}"
 name = "SFX"
