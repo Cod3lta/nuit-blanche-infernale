@@ -23,7 +23,6 @@ func new_developer_hungry():
 	fires.push_back(hungry_dev)
 	# Add a new pizza in the kitchen
 	pizza_trigger.add_pizza()
-	
 	$StateMachinePlayer.set_trigger("new_developer_hungry")
 
 
@@ -63,7 +62,3 @@ func _on_state_machine_player_transited(from, to):
 			hungry()
 		"bring_food":
 			bring_food()
-
-
-func _on_event_timer_timeout():
-	new_developer_hungry()

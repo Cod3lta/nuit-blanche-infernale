@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://utr3fvx4rvx6"]
+
+[ext_resource type="Script" path="res://triggers/exctinctor_trigger.gd" id="1_6g6rc"]
+[ext_resource type="PackedScene" uid="uid://dm0n1lgblhgtm" path="res://triggers/clickable_area_3d.tscn" id="1_pad8i"]
+[ext_resource type="PackedScene" uid="uid://d3di6kq1rgkx5" path="res://objects/extinguisher/exctinguisher.tscn" id="4_i1xsp"]
+
+[node name="ExctinctorTrigger" type="Node3D"]
+script = ExtResource("1_6g6rc")
+
+[node name="ClickableArea3D" parent="." instance=ExtResource("1_pad8i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+
+[node name="Exctinguisher" parent="." instance=ExtResource("4_i1xsp")]
+
+[connection signal="clicked" from="ClickableArea3D" to="." method="_on_area_3d_clicked"]

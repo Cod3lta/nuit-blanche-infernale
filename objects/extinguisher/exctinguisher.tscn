@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3di6kq1rgkx5"]
+
+[ext_resource type="ArrayMesh" uid="uid://balxj7ev858vk" path="res://objects/extinguisher/Extinguisher.obj" id="1_l4fbs"]
+
+[node name="Exctinguisher" type="Node3D"]
+
+[node name="Extinguisher" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.135, 0, 0, 0, 0.135, 0, 0, 0, 0.135, 0, 0, 0)
+mesh = ExtResource("1_l4fbs")
