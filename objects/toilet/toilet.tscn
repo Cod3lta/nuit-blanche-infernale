@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bop1kj48f8fji"]
+
+[ext_resource type="ArrayMesh" uid="uid://cxn7k8k4x67ys" path="res://objects/toilet/Toilet.obj" id="1_cblt7"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Toilet" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_cblt7")

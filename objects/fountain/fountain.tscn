@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf620pwxbhf7p"]
+
+[ext_resource type="PackedScene" uid="uid://c26xqob6phqri" path="res://objects/fountain/fountain.glb" id="1_qykl4"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="fountain" parent="." instance=ExtResource("1_qykl4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.282029, -1.19209e-07, 0.0084362)
