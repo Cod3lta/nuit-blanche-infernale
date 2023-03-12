@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cbbmtr5kxyqk0"]
+[gd_scene load_steps=35 format=3 uid="uid://cbbmtr5kxyqk0"]
 
 [ext_resource type="Texture2D" uid="uid://coyr5u4qch1hp" path="res://levels/floor_plan.jpg" id="1_lvkq3"]
 [ext_resource type="PackedScene" uid="uid://cixcsyv16m3bd" path="res://objects/table/table_square.tscn" id="2_qqk18"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://ckodd8lv0blhf" path="res://objects/computer/pc_screen.tscn" id="8_slx8f"]
 [ext_resource type="PackedScene" uid="uid://ch7xk5fw20qye" path="res://objects/chair/Office Chair-red.tscn" id="11_mkjph"]
 [ext_resource type="PackedScene" uid="uid://dpegiv5tdnc6d" path="res://objects/chair/Office Chair-blue.tscn" id="11_t0pti"]
-[ext_resource type="ArrayMesh" uid="uid://cxn7k8k4x67ys" path="res://objects/toilet/Toilet.obj" id="14_ri6yt"]
 [ext_resource type="PackedScene" uid="uid://bsre2wvnbmryh" path="res://objects/couch/couch.tscn" id="16_uouem"]
 [ext_resource type="PackedScene" uid="uid://biawqc5fths72" path="res://objects/chair/Office Chair-yellow.tscn" id="17_yenun"]
 [ext_resource type="PackedScene" uid="uid://dss07jfvruoqf" path="res://can.tscn" id="18_f3fr2"]
@@ -514,7 +513,6 @@ transform = Transform3D(-0.543827, 0, -1.39794, 0, 1.5, 0, 1.39794, 0, -0.543827
 transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -5.61043, 0.926189, -13.4772)
 
 [node name="CSGBox3D" parent="PCTower3" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.175, 0)
 material = SubResource("StandardMaterial3D_14cnj")
 
 [node name="CSGBox3D2" parent="PCTower3" index="1"]
