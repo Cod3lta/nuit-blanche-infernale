@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cbbmtr5kxyqk0"]
+[gd_scene load_steps=27 format=3 uid="uid://cbbmtr5kxyqk0"]
 
 [ext_resource type="Texture2D" uid="uid://coyr5u4qch1hp" path="res://levels/floor_plan.jpg" id="1_lvkq3"]
 [ext_resource type="PackedScene" uid="uid://cixcsyv16m3bd" path="res://objects/table/table_square.tscn" id="2_qqk18"]
@@ -12,13 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://ckodd8lv0blhf" path="res://objects/computer/pc_screen.tscn" id="8_slx8f"]
 [ext_resource type="PackedScene" uid="uid://ch7xk5fw20qye" path="res://objects/chair/Office Chair-red.tscn" id="11_mkjph"]
 [ext_resource type="PackedScene" uid="uid://dpegiv5tdnc6d" path="res://objects/chair/Office Chair-blue.tscn" id="11_t0pti"]
-[ext_resource type="PackedScene" path="res://objects/wifi-box/wifi_box.tscn" id="13_ctmlv"]
 [ext_resource type="ArrayMesh" uid="uid://cxn7k8k4x67ys" path="res://objects/toilet/Toilet.obj" id="14_ri6yt"]
-[ext_resource type="PackedScene" path="res://objects/couch/couch.tscn" id="16_uouem"]
+[ext_resource type="PackedScene" uid="uid://bsre2wvnbmryh" path="res://objects/couch/couch.tscn" id="16_uouem"]
 [ext_resource type="PackedScene" uid="uid://biawqc5fths72" path="res://objects/chair/Office Chair-yellow.tscn" id="17_yenun"]
 [ext_resource type="ArrayMesh" uid="uid://ckl6p7jimh4pw" path="res://objects/table/Slanted Table.obj" id="18_wq2sj"]
-[ext_resource type="PackedScene" path="res://objects/extinguisher/extinguisher.tscn" id="19_bm0tw"]
-[ext_resource type="PackedScene" path="res://objects/table/hexagonal table.tscn" id="20_7h80l"]
+[ext_resource type="PackedScene" uid="uid://bccu4y7wjngm7" path="res://objects/table/hexagonal table.tscn" id="20_7h80l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cync4"]
 
@@ -64,7 +62,6 @@ size = Vector3(15.8, 3, 62)
 material = SubResource("StandardMaterial3D_cync4")
 
 [node name="Collisions" type="StaticBody3D" parent="."]
-visible = false
 
 [node name="Floor" type="CollisionShape3D" parent="Collisions"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -79,7 +76,6 @@ use_collision = true
 
 [node name="InnerWall" type="CSGBox3D" parent="InnerWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3, 1, -16.7)
-visible = false
 size = Vector3(0.4, 4, 29.8)
 
 [node name="InnerWall2" type="CSGBox3D" parent="InnerWalls"]
@@ -322,7 +318,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.6, 0
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.8, 0, -15.9)
 
 [node name="Doors" type="Node3D" parent="."]
-visible = false
 
 [node name="Door" parent="Doors" instance=ExtResource("4_6o575")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.9, 0, -6.9)

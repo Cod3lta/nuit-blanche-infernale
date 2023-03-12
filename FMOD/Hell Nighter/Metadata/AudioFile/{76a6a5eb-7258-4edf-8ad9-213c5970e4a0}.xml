@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{76a6a5eb-7258-4edf-8ad9-213c5970e4a0}">
+		<property name="assetPath">
+			<value>SFX_Dev_Angry3.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.92308333333333337</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{6f0a9e2a-85ba-47fb-a69d-59b8682d8fdc}</destination>
+		</relationship>
+	</object>
+</objects>

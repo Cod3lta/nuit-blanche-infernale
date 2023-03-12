@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dti6468fi2spx"
+path="res://.godot/imported/SFX_EventWifi_Start.ogg-a210ecfa20429a0f5deee1ece0a5050f.oggvorbisstr"
+
+[deps]
+
+source_file="res://FMOD/Hell Nighter/Assets/SFX_EventWifi_Start.ogg"
+dest_files=["res://.godot/imported/SFX_EventWifi_Start.ogg-a210ecfa20429a0f5deee1ece0a5050f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

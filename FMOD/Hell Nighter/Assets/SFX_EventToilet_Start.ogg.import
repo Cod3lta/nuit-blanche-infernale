@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://8n6p6oibixcv"
+path="res://.godot/imported/SFX_EventToilet_Start.ogg-2eaa3823a2cdaf0f4e043f14f764c4d9.oggvorbisstr"
+
+[deps]
+
+source_file="res://FMOD/Hell Nighter/Assets/SFX_EventToilet_Start.ogg"
+dest_files=["res://.godot/imported/SFX_EventToilet_Start.ogg-2eaa3823a2cdaf0f4e043f14f764c4d9.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
