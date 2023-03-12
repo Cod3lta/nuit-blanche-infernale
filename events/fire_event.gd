@@ -42,6 +42,7 @@ func get_exctinctor() -> void:
 
 
 func bring_exctinctor() -> void:
+	exctinctor_trigger.disconnect("click_exctinctor", bring_back_exctinctor)
 	exctinctor_trigger.disconnect("click_exctinctor", get_exctinctor)
 	for fire in fires:
 		fire.connect("extinguish", exctinct_fire)
