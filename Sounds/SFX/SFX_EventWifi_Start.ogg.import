@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://u2t3bn8ixx14"
-path="res://.godot/imported/SFX_EventWifi_Start.ogg-ca9d5f8e401861bdd7024b86ecb06a30.oggvorbisstr"
+path="res://.godot/imported/SFX_EventWifi_Start.ogg-334efd613cec76142424552180b88755.oggvorbisstr"
 
 [deps]
 
-source_file="res://sounds/SFX/SFX_EventWifi_Start.ogg"
-dest_files=["res://.godot/imported/SFX_EventWifi_Start.ogg-ca9d5f8e401861bdd7024b86ecb06a30.oggvorbisstr"]
+source_file="res://Sounds/SFX/SFX_EventWifi_Start.ogg"
+dest_files=["res://.godot/imported/SFX_EventWifi_Start.ogg-334efd613cec76142424552180b88755.oggvorbisstr"]
 
 [params]
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqvatuqmhk55a"]
+[gd_scene load_steps=10 format=3 uid="uid://bqvatuqmhk55a"]
 
 [ext_resource type="Script" path="res://characters/developer/developer.gd" id="1_8ishv"]
 [ext_resource type="PackedScene" uid="uid://dm0n1lgblhgtm" path="res://triggers/clickable_area_3d.tscn" id="2_5bxol"]
+[ext_resource type="EventAsset" uid="uid://b3i45v21j16vj" path="res://addons/FMOD/editor/resources/events/{852da110-48a2-4dcf-88bc-f48a7b40c6d1}.tres" id="2_c0fyd"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_f1i24"]
 radius = 0.25
@@ -75,6 +76,7 @@ _data = {
 
 [node name="Developer" type="CharacterBody3D"]
 script = ExtResource("1_8ishv")
+event_start_hungry = ExtResource("2_c0fyd")
 
 [node name="DevHead" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)

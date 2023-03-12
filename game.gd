@@ -7,13 +7,13 @@ var events_queue: Array[Node] = []
 # The order is important!
 @onready var events = [
 	[$Events/HungryEvent],
-	[$Events/ThirstyEvent],
-	[
-		$Events/ToiletEvent,
-		$Events/ToiletEvent2,
-		$Events/ToiletEvent3,
-	],
-	[$Events/FireEvent],
+	#[$Events/ThirstyEvent],
+	#[
+	#	$Events/ToiletEvent,
+	#	$Events/ToiletEvent2,
+	#	$Events/ToiletEvent3,
+	#],
+	#[$Events/FireEvent],
 ]
 
 #var level_timeouts: Array[int] = [ 25, 20, 15, 12, 10 ]
