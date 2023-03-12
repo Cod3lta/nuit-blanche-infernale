@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://gi16kfdnhxnt"
-path="res://.godot/imported/SFX_WifiFail-Loop.wav-dd11c90224f7c17851742d9f10586f21.sample"
+path="res://.godot/imported/SFX_WifiFail-Loop.wav-981bd6e374c6194f7504bfa3f4dbc1e3.sample"
 
 [deps]
 
-source_file="res://Sounds/SFX/SFX_WifiFail-Loop.wav"
-dest_files=["res://.godot/imported/SFX_WifiFail-Loop.wav-dd11c90224f7c17851742d9f10586f21.sample"]
+source_file="res://sounds/SFX/SFX_WifiFail-Loop.wav"
+dest_files=["res://.godot/imported/SFX_WifiFail-Loop.wav-981bd6e374c6194f7504bfa3f4dbc1e3.sample"]
 
 [params]
 

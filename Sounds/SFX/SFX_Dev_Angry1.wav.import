@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://diglr2aka6vr2"
-path="res://.godot/imported/SFX_Dev_Angry1.wav-6c528193a7fe9ae43841a6a0d0a26443.sample"
+path="res://.godot/imported/SFX_Dev_Angry1.wav-78230542b589b123fd3f050375ae9cfa.sample"
 
 [deps]
 
-source_file="res://Sounds/SFX/SFX_Dev_Angry1.wav"
-dest_files=["res://.godot/imported/SFX_Dev_Angry1.wav-6c528193a7fe9ae43841a6a0d0a26443.sample"]
+source_file="res://sounds/SFX/SFX_Dev_Angry1.wav"
+dest_files=["res://.godot/imported/SFX_Dev_Angry1.wav-78230542b589b123fd3f050375ae9cfa.sample"]
 
 [params]
 
