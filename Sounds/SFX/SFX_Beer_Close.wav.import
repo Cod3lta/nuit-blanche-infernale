@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b24yxlswbs0jc"
-path="res://.godot/imported/SFX_Beer_Close.wav-5b08337544ddc323f965da2b1679f09e.sample"
+path="res://.godot/imported/SFX_Beer_Close.wav-5527007d13f5b0237f7287325b66337a.sample"
 
 [deps]
 
-source_file="res://Sounds/SFX/SFX_Beer_Close.wav"
-dest_files=["res://.godot/imported/SFX_Beer_Close.wav-5b08337544ddc323f965da2b1679f09e.sample"]
+source_file="res://sounds/SFX/SFX_Beer_Close.wav"
+dest_files=["res://.godot/imported/SFX_Beer_Close.wav-5527007d13f5b0237f7287325b66337a.sample"]
 
 [params]
 
