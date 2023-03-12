@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://vcl6ycy53s13"
-path="res://.godot/imported/SFX_EventToilet_Start.ogg-23e65f949999ef3443787ae3e44735d1.oggvorbisstr"
+path="res://.godot/imported/SFX_EventToilet_Start.ogg-d37409fd952286055db716afebba04cc.oggvorbisstr"
 
 [deps]
 
-source_file="res://Sounds/SFX/SFX_EventToilet_Start.ogg"
-dest_files=["res://.godot/imported/SFX_EventToilet_Start.ogg-23e65f949999ef3443787ae3e44735d1.oggvorbisstr"]
+source_file="res://sounds/SFX/SFX_EventToilet_Start.ogg"
+dest_files=["res://.godot/imported/SFX_EventToilet_Start.ogg-d37409fd952286055db716afebba04cc.oggvorbisstr"]
 
 [params]
 

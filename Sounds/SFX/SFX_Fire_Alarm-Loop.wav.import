@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cqr0o5l2n3vs"
-path="res://.godot/imported/SFX_Fire_Alarm-Loop.wav-84d86c0404b222e68aae87c8a5f23dcc.sample"
+path="res://.godot/imported/SFX_Fire_Alarm-Loop.wav-8045b9b2eebe3d8a6ecb889c4c7667b0.sample"
 
 [deps]
 
-source_file="res://Sounds/SFX/SFX_Fire_Alarm-Loop.wav"
-dest_files=["res://.godot/imported/SFX_Fire_Alarm-Loop.wav-84d86c0404b222e68aae87c8a5f23dcc.sample"]
+source_file="res://sounds/SFX/SFX_Fire_Alarm-Loop.wav"
+dest_files=["res://.godot/imported/SFX_Fire_Alarm-Loop.wav-8045b9b2eebe3d8a6ecb889c4c7667b0.sample"]
 
 [params]
 
