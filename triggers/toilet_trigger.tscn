@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://benql777wo8qr"]
+
+[ext_resource type="Script" path="res://triggers/toilet_trigger.gd" id="1_s6rx8"]
+[ext_resource type="PackedScene" uid="uid://def08ho7mokd" path="res://objects/toilet/toilet.tscn" id="2_1fkb3"]
+[ext_resource type="PackedScene" uid="uid://dm0n1lgblhgtm" path="res://triggers/clickable_area_3d.tscn" id="3_7tbwi"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kvgww"]
+direction = Vector3(-0.2, 1, 0)
+initial_velocity_min = 3.24
+initial_velocity_max = 3.24
+linear_accel_min = 0.41
+linear_accel_max = 0.41
+scale_min = 0.0
+scale_max = 2.11
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.15
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dxux"]
+albedo_color = Color(0.431373, 0.996078, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ubnpc"]
+material = SubResource("StandardMaterial3D_7dxux")
+radius = 0.04
+height = 0.08
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0df0n"]
+albedo_color = Color(0.219608, 0.713726, 0.733333, 1)
+metallic = 0.42
+roughness = 0.42
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_063q3"]
+size = Vector3(1.23336, 1.51035, 1.41531)
+
+[node name="ToiletTrigger" type="Node3D"]
+script = ExtResource("1_s6rx8")
+
+[node name="Node3D" parent="." instance=ExtResource("2_1fkb3")]
+
+[node name="ClickableArea3D" parent="." instance=ExtResource("3_7tbwi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38, 0.97, 0)
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.305686, 0.312, 0)
+size = Vector3(1.25, 0.47, 0.98)
+
+[node name="GPUParticlesCollisionBox3D3" type="GPUParticlesCollisionBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.284314, 0.762, 0)
+size = Vector3(0.49, 1.19, 0.81)
+
+[node name="GPUParticlesCollisionBox3D2" type="GPUParticlesCollisionBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00568572, -0.266419, 0.701669)
+size = Vector3(4.8479, 0.527702, 4.89429)
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.359351, 0.624418, -0.204352)
+amount = 40
+lifetime = 2.43
+visibility_aabb = AABB(-2.88972, -3.10678, -2.84222, 5.77943, 6.21357, 5.68445)
+process_material = SubResource("ParticleProcessMaterial_kvgww")
+draw_pass_1 = SubResource("SphereMesh_ubnpc")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0134592, 0)
+radius = 1.7
+height = 0.079958
+sides = 10
+material = SubResource("StandardMaterial3D_0df0n")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.64, 0, 0)
+operation = 1
+size = Vector3(2.44, 0.397137, 3.4)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.704727, 0)
+shape = SubResource("BoxShape3D_063q3")
+
+[connection signal="clicked" from="ClickableArea3D" to="." method="_on_clickable_area_3d_clicked"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cbbmtr5kxyqk0"]
+[gd_scene load_steps=28 format=3 uid="uid://cbbmtr5kxyqk0"]
 
 [ext_resource type="Texture2D" uid="uid://coyr5u4qch1hp" path="res://levels/floor_plan.jpg" id="1_lvkq3"]
 [ext_resource type="PackedScene" uid="uid://cixcsyv16m3bd" path="res://objects/table/table_square.tscn" id="2_qqk18"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://ckodd8lv0blhf" path="res://objects/computer/pc_screen.tscn" id="8_slx8f"]
 [ext_resource type="PackedScene" uid="uid://ch7xk5fw20qye" path="res://objects/chair/Office Chair-red.tscn" id="11_mkjph"]
 [ext_resource type="PackedScene" uid="uid://dpegiv5tdnc6d" path="res://objects/chair/Office Chair-blue.tscn" id="11_t0pti"]
-[ext_resource type="ArrayMesh" uid="uid://cxn7k8k4x67ys" path="res://objects/toilet/Toilet.obj" id="14_ri6yt"]
 [ext_resource type="PackedScene" path="res://objects/couch/couch.tscn" id="16_uouem"]
 [ext_resource type="PackedScene" uid="uid://biawqc5fths72" path="res://objects/chair/Office Chair-yellow.tscn" id="17_yenun"]
 [ext_resource type="ArrayMesh" uid="uid://ckl6p7jimh4pw" path="res://objects/table/Slanted Table.obj" id="18_wq2sj"]
@@ -793,18 +792,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.36962, 0, -25.9797)
 
 [node name="RedOfficeChair2" parent="." instance=ExtResource("11_mkjph")]
 transform = Transform3D(0.0365042, 0, -0.999334, 0, 1, 0, 0.999334, 0, 0.0365042, 4.36115, 0.0147206, -28.3639)
-
-[node name="Toilet" type="MeshInstance3D" parent="."]
-transform = Transform3D(8.34742e-09, 0, -0.7, 0, 0.7, 0, 0.7, 0, 8.34742e-09, -7.26599, 0, 2.88478)
-mesh = ExtResource("14_ri6yt")
-
-[node name="Toilet2" type="MeshInstance3D" parent="."]
-transform = Transform3D(8.34742e-09, 0, -0.7, 0, 0.7, 0, 0.7, 0, 8.34742e-09, -5.85469, 0, 2.88478)
-mesh = ExtResource("14_ri6yt")
-
-[node name="Toilet3" type="MeshInstance3D" parent="."]
-transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, -6.72644, 0, -3.4018)
-mesh = ExtResource("14_ri6yt")
 
 [node name="couch" parent="." instance=ExtResource("16_uouem")]
 transform = Transform3D(-2.96057e-08, 0, -0.490271, 0, 0.649352, 0, 0.6773, 0, -2.14304e-08, 1.55709, 0, -20.5665)
