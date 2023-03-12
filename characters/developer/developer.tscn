@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqvatuqmhk55a"]
+[gd_scene load_steps=10 format=3 uid="uid://bqvatuqmhk55a"]
 
 [ext_resource type="Script" path="res://characters/developer/developer.gd" id="1_8ishv"]
+[ext_resource type="Script" path="res://triggers/pizza_collider.gd" id="2_f0w7r"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_f1i24"]
 radius = 0.25
@@ -13,6 +14,31 @@ height = 0.633
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rng14"]
 radius = 0.343
 height = 1.7
+
+[sub_resource type="Animation" id="Animation_hi2js"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DevHead:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.6, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DevBody:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.05, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_nfsvc"]
 resource_name = "hungry"
@@ -41,36 +67,14 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4)
 }
 
-[sub_resource type="Animation" id="Animation_hi2js"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DevHead:position:y")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1.6, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("DevBody:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1.05, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kpx8d"]
 _data = {
 "RESET": SubResource("Animation_hi2js"),
 "hungry": SubResource("Animation_nfsvc")
 }
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u3egi"]
+height = 1.51429
 
 [node name="Developer" type="CharacterBody3D"]
 script = ExtResource("1_8ishv")
@@ -91,3 +95,13 @@ shape = SubResource("CapsuleShape3D_rng14")
 libraries = {
 "": SubResource("AnimationLibrary_kpx8d")
 }
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 4
+script = ExtResource("2_f0w7r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+shape = SubResource("CapsuleShape3D_u3egi")
+
+[connection signal="clicked" from="Area3D" to="." method="_on_area_3d_clicked"]

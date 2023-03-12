@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cbbmtr5kxyqk0"]
+    [gd_scene load_steps=26 format=3 uid="uid://cbbmtr5kxyqk0"]
 
 [ext_resource type="Texture2D" uid="uid://coyr5u4qch1hp" path="res://levels/floor_plan.jpg" id="1_lvkq3"]
 [ext_resource type="PackedScene" uid="uid://cixcsyv16m3bd" path="res://objects/table/table_square.tscn" id="2_qqk18"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ch7xk5fw20qye" path="res://objects/chair/Office Chair-red.tscn" id="11_mkjph"]
 [ext_resource type="PackedScene" uid="uid://dpegiv5tdnc6d" path="res://objects/chair/Office Chair-blue.tscn" id="11_t0pti"]
 [ext_resource type="PackedScene" uid="uid://biawqc5fths72" path="res://objects/chair/Office Chair-yellow.tscn" id="13_sgyfg"]
+[ext_resource type="PackedScene" path="res://objects/chair/Office Chair-blue.tscn" id="11_t0pti"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cync4"]
 
@@ -44,14 +45,6 @@ albedo_color = Color(0.819608, 0.360784, 0.235294, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hqukl"]
 albedo_color = Color(0.0705882, 1, 1, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_pwat1"]
-radius = 0.25
-height = 0.5
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_my1oa"]
-radius = 0.226
-height = 0.624
 
 [node name="MainLevel" type="Node3D"]
 

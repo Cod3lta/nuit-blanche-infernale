@@ -16,16 +16,6 @@ extends Node3D
 				$AnimationPlayer.play("closing_negative")
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_state_machine_player_transited(from, to):
 	match to:
 		"opening":

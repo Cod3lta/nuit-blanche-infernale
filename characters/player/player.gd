@@ -46,3 +46,12 @@ func _input(event):
 		var collider: Node = $Camera3D/RayCast3D.get_collider()
 		if collider and collider.has_method("click"):
 			collider.click()
+
+
+func hold_node(node: Node3D) -> void:
+	$Hand.add_child(node)
+
+
+func hold_stop() -> void:
+	for item in $Hand.get_children():
+		item.queue_free()
