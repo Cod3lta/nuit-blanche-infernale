@@ -1,5 +1,5 @@
 - [X]  Porte qui s’ouvre / se ferme si tu veux
-- [ ]  Les musiques
+- [X]  Les musiques
 - [X]  Bruits de pas
 
 **Événements**
@@ -21,3 +21,36 @@
 - Incendie
     - [X]  Bruit de feu (boucle)
     - [X]  Bruit de sirène (boucle)
+
+Music :
+	- BGM_Music_Layer1 			->	Musique joue lors du title screen
+	- BGM_Music_Layer2 			->	Musique lorsque qu'on commence (2 events)
+	- BGM_Music_Layer3 			->	3 events
+	- BGM_Music_Layer4 			->	4 events
+	- BGM_Music_Layer5 			->	5 events
+
+Transition 2 secondes
+
+SFX :
+	- SFX_EventHungry_Start			->	Les devs commencent a avoir faim
+	- SFX_EventThirsty_Start		->	Il faut reparer la fontaine de biere
+	- SFX_EventToilet_Start			->	Une toilette est bouchee
+	- SFX_EventWifi_Start			->	Le Wifi ne fonctionne plus
+	- SFX_EventFire_Start			->	Un incendie apparait
+
+	- SFX_Beer_Close				->	Le joueur repare la fontaine
+	- SFX_Beer-Flow-Loop			->	Bruit de la fontaine cassee (spatialisation/loop)
+
+	- SFX_Dev_Angry1-4			->	Bruit des devs sur le point de peter un plomb (spatia./pitch)
+	- SFX_Dev_Eat				-> 	Quand le joueur donne une pizza a un dev
+	- SFX_Dev_Request1/2			->	Bruit des devs demandant une pizza (spatialisation/pitch)
+
+	- SFX_Door_Close				->	Bruit de la clenche de la porte s'ouvrant
+	- SFX_Door_Open				->	Bruit de la porte qui claque
+
+	- SFX_FireAlarm-Loop			->	Joue quand le batiment est sur le point de prendre feu
+	- SFX_Fire-Loop				->	Bruit des flames (spatialisation/loop)
+
+	- SFX_Footstep1-6				-> 	Bruit de pas
+
+	- SFX_WifiFail-Loop			->	Bruit des ordinateurs quand l'internet ne fonctionne pas depuis un moment (spatialisation/loop)
