@@ -27,6 +27,13 @@ script = ExtResource("3_s1m3b")
 name = "waiting"
 metadata/graph_offset = Vector2(438.5, 201.5)
 
+[sub_resource type="Resource" id="Resource_14prl"]
+script = ExtResource("4_d30nn")
+from = "Entry"
+to = "waiting"
+conditions = {}
+priority = 0
+
 [sub_resource type="Resource" id="Resource_ms0fx"]
 script = ExtResource("5_ydukx")
 name = "t(\"still_hungry\")"
@@ -64,13 +71,6 @@ to = "bring_food"
 conditions = {
 "t(\"get_pizza\")": SubResource("Resource_1hwfo")
 }
-priority = 0
-
-[sub_resource type="Resource" id="Resource_14prl"]
-script = ExtResource("4_d30nn")
-from = "Entry"
-to = "waiting"
-conditions = {}
 priority = 0
 
 [sub_resource type="Resource" id="Resource_w2ke4"]
