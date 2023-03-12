@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EventFolder" id="{87f0ec8f-b588-43ff-a96f-2893fcde9230}">
+		<property name="name">
+			<value>Wifi</value>
+		</property>
+		<relationship name="folder">
+			<destination>{6ed1ae00-f553-4412-a5b7-ac5e75e09936}</destination>
+		</relationship>
+	</object>
+</objects>
