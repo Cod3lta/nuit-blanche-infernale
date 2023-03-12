@@ -1,0 +1,9 @@
+[gd_resource type="EventAsset" format=3 uid="uid://b3i45v21j16vj"]
+
+[resource]
+is_3d = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/Events/event_hungry_start"
+guid = "{852da110-48a2-4dcf-88bc-f48a7b40c6d1}"
+name = "event_hungry_start"

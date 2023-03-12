@@ -1,11 +1,21 @@
 extends Node3D
 
+signal click_fountain
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	repair_fountain()
+
+func break_fountain():
+	$GPUParticles3D.set_emitting(true)
+	$GPUParticles3D2.set_emitting(true)
+	$CSGCombiner3D.set_visible(true)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func repair_fountain():
+	$GPUParticles3D.set_emitting(false)
+	$GPUParticles3D2.set_emitting(false)
+	$CSGCombiner3D.set_visible(false)
+
+
+func _on_clickable_area_3d_clicked():
+	emit_signal("click_fountain")

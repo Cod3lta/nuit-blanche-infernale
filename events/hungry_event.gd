@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var event: EventAsset
+@export var event_start_hungry: EventAsset
 
 var hungry_developers : Array[Developer]
 var pizza_ressource = preload("res://objects/pizza/Pizza.tscn")
@@ -23,7 +23,7 @@ func start_event():
 	var hungry_dev = hungry_possibly_developers[i]
 	hungry_dev.start_animation("hungry")
 	# Play sound
-	RuntimeManager.play_one_shot(event, hungry_dev)
+	RuntimeManager.play_one_shot_attached(event_start_hungry, hungry_dev)
 	
 	hungry_developers.push_back(hungry_dev)
 	# Add a new pizza in the kitchen

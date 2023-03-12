@@ -1,0 +1,9 @@
+[gd_resource type="EventAsset" format=3 uid="uid://c1pmtnwogkb5a"]
+
+[resource]
+is_oneshot = true
+min_distance = 1.0
+max_distance = 20.0
+path = "event:/Events/event_thirsty_start"
+guid = "{ba9d012d-8354-401a-b938-19280a0c7b8b}"
+name = "event_thirsty_start"

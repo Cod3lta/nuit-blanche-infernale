@@ -1,8 +1,10 @@
-[gd_scene load_steps=36 format=3 uid="uid://vhqwywf7xtwd"]
+[gd_scene load_steps=38 format=3 uid="uid://vhqwywf7xtwd"]
 
 [ext_resource type="Script" path="res://objects/door/door.gd" id="1_x1fik"]
+[ext_resource type="EventAsset" uid="uid://dppkjrat267bf" path="res://addons/FMOD/editor/resources/events/{3cdbea88-a918-4daa-a2f8-f8f30837621a}.tres" id="2_co5ua"]
 [ext_resource type="Script" path="res://addons/imjp94.yafsm/src/StateMachinePlayer.gd" id="2_g7ssp"]
 [ext_resource type="Script" path="res://addons/imjp94.yafsm/src/states/StateMachine.gd" id="3_g4oxs"]
+[ext_resource type="EventAsset" uid="uid://buksyogxyackb" path="res://addons/FMOD/editor/resources/events/{91a2fece-dd32-4fa9-bb04-9aed7a5f430d}.tres" id="3_jybnx"]
 [ext_resource type="Script" path="res://addons/imjp94.yafsm/src/states/State.gd" id="4_a05if"]
 [ext_resource type="Script" path="res://addons/imjp94.yafsm/src/transitions/Transition.gd" id="5_k4q33"]
 [ext_resource type="Script" path="res://addons/imjp94.yafsm/src/conditions/ExpressionCondition.gd" id="6_71t7p"]
@@ -298,6 +300,8 @@ _data = {
 
 [node name="Door" type="Node3D"]
 script = ExtResource("1_x1fik")
+event_open_door = ExtResource("2_co5ua")
+event_close_door = ExtResource("3_jybnx")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_mask = 2

@@ -1,25 +1,26 @@
-[gd_scene load_steps=13 format=3 uid="uid://c8vwpdfxer0a0"]
+[gd_scene load_steps=16 format=3 uid="uid://c8vwpdfxer0a0"]
 
 [ext_resource type="Script" path="res://events/thirsty_event.gd" id="1_7cquj"]
 [ext_resource type="Script" path="res://addons/imjp94.yafsm/src/StateMachinePlayer.gd" id="2_46cig"]
 [ext_resource type="Script" path="res://addons/imjp94.yafsm/src/states/StateMachine.gd" id="3_sdbrh"]
 [ext_resource type="Script" path="res://addons/imjp94.yafsm/src/states/State.gd" id="4_xfj0k"]
 [ext_resource type="Script" path="res://addons/imjp94.yafsm/src/transitions/Transition.gd" id="5_hq2pf"]
+[ext_resource type="Script" path="res://addons/imjp94.yafsm/src/conditions/ExpressionCondition.gd" id="6_rvg4l"]
 
 [sub_resource type="Resource" id="Resource_sqne4"]
 script = ExtResource("4_xfj0k")
 name = "Entry"
 metadata/graph_offset = Vector2(404, 281.5)
 
-[sub_resource type="Resource" id="Resource_aqrfn"]
-script = ExtResource("4_xfj0k")
-name = "waiting"
-metadata/graph_offset = Vector2(598.5, 241.5)
-
 [sub_resource type="Resource" id="Resource_ma2au"]
 script = ExtResource("4_xfj0k")
 name = "broken"
 metadata/graph_offset = Vector2(824.165, 268.144)
+
+[sub_resource type="Resource" id="Resource_aqrfn"]
+script = ExtResource("4_xfj0k")
+name = "waiting"
+metadata/graph_offset = Vector2(598.5, 241.5)
 
 [sub_resource type="Resource" id="Resource_sm1ph"]
 script = ExtResource("5_hq2pf")
@@ -28,18 +29,30 @@ to = "waiting"
 conditions = {}
 priority = 0
 
-[sub_resource type="Resource" id="Resource_h7qs7"]
-script = ExtResource("5_hq2pf")
-from = "waiting"
-to = "broken"
-conditions = {}
-priority = 0
+[sub_resource type="Resource" id="Resource_getd5"]
+script = ExtResource("6_rvg4l")
+name = "t(\"repairing\")"
 
 [sub_resource type="Resource" id="Resource_ommtx"]
 script = ExtResource("5_hq2pf")
 from = "broken"
 to = "waiting"
-conditions = {}
+conditions = {
+"t(\"repairing\")": SubResource("Resource_getd5")
+}
+priority = 0
+
+[sub_resource type="Resource" id="Resource_4rcu6"]
+script = ExtResource("6_rvg4l")
+name = "t(\"breaking\")"
+
+[sub_resource type="Resource" id="Resource_h7qs7"]
+script = ExtResource("5_hq2pf")
+from = "waiting"
+to = "broken"
+conditions = {
+"t(\"breaking\")": SubResource("Resource_4rcu6")
+}
 priority = 0
 
 [sub_resource type="Resource" id="Resource_wxhc7"]
