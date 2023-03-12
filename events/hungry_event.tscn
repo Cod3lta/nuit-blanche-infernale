@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cnn7ifuvnrysv"]
+[gd_scene load_steps=21 format=3 uid="uid://cnn7ifuvnrysv"]
 
 [ext_resource type="Script" path="res://events/hungry_event.gd" id="1_7mcn2"]
 [ext_resource type="Script" path="res://addons/imjp94.yafsm/src/StateMachinePlayer.gd" id="1_048ru"]
@@ -6,45 +6,50 @@
 [ext_resource type="Script" path="res://addons/imjp94.yafsm/src/states/State.gd" id="3_s1m3b"]
 [ext_resource type="Script" path="res://addons/imjp94.yafsm/src/transitions/Transition.gd" id="4_d30nn"]
 [ext_resource type="Script" path="res://addons/imjp94.yafsm/src/conditions/ExpressionCondition.gd" id="5_ydukx"]
-[ext_resource type="Script" path="res://addons/imjp94.yafsm/src/conditions/Condition.gd" id="7_7f4vv"]
 
 [sub_resource type="Resource" id="Resource_ui2fb"]
 script = ExtResource("3_s1m3b")
 name = "Entry"
-metadata/graph_offset = Vector2(304, 121.5)
-
-[sub_resource type="Resource" id="Resource_exbec"]
-script = ExtResource("3_s1m3b")
-name = "Exit"
-metadata/graph_offset = Vector2(804, 261.5)
+metadata/graph_offset = Vector2(444, 321.5)
 
 [sub_resource type="Resource" id="Resource_1nl84"]
 script = ExtResource("3_s1m3b")
 name = "bring_food"
-metadata/graph_offset = Vector2(584, 121.5)
+metadata/graph_offset = Vector2(647, 341.5)
 
 [sub_resource type="Resource" id="Resource_a8lmp"]
 script = ExtResource("3_s1m3b")
 name = "hungry"
-metadata/graph_offset = Vector2(439, 261.5)
+metadata/graph_offset = Vector2(839, 201.5)
 
-[sub_resource type="Resource" id="Resource_14prl"]
+[sub_resource type="Resource" id="Resource_caae8"]
+script = ExtResource("3_s1m3b")
+name = "waiting"
+metadata/graph_offset = Vector2(438.5, 201.5)
+
+[sub_resource type="Resource" id="Resource_ms0fx"]
+script = ExtResource("5_ydukx")
+name = "t(\"still_hungry\")"
+
+[sub_resource type="Resource" id="Resource_6qb06"]
 script = ExtResource("4_d30nn")
-from = "Entry"
+from = "bring_food"
 to = "hungry"
-conditions = {}
+conditions = {
+"t(\"still_hungry\")": SubResource("Resource_ms0fx")
+}
 priority = 0
 
-[sub_resource type="Resource" id="Resource_b7qgk"]
-script = ExtResource("7_7f4vv")
-name = "feed_developer"
+[sub_resource type="Resource" id="Resource_1jfh1"]
+script = ExtResource("5_ydukx")
+name = "t(\"fed_all_developers\")"
 
 [sub_resource type="Resource" id="Resource_nslxh"]
 script = ExtResource("4_d30nn")
 from = "bring_food"
-to = "Exit"
+to = "waiting"
 conditions = {
-"feed_developer": SubResource("Resource_b7qgk")
+"t(\"fed_all_developers\")": SubResource("Resource_1jfh1")
 }
 priority = 0
 
@@ -61,23 +66,47 @@ conditions = {
 }
 priority = 0
 
+[sub_resource type="Resource" id="Resource_14prl"]
+script = ExtResource("4_d30nn")
+from = "Entry"
+to = "waiting"
+conditions = {}
+priority = 0
+
+[sub_resource type="Resource" id="Resource_w2ke4"]
+script = ExtResource("5_ydukx")
+name = "t(\"new_developer_hungry\")"
+
+[sub_resource type="Resource" id="Resource_0ckop"]
+script = ExtResource("4_d30nn")
+from = "waiting"
+to = "hungry"
+conditions = {
+"t(\"new_developer_hungry\")": SubResource("Resource_w2ke4")
+}
+priority = 0
+
 [sub_resource type="Resource" id="Resource_2wxk0"]
 script = ExtResource("2_kfilr")
 states = {
 "Entry": SubResource("Resource_ui2fb"),
-"Exit": SubResource("Resource_exbec"),
 "bring_food": SubResource("Resource_1nl84"),
-"hungry": SubResource("Resource_a8lmp")
+"hungry": SubResource("Resource_a8lmp"),
+"waiting": SubResource("Resource_caae8")
 }
 transitions = {
 "Entry": {
-"hungry": SubResource("Resource_14prl")
+"waiting": SubResource("Resource_14prl")
 },
 "bring_food": {
-"Exit": SubResource("Resource_nslxh")
+"hungry": SubResource("Resource_6qb06"),
+"waiting": SubResource("Resource_nslxh")
 },
 "hungry": {
 "bring_food": SubResource("Resource_q812b")
+},
+"waiting": {
+"hungry": SubResource("Resource_0ckop")
 }
 }
 name = ""
@@ -86,7 +115,6 @@ name = ""
 script = ExtResource("1_7mcn2")
 
 [node name="StateMachinePlayer" type="Node" parent="."]
-unique_name_in_owner = true
 script = ExtResource("1_048ru")
 state_machine = SubResource("Resource_2wxk0")
 

@@ -14,4 +14,4 @@ func stop_animation():
 	$AnimationPlayer.play("RESET")
 
 func _on_area_3d_clicked():
-	emit_signal("feed")
+	emit_signal("feed", self)
