@@ -55,3 +55,6 @@ func hold_node(node: Node3D) -> void:
 func hold_stop() -> void:
 	for item in $Hand.get_children():
 		item.queue_free()
+
+func is_holding() -> bool:
+	return $Hand.get_child_count() > 0

@@ -112,7 +112,7 @@ transitions = {
 }
 name = ""
 
-[node name="HungryEvent" type="Node3D"]
+[node name="HungryEvent" type="Node"]
 script = ExtResource("1_7mcn2")
 event_start_hungry = ExtResource("2_pg3mn")
 

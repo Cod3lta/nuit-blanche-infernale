@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cbbmtr5kxyqk0"]
+[gd_scene load_steps=29 format=3 uid="uid://cbbmtr5kxyqk0"]
 
 [ext_resource type="Texture2D" uid="uid://coyr5u4qch1hp" path="res://levels/floor_plan.jpg" id="1_lvkq3"]
 [ext_resource type="PackedScene" uid="uid://cixcsyv16m3bd" path="res://objects/table/table_square.tscn" id="2_qqk18"]
@@ -22,6 +22,12 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mgl2r"]
 size = Vector3(17, 1, 63.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ovfps"]
+albedo_color = Color(0.964706, 0, 0.133333, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4iih"]
+albedo_color = Color(0.898039, 0.898039, 0.898039, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_36vi0"]
 albedo_color = Color(0.792157, 0.439216, 0.196078, 1)
@@ -66,6 +72,16 @@ material = SubResource("StandardMaterial3D_cync4")
 [node name="Floor" type="CollisionShape3D" parent="Collisions"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_mgl2r")
+
+[node name="ExtinguisherHolder" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1, 1, -11.9)
+size = Vector3(0.002, 1.11808, 0.911603)
+material = SubResource("StandardMaterial3D_ovfps")
+
+[node name="ExtinguisherHolder2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08959, 1, -11.9)
+size = Vector3(0.002, 1, 0.8)
+material = SubResource("StandardMaterial3D_t4iih")
 
 [node name="FloorPlan" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.79665e-07, 0, 6.398, 0, 6.398, 0, -6.398, 0, -2.79665e-07, -1.23371, 0.0210452, -0.07201)

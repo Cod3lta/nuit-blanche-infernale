@@ -36,6 +36,8 @@ func fire() -> void:
 
 
 func get_exctinctor() -> void:
+	# Can't get the exctinctor if the player is already holding something
+	if Accesser.get_player().is_holding(): return
 	exctinctor_trigger.hide_exctinctor()
 	Accesser.get_player().hold_node(exctinctor_ressource.instantiate())
 	$StateMachinePlayer.set_trigger("get_exctinctor")
@@ -68,7 +70,7 @@ func exctinct_fire(fire: Fire):
 		$StateMachinePlayer.set_trigger("exctinct_all_fires")
 
 
-func _on_state_machine_player_transited(from, to):
+func _on_state_machine_player_transited(_from, to):
 	match to:
 		"waiting":
 			waiting()

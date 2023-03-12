@@ -1,4 +1,4 @@
-extends Node3D
+extends Node
 
 @export var event_start_hungry: EventAsset
 
@@ -59,7 +59,7 @@ func feed_developer(dev: Developer):
 		$StateMachinePlayer.set_trigger("fed_all_developers")
 
 
-func _on_state_machine_player_transited(from, to):
+func _on_state_machine_player_transited(_from, to):
 	match to:
 		"waiting":
 			waiting()

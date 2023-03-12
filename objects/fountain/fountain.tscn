@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://qhjqdjj3v1xi"]
+[gd_scene load_steps=12 format=3 uid="uid://qhjqdjj3v1xi"]
 
 [ext_resource type="Script" path="res://objects/fountain/fountain.gd" id="1_plik2"]
 [ext_resource type="PackedScene" uid="uid://c26xqob6phqri" path="res://objects/fountain/fountain.glb" id="1_qykl4"]
@@ -39,11 +39,11 @@ albedo_color = Color(1, 1, 0.117647, 1)
 metallic = 0.71
 roughness = 0.42
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_px2dl"]
+size = Vector3(1.23336, 1.51035, 1.41531)
+
 [node name="ThirstyTrigger" type="Node3D"]
 script = ExtResource("1_plik2")
-
-[node name="fountain" parent="." instance=ExtResource("1_qykl4")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -0.0127147, -1.19209e-07, 0.0084362)
 
 [node name="ClickableArea3D" parent="." instance=ExtResource("2_u8ixx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0306857, 1.66886, 0.109459)
@@ -91,5 +91,14 @@ material = SubResource("StandardMaterial3D_j3372")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.04705)
 operation = 1
 size = Vector3(6.64715, 0.397137, 4.01085)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="fountain" parent="StaticBody3D" instance=ExtResource("1_qykl4")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -0.0127147, -1.19209e-07, 0.0084362)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.704727, 0)
+shape = SubResource("BoxShape3D_px2dl")
 
 [connection signal="clicked" from="ClickableArea3D" to="." method="_on_clickable_area_3d_clicked"]

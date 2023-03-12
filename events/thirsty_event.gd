@@ -29,7 +29,7 @@ func repairing() -> void:
 	$StateMachinePlayer.set_trigger("repairing")
 
 
-func _on_state_machine_player_transited(from, to):
+func _on_state_machine_player_transited(_from, to):
 	match to:
 		"waiting":
 			waiting()
