@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ctj182x4mc5m6"
-path="res://.godot/imported/SFX_Toilet_Unclogged.wav-8c220b9cf915f659132972cf75f1302b.sample"
+path="res://.godot/imported/SFX_Toilet_Unclogged.wav-9a1c9fdbd4eb16ac66da07de9c44525c.sample"
 
 [deps]
 
-source_file="res://Sounds/SFX/SFX_Toilet_Unclogged.wav"
-dest_files=["res://.godot/imported/SFX_Toilet_Unclogged.wav-8c220b9cf915f659132972cf75f1302b.sample"]
+source_file="res://sounds/SFX/SFX_Toilet_Unclogged.wav"
+dest_files=["res://.godot/imported/SFX_Toilet_Unclogged.wav-9a1c9fdbd4eb16ac66da07de9c44525c.sample"]
 
 [params]
 
