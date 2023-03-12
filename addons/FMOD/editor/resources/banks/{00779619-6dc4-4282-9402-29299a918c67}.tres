@@ -1,0 +1,8 @@
+[gd_resource type="BankAsset" format=3 uid="uid://c6b2culgt87b0"]
+
+[resource]
+file_path = "res://FMOD/Hell Nighter/Build/Desktop/Master.bank"
+modified_time = 1678610233
+path = "bank:/Master"
+guid = "{00779619-6dc4-4282-9402-29299a918c67}"
+name = "Master"

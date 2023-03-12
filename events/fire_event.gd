@@ -10,7 +10,7 @@ func _ready():
 func waiting():
 	pass
 
-func new_fire():
+func start_event():
 	# Choose a random fire
 	var possible_fires: Array[Node] = get_tree().get_nodes_in_group("fire")
 	possible_fires = possible_fires.filter(func(fire): return fire not in fires)
@@ -73,6 +73,3 @@ func _on_state_machine_player_transited(from, to):
 		"return_exctinctor":
 			return_exctinctor()
 
-
-func _on_event_timer_timeout():
-	new_fire()
