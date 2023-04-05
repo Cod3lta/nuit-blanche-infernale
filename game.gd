@@ -5,24 +5,53 @@ var game_started: bool = false
 @export var music_event: EventAsset
 var music_instance: EventInstance
 
-var level_duration: int = 30
-var level: int = 1
+var level_duration: int = 20
+var current_level: int = 1
 var events_queue: Array[Node] = []
 # The order is important!
-@onready var events = [
-	[$Events/HungryEvent],
-	[$Events/ThirstyEvent],
-	[$Events/ThirstyEvent],
+# @onready var events = [
+# 	[$Events/HungryEvent],
+# 	[$Events/ThirstyEvent],
+# 	[$Events/ThirstyEvent],
+# 	[
+# 		$Events/ToiletEvent,
+# 		$Events/ToiletEvent2,
+# 		$Events/ToiletEvent3,
+# 	],
+# 	[$Events/FireEvent],
+# ]
+
+# The last dict of each level always happens first when leveling up 
+@onready var levels = [
 	[
-		$Events/ToiletEvent,
-		$Events/ToiletEvent2,
-		$Events/ToiletEvent3,
+		{"node": $Events/HungryEvent, "occurence": 1},
 	],
-	[$Events/FireEvent],
+	[
+		{"node": $Events/HungryEvent, "occurence": 0.8},
+		{"node": $Events/ThirstyEvent, "occurence": 0.2},
+	],
+	[
+		{"node": $Events/HungryEvent, "occurence": 0.6},
+		{"node": $Events/ThirstyEvent, "occurence": 0.4},
+	],
+	[
+		{"node": $Events/HungryEvent, "occurence": 0.5},
+		{"node": $Events/ThirstyEvent, "occurence": 0.2},
+		{"node": $Events/ToiletEvent, "occurence": 0.1},
+		{"node": $Events/ToiletEvent2, "occurence": 0.1},
+		{"node": $Events/ToiletEvent3, "occurence": 0.1},
+	],
+	[
+		{"node": $Events/HungryEvent, "occurence": 0.4},
+		{"node": $Events/ThirstyEvent, "occurence": 0.1},
+		{"node": $Events/ToiletEvent, "occurence": 0.1},
+		{"node": $Events/ToiletEvent2, "occurence": 0.1},
+		{"node": $Events/ToiletEvent3, "occurence": 0.1},
+		{"node": $Events/FireEvent, "occurence": 0.2},
+	],
 ]
 
-#var level_timeouts: Array[int] = [ 25, 20, 15, 12, 10 ]
-var level_timeouts: Array[int] = [ 10, 9, 8, 7, 7 ]
+var level_timeouts: Array[int] = [ 7, 7, 5, 3, 2 ]
 
 @onready var events_timer: Timer = $EventTimer
 @onready var level_timer: Timer = $LevelTimer
@@ -31,10 +60,13 @@ var level_timeouts: Array[int] = [ 10, 9, 8, 7, 7 ]
 func _ready():
 	randomize()
 	
-	var nb_levels:int = events.size()
+	var nb_levels:int = levels.size()
 	game_timer.start(nb_levels * level_duration)
 	level_timer.start(level_duration)
 	events_timer.start(get_event_wait_time())
+	
+	# Set the game timer
+	game_timer.set_wait_time(nb_levels * level_duration)
 	
 	# Play the music
 	music_instance = RuntimeManager.create_instance(music_event)
@@ -44,21 +76,35 @@ func _ready():
 
 func _process(delta):
 	# Set the music progression
-	var nb_levels = events.size()
-	var progression = (level * level_duration + (1 - level_timer.time_left)) / (nb_levels * level_duration)
+	var nb_levels = levels.size()
+	var progression = (current_level * level_duration + (1 - level_timer.time_left)) / (nb_levels * level_duration)
 	progression *= nb_levels - 1
 	progression += 1
 	music_instance.set_parameter_by_name("intensity", progression, false)
 
 # Returns the wait time between events based on the current level
 func get_event_wait_time() -> int:
-	return level_timeouts[level - 1]
+	return level_timeouts[current_level - 1]
 
 
 func get_random_event() -> Node:
-	var i: int = randi_range(0, level - 1)
-	var event_of_same_type = events[i]
-	return event_of_same_type[randi() % event_of_same_type.size()]
+	var available_events = levels[current_level - 1]
+	# Get a random float
+	var prob_total = 0.0
+	for available_event in available_events:
+		prob_total += available_event['occurence']
+	var i = randf_range(0, prob_total)
+	# Get the event corresponding to that float
+	var j = 0.0
+	for available_event in available_events:
+		if i > j and i < j + available_event['occurence']:
+			# Return choosen event
+			return available_event['node']
+		else:
+			j += available_event['occurence']
+	print("ERROR: random event doesn't exist")
+	return available_events[0]['node']
+	
 
 
 func play_event() -> void:
@@ -77,15 +123,15 @@ func _on_event_timer_timeout():
 
 
 func _on_level_timer_timeout():
-	level += 1
-	print("level up, now at ", level)
-	var event_of_same_type = events[level - 1]
-	var new_event_available = event_of_same_type[randi() % event_of_same_type.size()]
-	events_queue.push_back(new_event_available)
+	current_level += 1
+	print("level up, now at ", current_level)
+	var events_new_level: Array = levels[current_level - 1]
+	var new_event_type = events_new_level.back()
+	events_queue.push_back(new_event_type['node'])
 
 
 func _on_game_timer_timeout():
-	print("Game finished !!")
+	print("Events finished !!")
 	events_timer.stop()
 	level_timer.stop()
 	game_timer.stop()

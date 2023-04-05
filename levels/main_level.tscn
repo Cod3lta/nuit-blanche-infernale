@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cbbmtr5kxyqk0"]
+[gd_scene load_steps=37 format=3 uid="uid://cbbmtr5kxyqk0"]
 
 [ext_resource type="Texture2D" uid="uid://coyr5u4qch1hp" path="res://levels/floor_plan.jpg" id="1_lvkq3"]
 [ext_resource type="PackedScene" uid="uid://cixcsyv16m3bd" path="res://objects/table/table_square.tscn" id="2_qqk18"]
@@ -70,6 +70,8 @@ albedo_color = Color(0.0705882, 1, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dffkc"]
 albedo_color = Color(0.376471, 0.145098, 0.0196078, 1)
+
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_pck8t"]
 
 [node name="MainLevel" type="Node3D"]
 
@@ -1419,6 +1421,9 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.57696, -0.0526956, -
 [node name="CylinderChair" parent="CylinderChairs/CylinderChair9" index="0"]
 transform = Transform3D(0.5, 0, 0, 0, 0.499996, -0.00198967, 0, 0.00198967, 0.499996, 4.74563, 0, -29.4223)
 material_override = SubResource("StandardMaterial3D_dffkc")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPolyphonic_pck8t")
 
 [editable path="LaptopsPcs/PCTower3"]
 [editable path="LaptopsPcs/PCTower16"]

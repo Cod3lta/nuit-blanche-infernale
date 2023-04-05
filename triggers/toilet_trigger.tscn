@@ -49,11 +49,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.284314, 0.762, 0)
 size = Vector3(0.49, 1.19, 0.81)
 
 [node name="GPUParticlesCollisionBox3D2" type="GPUParticlesCollisionBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00568572, -0.266419, 0.701669)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.266, 0)
 size = Vector3(4.8479, 0.527702, 4.89429)
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.359351, 0.624418, -0.204352)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.359, 0.624, 0)
 amount = 40
 lifetime = 2.43
 visibility_aabb = AABB(-2.88972, -3.10678, -2.84222, 5.77943, 6.21357, 5.68445)

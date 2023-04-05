@@ -20,7 +20,7 @@ metadata/graph_offset = Vector2(724, 241.5)
 [sub_resource type="Resource" id="Resource_7tqev"]
 script = ExtResource("4_dk4dn")
 name = "waiting"
-metadata/graph_offset = Vector2(504, 241.5)
+metadata/graph_offset = Vector2(498.5, 241.5)
 
 [sub_resource type="Resource" id="Resource_avdx1"]
 script = ExtResource("6_oqwmh")
@@ -31,27 +31,27 @@ priority = 0
 
 [sub_resource type="Resource" id="Resource_56ndb"]
 script = ExtResource("5_y6b7l")
-name = "t(\"repairing\")"
+name = "t(\"repair\")"
 
 [sub_resource type="Resource" id="Resource_03sxp"]
 script = ExtResource("6_oqwmh")
 from = "broken"
 to = "waiting"
 conditions = {
-"t(\"repairing\")": SubResource("Resource_56ndb")
+"t(\"repair\")": SubResource("Resource_56ndb")
 }
 priority = 0
 
 [sub_resource type="Resource" id="Resource_qw506"]
 script = ExtResource("5_y6b7l")
-name = "t(\"breaking\")"
+name = "t(\"break\")"
 
 [sub_resource type="Resource" id="Resource_cjvj8"]
 script = ExtResource("6_oqwmh")
 from = "waiting"
 to = "broken"
 conditions = {
-"t(\"breaking\")": SubResource("Resource_qw506")
+"t(\"break\")": SubResource("Resource_qw506")
 }
 priority = 0
 

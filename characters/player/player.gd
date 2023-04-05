@@ -4,13 +4,13 @@ class_name Player
 
 
 const SPEED = 6.5
-const JUMP_VELOCITY = 4.0
+const JUMP_VELOCITY = 5.0
 const ROTATION_SPEED = 0.1
 
 @onready var camera: Camera3D = $Camera3D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 1.2
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 1.5
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

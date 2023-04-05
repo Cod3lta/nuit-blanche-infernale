@@ -144,7 +144,8 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26616, 0)
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
-transform = Transform3D(0.965926, -0.258819, 1.74846e-07, 0.258819, 0.965926, 0, -1.68888e-07, 4.52534e-08, 1, 0, 2, 0)
+transform = Transform3D(0.965926, -0.258819, 4.46638e-06, 0.258819, 0.965926, 0, -4.31419e-06, 1.15598e-06, 1, 0, 2, 0)
+visible = false
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.506197, 0)
