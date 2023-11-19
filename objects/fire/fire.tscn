@@ -25,9 +25,9 @@ lifetime_randomness = 0.29
 emission_shape = 3
 emission_box_extents = Vector3(1, 1, 1)
 direction = Vector3(0, 1, 0)
-gravity = Vector3(0, 0.949, 0)
 initial_velocity_min = 0.99
 initial_velocity_max = 1.68
+gravity = Vector3(0, 0.949, 0)
 linear_accel_curve = SubResource("CurveTexture_2paus")
 color = Color(0, 1, 1, 1)
 hue_variation_min = -0.47
@@ -64,9 +64,9 @@ lifetime_randomness = 0.29
 emission_shape = 3
 emission_box_extents = Vector3(1, 1, 1)
 direction = Vector3(0, 1, 0)
-gravity = Vector3(0, 0.949, 0)
 initial_velocity_min = 0.99
 initial_velocity_max = 1.68
+gravity = Vector3(0, 0.949, 0)
 linear_accel_curve = SubResource("CurveTexture_rs3hd")
 color = Color(0, 1, 1, 1)
 hue_variation_min = -0.47
@@ -141,9 +141,9 @@ lifetime_randomness = 0.29
 emission_shape = 3
 emission_box_extents = Vector3(0.287, 0.442, 0.277)
 direction = Vector3(0, 1, 0)
-gravity = Vector3(0, 0.241, 0)
 initial_velocity_min = 0.53
 initial_velocity_max = 0.53
+gravity = Vector3(0, 0.241, 0)
 linear_accel_curve = SubResource("CurveTexture_npmse")
 color = Color(0, 1, 1, 1)
 hue_variation_min = -0.47
@@ -252,10 +252,10 @@ light_energy = 2.036
 omni_range = 4.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "light_flicker"
 libraries = {
 "": SubResource("AnimationLibrary_lg3jg")
 }
+autoplay = "light_flicker"
 
 [node name="ClickableArea3D" parent="." instance=ExtResource("2_xslho")]
 

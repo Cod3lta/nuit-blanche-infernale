@@ -15,7 +15,7 @@ func start_event():
 	toilet_trigger.break_toilet()
 	toilet_trigger.connect("click_toilet", repair)
 	# Play sound
-	#RuntimeManager.play_one_shot_attached(event_start_hungry, hungry_dev)
+	#FMODRuntime.play_one_shot_attached(event_start_hungry, hungry_dev)
 	$StateMachinePlayer.set_trigger("break")
 
 

@@ -12,7 +12,7 @@ func start_event():
 	thirsty_trigger.break_fountain()
 	thirsty_trigger.connect("click_fountain", repairing)
 	# Play sound
-	#RuntimeManager.play_one_shot_attached(event_start_hungry, hungry_dev)
+	#FMODRuntime.play_one_shot_attached(event_start_hungry, hungry_dev)
 	$StateMachinePlayer.set_trigger("breaking")
 
 

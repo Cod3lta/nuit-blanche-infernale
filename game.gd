@@ -69,7 +69,7 @@ func _ready():
 	game_timer.set_wait_time(nb_levels * level_duration)
 	
 	# Play the music
-	music_instance = RuntimeManager.create_instance(music_event)
+	music_instance = FMODRuntime.create_instance(music_event)
 	music_instance.set_parameter_by_name("intensity", 1, false)
 	music_instance.start()
 

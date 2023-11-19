@@ -10,7 +10,7 @@ signal feed
 func _ready():
 	$CSGCombiner3D.set_visible(false)
 	if is_in_group("hungry_dev"):
-		instance_start_hungry = RuntimeManager.create_instance(event_start_hungry)
+		instance_start_hungry = FMODRuntime.create_instance(event_start_hungry)
 		
 
 func start_animation(animation: String):

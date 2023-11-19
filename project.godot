@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="nuit-blanche-infernale"
+config/tags=PackedStringArray("3d", "game_jam")
 run/main_scene="res://ui/main_menu/main_menu.tscn"
-config/features=PackedStringArray("4.0", "Forward Plus")
+config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -20,10 +21,7 @@ config/icon="res://icon.svg"
 RuntimeManager="*res://addons/FMOD/runtime/runtime_manager.gd"
 BeehaveGlobalMetrics="*res://addons/beehave/metrics/beehave_global_metrics.gd"
 Accesser="*res://accesser.gd"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/FMOD/plugin.cfg", "res://addons/beehave/plugin.cfg", "res://addons/imjp94.yafsm/plugin.cfg")
+FMODRuntime="*res://addons/FMOD/runtime/fmod_runtime_manager.gd"
 
 [fmod]
 

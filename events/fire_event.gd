@@ -24,7 +24,7 @@ func start_event():
 	fire.show_fire()
 	fires.push_back(fire)
 	# Play sound
-	RuntimeManager.play_one_shot(event_fire_start, fire)
+	FMODRuntime.play_one_shot(event_fire_start, fire)
 	# Make the exctinguisher available
 	if $StateMachinePlayer.get_current() == "bring_exctinctor":
 		fire.connect("extinguish", exctinct_fire)
