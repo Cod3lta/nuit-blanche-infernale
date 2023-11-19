@@ -1,14 +1,9 @@
-[gd_scene load_steps=38 format=3 uid="uid://vhqwywf7xtwd"]
+[gd_scene load_steps=14 format=3 uid="uid://vhqwywf7xtwd"]
 
 [ext_resource type="Script" path="res://objects/door/door.gd" id="1_x1fik"]
-[ext_resource type="EventAsset" uid="uid://dppkjrat267bf" path="res://addons/FMOD/editor/resources/events/{3cdbea88-a918-4daa-a2f8-f8f30837621a}.tres" id="2_co5ua"]
-[ext_resource type="Script" path="res://addons/imjp94.yafsm/src/StateMachinePlayer.gd" id="2_g7ssp"]
-[ext_resource type="Script" path="res://addons/imjp94.yafsm/src/states/StateMachine.gd" id="3_g4oxs"]
-[ext_resource type="EventAsset" uid="uid://buksyogxyackb" path="res://addons/FMOD/editor/resources/events/{91a2fece-dd32-4fa9-bb04-9aed7a5f430d}.tres" id="3_jybnx"]
-[ext_resource type="Script" path="res://addons/imjp94.yafsm/src/states/State.gd" id="4_a05if"]
-[ext_resource type="Script" path="res://addons/imjp94.yafsm/src/transitions/Transition.gd" id="5_k4q33"]
-[ext_resource type="Script" path="res://addons/imjp94.yafsm/src/conditions/ExpressionCondition.gd" id="6_71t7p"]
-[ext_resource type="Script" path="res://addons/imjp94.yafsm/src/conditions/Condition.gd" id="7_k2yuj"]
+[ext_resource type="PackedScene" uid="uid://nmp5pnolk5h0" path="res://StateMachine/StateMachine.tscn" id="2_x7gai"]
+[ext_resource type="Script" path="res://objects/door/Opened.gd" id="3_2tu7d"]
+[ext_resource type="Script" path="res://objects/door/Closed.gd" id="4_bse0q"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wwsep"]
 radius = 2.0
@@ -18,146 +13,6 @@ albedo_color = Color(0.196078, 0.196078, 0.196078, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ewtam"]
 albedo_color = Color(0.403922, 0.403922, 0.403922, 1)
-
-[sub_resource type="Resource" id="Resource_w1xkj"]
-script = ExtResource("4_a05if")
-name = "Entry"
-metadata/graph_offset = Vector2(304, 201.5)
-
-[sub_resource type="Resource" id="Resource_o6m58"]
-script = ExtResource("4_a05if")
-name = "close"
-metadata/graph_offset = Vector2(464, 201.5)
-
-[sub_resource type="Resource" id="Resource_qkadw"]
-script = ExtResource("4_a05if")
-name = "closing"
-metadata/graph_offset = Vector2(599.5, 81.5)
-
-[sub_resource type="Resource" id="Resource_5qfug"]
-script = ExtResource("4_a05if")
-name = "open"
-metadata/graph_offset = Vector2(724, 201.5)
-
-[sub_resource type="Resource" id="Resource_til1j"]
-script = ExtResource("4_a05if")
-name = "opening"
-metadata/graph_offset = Vector2(595.5, 321.5)
-
-[sub_resource type="Resource" id="Resource_etijj"]
-script = ExtResource("5_k4q33")
-from = "Entry"
-to = "close"
-conditions = {}
-priority = 0
-
-[sub_resource type="Resource" id="Resource_gsiyv"]
-script = ExtResource("6_71t7p")
-name = "t(\"open\")"
-
-[sub_resource type="Resource" id="Resource_n5xc6"]
-script = ExtResource("5_k4q33")
-from = "close"
-to = "opening"
-conditions = {
-"t(\"open\")": SubResource("Resource_gsiyv")
-}
-priority = 0
-
-[sub_resource type="Resource" id="Resource_bujic"]
-script = ExtResource("7_k2yuj")
-name = "closed"
-
-[sub_resource type="Resource" id="Resource_mhs82"]
-script = ExtResource("5_k4q33")
-from = "closing"
-to = "close"
-conditions = {
-"closed": SubResource("Resource_bujic")
-}
-priority = 0
-
-[sub_resource type="Resource" id="Resource_x2a6g"]
-script = ExtResource("6_71t7p")
-name = "t(\"open\")"
-
-[sub_resource type="Resource" id="Resource_mbgdk"]
-script = ExtResource("5_k4q33")
-from = "closing"
-to = "opening"
-conditions = {
-"t(\"open\")": SubResource("Resource_x2a6g")
-}
-priority = 0
-
-[sub_resource type="Resource" id="Resource_lw7wu"]
-script = ExtResource("7_k2yuj")
-name = "close"
-
-[sub_resource type="Resource" id="Resource_2gvg1"]
-script = ExtResource("5_k4q33")
-from = "open"
-to = "closing"
-conditions = {
-"close": SubResource("Resource_lw7wu")
-}
-priority = 0
-
-[sub_resource type="Resource" id="Resource_ju3es"]
-script = ExtResource("6_71t7p")
-name = "t(\"close\")"
-
-[sub_resource type="Resource" id="Resource_woyh8"]
-script = ExtResource("5_k4q33")
-from = "opening"
-to = "closing"
-conditions = {
-"t(\"close\")": SubResource("Resource_ju3es")
-}
-priority = 0
-
-[sub_resource type="Resource" id="Resource_5gaa4"]
-script = ExtResource("6_71t7p")
-name = "t(\"opened\")"
-
-[sub_resource type="Resource" id="Resource_mbv03"]
-script = ExtResource("5_k4q33")
-from = "opening"
-to = "open"
-conditions = {
-"t(\"opened\")": SubResource("Resource_5gaa4")
-}
-priority = 0
-
-[sub_resource type="Resource" id="Resource_np26k"]
-script = ExtResource("3_g4oxs")
-states = {
-"Entry": SubResource("Resource_w1xkj"),
-"close": SubResource("Resource_o6m58"),
-"closing": SubResource("Resource_qkadw"),
-"open": SubResource("Resource_5qfug"),
-"opening": SubResource("Resource_til1j")
-}
-transitions = {
-"Entry": {
-"close": SubResource("Resource_etijj")
-},
-"close": {
-"opening": SubResource("Resource_n5xc6")
-},
-"closing": {
-"close": SubResource("Resource_mhs82"),
-"opening": SubResource("Resource_mbgdk")
-},
-"open": {
-"closing": SubResource("Resource_2gvg1")
-},
-"opening": {
-"closing": SubResource("Resource_woyh8"),
-"open": SubResource("Resource_mbv03")
-}
-}
-name = ""
 
 [sub_resource type="Animation" id="Animation_so0e2"]
 length = 0.001
@@ -187,20 +42,6 @@ tracks/0/keys = {
 "points": PackedFloat32Array(1.571, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.3)
 }
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.3),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"on_close"
-}]
-}
 
 [sub_resource type="Animation" id="Animation_wm2t5"]
 resource_name = "closing_positive"
@@ -215,20 +56,6 @@ tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(-1.5708, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.3)
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.3),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"on_close"
-}]
 }
 
 [sub_resource type="Animation" id="Animation_q0mvq"]
@@ -245,20 +72,6 @@ tracks/0/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1.5708, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.3)
 }
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.3),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"on_open"
-}]
-}
 
 [sub_resource type="Animation" id="Animation_0hg78"]
 resource_name = "opening_positive"
@@ -274,20 +87,6 @@ tracks/0/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -1.5708, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.3)
 }
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.3),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"on_open"
-}]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vxvsr"]
 _data = {
@@ -300,8 +99,6 @@ _data = {
 
 [node name="Door" type="Node3D"]
 script = ExtResource("1_x1fik")
-event_open_door = ExtResource("2_co5ua")
-event_close_door = ExtResource("3_jybnx")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_mask = 2
@@ -354,15 +151,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04632, -0.396079)
 operation = 2
 size = Vector3(0.2, 0.0854355, 0.275375)
 
-[node name="StateMachinePlayer" type="Node" parent="."]
-script = ExtResource("2_g7ssp")
-state_machine = SubResource("Resource_np26k")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_vxvsr")
 }
 
+[node name="StateMachine" parent="." node_paths=PackedStringArray("entry_state") instance=ExtResource("2_x7gai")]
+entry_state = NodePath("Closed")
+
+[node name="Opened" type="Node" parent="StateMachine" node_paths=PackedStringArray("door", "animation_player", "closed_state", "state_machine")]
+script = ExtResource("3_2tu7d")
+door = NodePath("../..")
+animation_player = NodePath("../../AnimationPlayer")
+closed_state = NodePath("../Closed")
+state_machine = NodePath("..")
+
+[node name="Closed" type="Node" parent="StateMachine" node_paths=PackedStringArray("door", "animation_player", "opened_state", "state_machine")]
+script = ExtResource("4_bse0q")
+door = NodePath("../..")
+animation_player = NodePath("../../AnimationPlayer")
+opened_state = NodePath("../Opened")
+state_machine = NodePath("..")
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_player_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_player_exited"]
-[connection signal="transited" from="StateMachinePlayer" to="." method="_on_state_machine_player_transited"]
