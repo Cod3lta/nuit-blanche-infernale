@@ -1,9 +1,0 @@
-[gd_resource type="EventAsset" format=3 uid="uid://cw7vvg0qklddn"]
-
-[resource]
-is_3d = true
-min_distance = 1.0
-max_distance = 20.0
-path = "event:/Events/event_firealarm"
-guid = "{b5a01367-b370-46da-b2c3-0f8a90e0b22d}"
-name = "event_firealarm"

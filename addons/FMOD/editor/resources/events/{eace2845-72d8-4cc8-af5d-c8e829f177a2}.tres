@@ -1,9 +1,0 @@
-[gd_resource type="EventAsset" format=3 uid="uid://c8s3v2of4mxt6"]
-
-[resource]
-is_oneshot = true
-min_distance = 1.0
-max_distance = 20.0
-path = "event:/Events/event_fire_start"
-guid = "{eace2845-72d8-4cc8-af5d-c8e829f177a2}"
-name = "event_fire_start"

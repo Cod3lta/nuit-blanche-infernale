@@ -1,9 +1,0 @@
-[gd_resource type="EventAsset" format=3 uid="uid://5btw12jfgmxw"]
-
-[resource]
-is_oneshot = true
-min_distance = 1.0
-max_distance = 20.0
-path = "event:/Events/event_wifi_start"
-guid = "{f66e3511-04ce-4fc4-a4e2-e494f3e5e7b6}"
-name = "event_wifi_start"

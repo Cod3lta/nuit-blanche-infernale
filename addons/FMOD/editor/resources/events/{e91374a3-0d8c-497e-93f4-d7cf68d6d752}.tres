@@ -1,8 +1,0 @@
-[gd_resource type="EventAsset" format=3 uid="uid://b3umj33fbpkvd"]
-
-[resource]
-min_distance = 1.0
-max_distance = 20.0
-path = "event:/Footsteps/event_footstep"
-guid = "{e91374a3-0d8c-497e-93f4-d7cf68d6d752}"
-name = "event_footstep"

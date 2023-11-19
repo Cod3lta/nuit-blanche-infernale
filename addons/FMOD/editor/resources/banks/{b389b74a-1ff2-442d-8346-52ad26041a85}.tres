@@ -1,8 +1,0 @@
-[gd_resource type="BankAsset" format=3 uid="uid://cu3j48k2o7rt3"]
-
-[resource]
-file_path = "res://FMOD/Hell Nighter/Build/Desktop/SFX.bank"
-modified_time = 1678610233
-path = "bank:/SFX"
-guid = "{b389b74a-1ff2-442d-8346-52ad26041a85}"
-name = "SFX"

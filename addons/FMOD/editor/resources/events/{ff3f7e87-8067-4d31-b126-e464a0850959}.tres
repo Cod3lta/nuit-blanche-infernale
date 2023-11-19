@@ -1,9 +1,0 @@
-[gd_resource type="EventAsset" format=3 uid="uid://ys2cp4xqqsyk"]
-
-[resource]
-is_oneshot = true
-min_distance = 1.0
-max_distance = 20.0
-path = "event:/Events/event_toilet_start"
-guid = "{ff3f7e87-8067-4d31-b126-e464a0850959}"
-name = "event_toilet_start"

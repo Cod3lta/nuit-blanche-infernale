@@ -1,8 +1,0 @@
-[gd_resource type="BankAsset" format=3 uid="uid://mgtvfa4kmga0"]
-
-[resource]
-file_path = "res://FMOD/Hell Nighter/Build/Desktop/Master.strings.bank"
-modified_time = 1678610233
-path = "bank:/Master.strings"
-guid = "{986ab6cd-1cbf-0ec0-124b-a3d76b628aff}"
-name = "Master.strings"
