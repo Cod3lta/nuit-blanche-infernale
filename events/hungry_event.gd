@@ -5,13 +5,6 @@ var pizza_ressource = preload("res://objects/pizza/Pizza.tscn")
 @onready var pizza_trigger = get_node("/root/Game/PizzaTrigger")
 
 
-func _ready():
-	pass
-
-
-func waiting():
-	pass
-
 func start_event():
 	# Choose a random dev, animate it
 	var hungry_possibly_developers = get_tree().get_nodes_in_group("hungry_dev") as Array[Developer]
@@ -26,9 +19,9 @@ func start_event():
 	hungry_developers.push_back(hungry_dev)
 	# Add a new pizza in the kitchen
 	pizza_trigger.add_pizza()
-	$StateMachinePlayer.set_trigger("new_developer_hungry")
+	$StateMachine.set_trigger("new_hungry_dev")
 
-
+#called by the hungry state
 func hungry() -> void:
 	pizza_trigger.connect("get_pizza", get_pizza)
 	for dev in hungry_developers:
@@ -38,7 +31,7 @@ func hungry() -> void:
 func get_pizza() -> void:
 	pizza_trigger.remove_pizza()
 	Accesser.get_player().hold_node(pizza_ressource.instantiate())
-	$StateMachinePlayer.set_trigger("get_pizza")
+	$StateMachine.set_trigger("get_pizza")
 
 
 func bring_food() -> void:
@@ -53,16 +46,6 @@ func feed_developer(dev: Developer):
 	hungry_developers.erase(dev)
 	
 	if hungry_developers.size() > 0:
-		$StateMachinePlayer.set_trigger("still_hungry")
+		$StateMachine.set_trigger("still_hungry")
 	else:
-		$StateMachinePlayer.set_trigger("fed_all_developers")
-
-
-func _on_state_machine_player_transited(_from, to):
-	match to:
-		"waiting":
-			waiting()
-		"hungry":
-			hungry()
-		"bring_food":
-			bring_food()
+		$StateMachine.set_trigger("fed_everyone")
