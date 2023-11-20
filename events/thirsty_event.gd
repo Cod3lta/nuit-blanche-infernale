@@ -7,7 +7,7 @@ extends Node
 
 
 func start_event():
-	if $StateMachine.get_current() == "broken":
+	if $StateMachine.get_current() == $StateMachine/Broken:
 		return
 	thirsty_trigger.break_fountain()
 	thirsty_trigger.connect("click_fountain", repairing)
