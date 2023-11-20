@@ -15,8 +15,7 @@ func _ready():
 
 func trigger(trigger):
 	# cancel the trigger if we're transitionning
-	if transitionning: 
-		return
+	if transitionning: return
 	
 	# transfer the action to the current state
 	state.trigger(trigger)
@@ -30,3 +29,6 @@ func set_state(new_state: MyState):
 	state = new_state
 	transitionning = false
 	print("end tr")
+
+func get_current() -> MyState:
+	return state

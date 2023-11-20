@@ -1,83 +1,19 @@
-[gd_scene load_steps=16 format=3 uid="uid://c8vwpdfxer0a0"]
+[gd_scene load_steps=5 format=3 uid="uid://c8vwpdfxer0a0"]
 
 [ext_resource type="Script" path="res://events/thirsty_event.gd" id="1_7cquj"]
-[ext_resource type="Script" path="res://addons/imjp94.yafsm/src/StateMachinePlayer.gd" id="2_46cig"]
-[ext_resource type="Script" path="res://addons/imjp94.yafsm/src/states/StateMachine.gd" id="3_sdbrh"]
-[ext_resource type="Script" path="res://addons/imjp94.yafsm/src/states/State.gd" id="4_xfj0k"]
-[ext_resource type="Script" path="res://addons/imjp94.yafsm/src/transitions/Transition.gd" id="5_hq2pf"]
-[ext_resource type="Script" path="res://addons/imjp94.yafsm/src/conditions/ExpressionCondition.gd" id="6_rvg4l"]
-
-[sub_resource type="Resource" id="Resource_sqne4"]
-script = ExtResource("4_xfj0k")
-name = "Entry"
-metadata/graph_offset = Vector2(404, 281.5)
-
-[sub_resource type="Resource" id="Resource_ma2au"]
-script = ExtResource("4_xfj0k")
-name = "broken"
-metadata/graph_offset = Vector2(824.165, 268.144)
-
-[sub_resource type="Resource" id="Resource_aqrfn"]
-script = ExtResource("4_xfj0k")
-name = "waiting"
-metadata/graph_offset = Vector2(598.5, 241.5)
-
-[sub_resource type="Resource" id="Resource_sm1ph"]
-script = ExtResource("5_hq2pf")
-from = "Entry"
-to = "waiting"
-conditions = {}
-priority = 0
-
-[sub_resource type="Resource" id="Resource_getd5"]
-script = ExtResource("6_rvg4l")
-name = "t(\"repairing\")"
-
-[sub_resource type="Resource" id="Resource_ommtx"]
-script = ExtResource("5_hq2pf")
-from = "broken"
-to = "waiting"
-conditions = {
-"t(\"repairing\")": SubResource("Resource_getd5")
-}
-priority = 0
-
-[sub_resource type="Resource" id="Resource_4rcu6"]
-script = ExtResource("6_rvg4l")
-name = "t(\"breaking\")"
-
-[sub_resource type="Resource" id="Resource_h7qs7"]
-script = ExtResource("5_hq2pf")
-from = "waiting"
-to = "broken"
-conditions = {
-"t(\"breaking\")": SubResource("Resource_4rcu6")
-}
-priority = 0
-
-[sub_resource type="Resource" id="Resource_wxhc7"]
-script = ExtResource("3_sdbrh")
-states = {
-"Entry": SubResource("Resource_sqne4"),
-"broken": SubResource("Resource_ma2au"),
-"waiting": SubResource("Resource_aqrfn")
-}
-transitions = {
-"Entry": {
-"waiting": SubResource("Resource_sm1ph")
-},
-"broken": {
-"waiting": SubResource("Resource_ommtx")
-},
-"waiting": {
-"broken": SubResource("Resource_h7qs7")
-}
-}
-name = ""
+[ext_resource type="PackedScene" uid="uid://nmp5pnolk5h0" path="res://StateMachine/StateMachine.tscn" id="7_f6uht"]
+[ext_resource type="Script" path="res://events/thirsty/Waiting.gd" id="8_0j3it"]
+[ext_resource type="Script" path="res://events/thirsty/Broken.gd" id="9_sjksk"]
 
 [node name="ThirstyEvent" type="Node"]
 script = ExtResource("1_7cquj")
 
-[node name="StateMachinePlayer" type="Node" parent="."]
-script = ExtResource("2_46cig")
-state_machine = SubResource("Resource_wxhc7")
+[node name="StateMachine" parent="." instance=ExtResource("7_f6uht")]
+
+[node name="Waiting" type="Node" parent="StateMachine" node_paths=PackedStringArray("broken_state")]
+script = ExtResource("8_0j3it")
+broken_state = NodePath("../Broken")
+
+[node name="Broken" type="Node" parent="StateMachine" node_paths=PackedStringArray("waiting_state")]
+script = ExtResource("9_sjksk")
+waiting_state = NodePath("../Waiting")
