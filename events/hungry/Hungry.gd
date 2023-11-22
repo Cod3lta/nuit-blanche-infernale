@@ -11,11 +11,10 @@ func _ready():
 func trigger(trigger: String):
 	match trigger:
 		"get_pizza":
-			
 			# Play sound
 			# FMODRuntime.play_one_shot_attached(event_close_door, self)
-			# play the closing animation
 			
-			# then go the "closed" state
 			state_machine.set_state(bring_food_state)
+			return true
+	return false
 

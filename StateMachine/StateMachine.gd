@@ -18,11 +18,9 @@ func trigger(trigger):
 	if transitionning: return
 	
 	# transfer the action to the current state
-	state.trigger(trigger)
+	var state_exists: bool = state.trigger(trigger)
+	transitionning = state_exists
 
-func start_transition():
-	transitionning = true
-	print("start tr")
 
 # called at the end of a transition to set the new state
 func set_state(new_state: MyState):

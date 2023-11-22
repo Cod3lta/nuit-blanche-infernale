@@ -10,8 +10,7 @@ func trigger(trigger: String):
 			
 			# Play sound
 			# FMODRuntime.play_one_shot_attached(event_close_door, self)
-			# play the closing animation
 			
-			# then go the "closed" state
 			state_machine.set_state(hungry_state)
-
+			return true
+	return false

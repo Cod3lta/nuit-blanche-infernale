@@ -7,6 +7,6 @@ extends MyState
 func trigger(trigger: String):
 	match trigger:
 		"repair":
-			
-			# then go the "closed" state
 			state_machine.set_state(waiting_state)
+			return true
+	return false

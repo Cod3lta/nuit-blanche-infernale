@@ -13,12 +13,11 @@ func _ready():
 func trigger(trigger: String):
 	match trigger:
 		"still_hungry":
-			
 			# Play sound
-			# then go the "closed" state
 			state_machine.set_state(hungry_state)
+			return true
 		"fed_everyone":
-			
 			# Play sound
-			# then go the "closed" state
 			state_machine.set_state(waiting_state)
+			return true
+	return false

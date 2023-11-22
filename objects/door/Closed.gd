@@ -8,15 +8,11 @@ extends MyState
 func trigger(trigger: String):
 	match trigger:
 		"opening":
-			# Start the transition
-			start_transition()
-			
 			# Play sound
 			# FMODRuntime.play_one_shot_attached(event_open_door, self)
 			# play the opening animation
 			animation_player.play(get_door_animation())
 			
-			# then go the "opened" state
 			state_machine.set_state(opened_state)
 
 func get_door_animation():

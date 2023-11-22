@@ -7,8 +7,11 @@ func _ready():
 	pass
 
 
-func trigger(trigger: String):
+# Triggers a change to a new state
+# The return value is true if the new state exists
+func trigger(trigger: String) -> bool: 
 	push_error("The trigger function isn't re-implemented")
+	return false
 
 func start_transition():
 	state_machine.start_transition()
