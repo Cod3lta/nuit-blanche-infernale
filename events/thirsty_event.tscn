@@ -8,7 +8,8 @@
 [node name="ThirstyEvent" type="Node"]
 script = ExtResource("1_7cquj")
 
-[node name="StateMachine" parent="." instance=ExtResource("7_f6uht")]
+[node name="StateMachine" parent="." node_paths=PackedStringArray("entry_state") instance=ExtResource("7_f6uht")]
+entry_state = NodePath("Waiting")
 
 [node name="Waiting" type="Node" parent="StateMachine" node_paths=PackedStringArray("broken_state")]
 script = ExtResource("8_0j3it")

@@ -2,8 +2,8 @@ extends Node3D
 
 var game_started: bool = false
 
-@export var music_event: EventAsset
-var music_instance: EventInstance
+#@export var music_event: EventAsset
+#var music_instance: EventInstance
 
 var level_duration: int = 20
 var current_level: int = 1
@@ -24,7 +24,8 @@ var events_queue: Array[Node] = []
 # The last dict of each level always happens first when leveling up 
 @onready var levels = [
 	[
-		{"node": $Events/HungryEvent, "occurence": 1},
+		#{"node": $Events/HungryEvent, "occurence": 1},
+		{"node": $Events/FireEvent, "occurence": 1},
 	],
 	[
 		{"node": $Events/HungryEvent, "occurence": 0.8},
@@ -69,9 +70,9 @@ func _ready():
 	game_timer.set_wait_time(nb_levels * level_duration)
 	
 	# Play the music
-	music_instance = FMODRuntime.create_instance(music_event)
-	music_instance.set_parameter_by_name("intensity", 1, false)
-	music_instance.start()
+	#music_instance = FMODRuntime.create_instance(music_event)
+	#music_instance.set_parameter_by_name("intensity", 1, false)
+	#music_instance.start()
 
 
 func _process(delta):
@@ -80,7 +81,7 @@ func _process(delta):
 	var progression = (current_level * level_duration + (1 - level_timer.time_left)) / (nb_levels * level_duration)
 	progression *= nb_levels - 1
 	progression += 1
-	music_instance.set_parameter_by_name("intensity", progression, false)
+	#music_instance.set_parameter_by_name("intensity", progression, false)
 
 # Returns the wait time between events based on the current level
 func get_event_wait_time() -> int:

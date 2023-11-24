@@ -9,24 +9,21 @@
 [node name="HungryEvent" type="Node"]
 script = ExtResource("1_7mcn2")
 
-[node name="MyStateMachine" type="Node" parent="." node_paths=PackedStringArray("entry_state")]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("entry_state")]
 script = ExtResource("7_p28it")
 entry_state = NodePath("Waiting")
 
-[node name="Waiting" type="Node" parent="MyStateMachine" node_paths=PackedStringArray("hungry_state", "state_machine")]
+[node name="Waiting" type="Node" parent="StateMachine" node_paths=PackedStringArray("hungry_state")]
 script = ExtResource("8_324x5")
 hungry_state = NodePath("../Hungry")
-state_machine = NodePath("..")
 
-[node name="Hungry" type="Node" parent="MyStateMachine" node_paths=PackedStringArray("bring_food_state", "hungry_event", "state_machine")]
+[node name="Hungry" type="Node" parent="StateMachine" node_paths=PackedStringArray("bring_food_state", "hungry_event")]
 script = ExtResource("9_5a83j")
 bring_food_state = NodePath("../BringFood")
 hungry_event = NodePath("../..")
-state_machine = NodePath("..")
 
-[node name="BringFood" type="Node" parent="MyStateMachine" node_paths=PackedStringArray("hungry_state", "waiting_state", "hungry_event", "state_machine")]
+[node name="BringFood" type="Node" parent="StateMachine" node_paths=PackedStringArray("hungry_state", "waiting_state", "hungry_event")]
 script = ExtResource("10_10o7i")
 hungry_state = NodePath("../Hungry")
 waiting_state = NodePath("../Waiting")
 hungry_event = NodePath("../..")
-state_machine = NodePath("..")

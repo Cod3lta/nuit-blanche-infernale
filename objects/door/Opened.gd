@@ -5,6 +5,10 @@ extends MyState
 @export var closed_state: Node
 
 
+func enter() -> void:
+	pass
+
+
 func trigger(trigger: String):
 	match trigger:
 		"closing":

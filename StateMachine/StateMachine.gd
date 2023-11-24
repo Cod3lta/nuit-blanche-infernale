@@ -14,6 +14,7 @@ signal transited(from: MyState, to: MyState)
 func _ready():
 	state = entry_state
 	transitionning = false
+	assert(entry_state != null, "Missing entry state")
 
 
 func init(parent_: Node) -> void:
@@ -28,8 +29,12 @@ func trigger(trigger):
 	
 	# transfer the trigger to the current state
 	var state_exists: bool = state.trigger(trigger)
-	# if the new state we're trying to go to exists, we end the transition
-	transitionning = state_exists
+	if !state_exists:
+		push_warning("Tried to enter a non-existing state")
+	else:
+		# if the new state we're trying to go to exists, we end the transition
+		transitionning = false
+	
 
 
 # called at the end of a transition to set the new state

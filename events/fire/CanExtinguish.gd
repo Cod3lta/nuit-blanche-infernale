@@ -4,6 +4,7 @@ extends MyState
 @export var fire_state: Node
 @export var no_more_fire_state: Node
 
+
 func enter() -> void:
 	parent.exctinctor_trigger.disconnect("click_exctinctor", parent.bring_back_exctinctor)
 	parent.exctinctor_trigger.disconnect("click_exctinctor", parent.get_exctinctor)
@@ -12,6 +13,7 @@ func enter() -> void:
 
 
 func exctinct_fire(fire: Fire):
+	print("fireEvent recieved the extinct_fire signal")
 	fire.disconnect("extinguish", exctinct_fire)
 	fire.hide_fire()
 	parent.fires.erase(fire)

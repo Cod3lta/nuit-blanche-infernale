@@ -18,10 +18,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-RuntimeManager="*res://addons/FMOD/runtime/runtime_manager.gd"
+RuntimeManager="res://addons/FMOD/runtime/runtime_manager.gd"
 BeehaveGlobalMetrics="*res://addons/beehave/metrics/beehave_global_metrics.gd"
 Accesser="*res://accesser.gd"
-FMODRuntime="*res://addons/FMOD/runtime/fmod_runtime_manager.gd"
+FMODRuntime="res://addons/FMOD/runtime/fmod_runtime_manager.gd"
 
 [fmod]
 

@@ -13,7 +13,7 @@ func get_exctinctor() -> void:
 	if Accesser.get_player().is_holding(): return
 	parent.exctinctor_trigger.hide_exctinctor()
 	Accesser.get_player().hold_node(parent.exctinctor_ressource.instantiate())
-	$StateMachine.trigger("get_exctinctor")
+	state_machine.trigger("get_exctinctor")
 
 
 func trigger(trigger: String):

@@ -1,7 +1,7 @@
 extends Node
 
 
-@export var event_fire_start: EventAsset
+#@export var event_fire_start: EventAsset
 
 var fires : Array[Fire]
 var exctinctor_ressource = preload("res://objects/extinguisher/exctinguisher.tscn")
