@@ -1,11 +1,21 @@
 extends MyState
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+@export var can_extinguish_state: Node
+@export var waiting_state: Node
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func enter() -> void:
+	parent.exctinctor_trigger.connect("click_exctinctor", parent.bring_back_exctinctor)
+
+
+func trigger(trigger: String):
+	match trigger:
+		"bring_back_extinctor":
+			state_machine.set_state(waiting_state)
+			return true
+		
+		"new_fire":
+			state_machine.set_state(can_extinguish_state)
+			return true
+	return false

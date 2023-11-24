@@ -1,11 +1,32 @@
 extends MyState
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+@export var fire_state: Node
+@export var no_more_fire_state: Node
+
+func enter() -> void:
+	parent.exctinctor_trigger.disconnect("click_exctinctor", parent.bring_back_exctinctor)
+	parent.exctinctor_trigger.disconnect("click_exctinctor", parent.get_exctinctor)
+	for fire in parent.fires:
+		fire.connect("extinguish", exctinct_fire)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func exctinct_fire(fire: Fire):
+	fire.disconnect("extinguish", exctinct_fire)
+	fire.hide_fire()
+	parent.fires.erase(fire)
+	if parent.fires.size() == 0:
+		state_machine.trigger("exctinct_all_fires")
+
+
+func trigger(trigger: String):
+	match trigger:
+		"bring_back_extinctor":
+			state_machine.set_state(fire_state)
+			return true
+		
+		"extinct_all_fires":
+			state_machine.set_state(no_more_fire_state)
+			return true
+	return false
+

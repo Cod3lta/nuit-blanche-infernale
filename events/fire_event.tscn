@@ -1,160 +1,32 @@
-[gd_scene load_steps=29 format=3 uid="uid://bbtxhws78pdgp"]
+[gd_scene load_steps=7 format=3 uid="uid://bbtxhws78pdgp"]
 
 [ext_resource type="Script" path="res://events/fire_event.gd" id="1_4btyr"]
-[ext_resource type="Script" path="res://addons/imjp94.yafsm/src/StateMachinePlayer.gd" id="1_048ru"]
-[ext_resource type="Script" path="res://addons/imjp94.yafsm/src/states/StateMachine.gd" id="2_kfilr"]
-[ext_resource type="Script" path="res://addons/imjp94.yafsm/src/states/State.gd" id="3_s1m3b"]
-[ext_resource type="Script" path="res://addons/imjp94.yafsm/src/transitions/Transition.gd" id="4_d30nn"]
-[ext_resource type="Script" path="res://addons/imjp94.yafsm/src/conditions/ExpressionCondition.gd" id="5_ydukx"]
 [ext_resource type="PackedScene" uid="uid://nmp5pnolk5h0" path="res://StateMachine/StateMachine.tscn" id="7_gi2yh"]
 [ext_resource type="Script" path="res://events/fire/Waiting.gd" id="8_m3l7s"]
 [ext_resource type="Script" path="res://events/fire/Fire.gd" id="9_y1n16"]
 [ext_resource type="Script" path="res://events/fire/CanExtinguish.gd" id="10_v7y7f"]
 [ext_resource type="Script" path="res://events/fire/NoMoreFire.gd" id="11_5c28m"]
 
-[sub_resource type="Resource" id="Resource_ui2fb"]
-script = ExtResource("3_s1m3b")
-name = "Entry"
-metadata/graph_offset = Vector2(344, 281.5)
-
-[sub_resource type="Resource" id="Resource_1nl84"]
-script = ExtResource("3_s1m3b")
-name = "bring_exctinctor"
-metadata/graph_offset = Vector2(933, 341.5)
-
-[sub_resource type="Resource" id="Resource_a8lmp"]
-script = ExtResource("3_s1m3b")
-name = "fire"
-metadata/graph_offset = Vector2(764, 201.5)
-
-[sub_resource type="Resource" id="Resource_3k84o"]
-script = ExtResource("3_s1m3b")
-name = "return_exctinctor"
-metadata/graph_offset = Vector2(606.5, 341.5)
-
-[sub_resource type="Resource" id="Resource_caae8"]
-script = ExtResource("3_s1m3b")
-name = "waiting"
-metadata/graph_offset = Vector2(438.5, 201.5)
-
-[sub_resource type="Resource" id="Resource_14prl"]
-script = ExtResource("4_d30nn")
-from = "Entry"
-to = "waiting"
-conditions = {}
-priority = 0
-
-[sub_resource type="Resource" id="Resource_j0ew5"]
-script = ExtResource("5_ydukx")
-name = "t(\"exctinct_all_fires\")"
-
-[sub_resource type="Resource" id="Resource_fbru8"]
-script = ExtResource("4_d30nn")
-from = "bring_exctinctor"
-to = "return_exctinctor"
-conditions = {
-"t(\"exctinct_all_fires\")": SubResource("Resource_j0ew5")
-}
-priority = 0
-
-[sub_resource type="Resource" id="Resource_1hwfo"]
-script = ExtResource("5_ydukx")
-name = "t(\"get_exctinctor\")"
-
-[sub_resource type="Resource" id="Resource_q812b"]
-script = ExtResource("4_d30nn")
-from = "fire"
-to = "bring_exctinctor"
-conditions = {
-"t(\"get_exctinctor\")": SubResource("Resource_1hwfo")
-}
-priority = 0
-
-[sub_resource type="Resource" id="Resource_f1lag"]
-script = ExtResource("5_ydukx")
-name = "t(\"new_fire\")"
-
-[sub_resource type="Resource" id="Resource_aalro"]
-script = ExtResource("4_d30nn")
-from = "return_exctinctor"
-to = "bring_exctinctor"
-conditions = {
-"t(\"new_fire\")": SubResource("Resource_f1lag")
-}
-priority = 0
-
-[sub_resource type="Resource" id="Resource_v6ncx"]
-script = ExtResource("5_ydukx")
-name = "t(\"bring_back_exctinctor\")"
-
-[sub_resource type="Resource" id="Resource_a63d7"]
-script = ExtResource("4_d30nn")
-from = "return_exctinctor"
-to = "waiting"
-conditions = {
-"t(\"bring_back_exctinctor\")": SubResource("Resource_v6ncx")
-}
-priority = 0
-
-[sub_resource type="Resource" id="Resource_w2ke4"]
-script = ExtResource("5_ydukx")
-name = "t(\"new_fire\")"
-
-[sub_resource type="Resource" id="Resource_0ckop"]
-script = ExtResource("4_d30nn")
-from = "waiting"
-to = "fire"
-conditions = {
-"t(\"new_fire\")": SubResource("Resource_w2ke4")
-}
-priority = 0
-
-[sub_resource type="Resource" id="Resource_2wxk0"]
-script = ExtResource("2_kfilr")
-states = {
-"Entry": SubResource("Resource_ui2fb"),
-"bring_exctinctor": SubResource("Resource_1nl84"),
-"fire": SubResource("Resource_a8lmp"),
-"return_exctinctor": SubResource("Resource_3k84o"),
-"waiting": SubResource("Resource_caae8")
-}
-transitions = {
-"Entry": {
-"waiting": SubResource("Resource_14prl")
-},
-"bring_exctinctor": {
-"return_exctinctor": SubResource("Resource_fbru8")
-},
-"fire": {
-"bring_exctinctor": SubResource("Resource_q812b")
-},
-"return_exctinctor": {
-"bring_exctinctor": SubResource("Resource_aalro"),
-"waiting": SubResource("Resource_a63d7")
-},
-"waiting": {
-"fire": SubResource("Resource_0ckop")
-}
-}
-name = ""
-
 [node name="FireEvent" type="Node"]
 script = ExtResource("1_4btyr")
 
-[node name="StateMachinePlayer" type="Node" parent="."]
-script = ExtResource("1_048ru")
-state_machine = SubResource("Resource_2wxk0")
+[node name="StateMachine" parent="." node_paths=PackedStringArray("entry_state") instance=ExtResource("7_gi2yh")]
+entry_state = NodePath("Waiting")
 
-[node name="StateMachine" parent="." instance=ExtResource("7_gi2yh")]
-
-[node name="Waiting" type="Node" parent="StateMachine"]
+[node name="Waiting" type="Node" parent="StateMachine" node_paths=PackedStringArray("fire_state")]
 script = ExtResource("8_m3l7s")
+fire_state = NodePath("../Fire")
 
-[node name="Fire" type="Node" parent="StateMachine"]
+[node name="Fire" type="Node" parent="StateMachine" node_paths=PackedStringArray("can_extinguish_state")]
 script = ExtResource("9_y1n16")
+can_extinguish_state = NodePath("../CanExtinguish")
 
-[node name="CanExtinguish" type="Node" parent="StateMachine"]
+[node name="CanExtinguish" type="Node" parent="StateMachine" node_paths=PackedStringArray("fire_state", "no_more_fire_state")]
 script = ExtResource("10_v7y7f")
+fire_state = NodePath("../Fire")
+no_more_fire_state = NodePath("../NoMoreFire")
 
-[node name="NoMoreFire" type="Node" parent="StateMachine"]
+[node name="NoMoreFire" type="Node" parent="StateMachine" node_paths=PackedStringArray("can_extinguish_state", "waiting_state")]
 script = ExtResource("11_5c28m")
+can_extinguish_state = NodePath("../CanExtinguish")
+waiting_state = NodePath("../Waiting")

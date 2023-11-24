@@ -6,12 +6,11 @@ extends Node
 var fires : Array[Fire]
 var exctinctor_ressource = preload("res://objects/extinguisher/exctinguisher.tscn")
 @onready var exctinctor_trigger = get_node("/root/Game/ExctinctorTrigger")
+@onready var state_machine = $StateMachine
 
 func _ready():
-	pass
+	state_machine.init(self)
 
-func waiting():
-	pass
 
 func start_event():
 	# Choose a random fire
@@ -24,34 +23,39 @@ func start_event():
 	fire.show_fire()
 	fires.push_back(fire)
 	# Play sound
-	FMODRuntime.play_one_shot(event_fire_start, fire)
-	# Make the exctinguisher available
-	if $StateMachinePlayer.get_current() == "bring_exctinctor":
-		fire.connect("extinguish", exctinct_fire)
-	$StateMachinePlayer.set_trigger("new_fire")
+	# FMODRuntime.play_one_shot(event_fire_start, fire)
+	# Make the exctinguisher interactible if we have the extinctor in hand
+	if state_machine.get_current() == state_machine.get_node("CanExtinguish"):
+		fire.connect("extinguish", state_machine.get_current().exctinct_fire)
+	state_machine.trigger("new_fire")
 
 
-func fire() -> void:
-	exctinctor_trigger.connect("click_exctinctor", get_exctinctor)
+"""********************************************
+			STATE MACHINE HANDLING
+********************************************"""
 
 
-func get_exctinctor() -> void:
-	# Can't get the exctinctor if the player is already holding something
-	if Accesser.get_player().is_holding(): return
-	exctinctor_trigger.hide_exctinctor()
-	Accesser.get_player().hold_node(exctinctor_ressource.instantiate())
-	$StateMachinePlayer.set_trigger("get_exctinctor")
+#func fire() -> void:
+#	exctinctor_trigger.connect("click_exctinctor", get_exctinctor)
 
 
-func bring_exctinctor() -> void:
-	exctinctor_trigger.disconnect("click_exctinctor", bring_back_exctinctor)
-	exctinctor_trigger.disconnect("click_exctinctor", get_exctinctor)
-	for fire in fires:
-		fire.connect("extinguish", exctinct_fire)
+#func get_exctinctor() -> void:
+	## Can't get the exctinctor if the player is already holding something
+	#if Accesser.get_player().is_holding(): return
+	#exctinctor_trigger.hide_exctinctor()
+	#Accesser.get_player().hold_node(exctinctor_ressource.instantiate())
+	#state_machine.trigger("get_exctinctor")
 
 
-func return_exctinctor() -> void:
-	exctinctor_trigger.connect("click_exctinctor", bring_back_exctinctor)
+#func can_extinguish() -> void:
+	#exctinctor_trigger.disconnect("click_exctinctor", bring_back_exctinctor)
+	#exctinctor_trigger.disconnect("click_exctinctor", get_exctinctor)
+	#for fire in fires:
+		#fire.connect("extinguish", exctinct_fire)
+
+
+#func no_more_fire() -> void:
+	#exctinctor_trigger.connect("click_exctinctor", bring_back_exctinctor)
 
 
 func bring_back_exctinctor() -> void:
@@ -59,25 +63,12 @@ func bring_back_exctinctor() -> void:
 	print("exctinctor back")
 	exctinctor_trigger.disconnect("click_exctinctor", bring_back_exctinctor)
 	Accesser.get_player().hold_stop()
-	$StateMachinePlayer.set_trigger("bring_back_exctinctor")
+	state_machine.trigger("bring_back_exctinctor")
 
 
-func exctinct_fire(fire: Fire):
-	fire.disconnect("extinguish", exctinct_fire)
-	fire.hide_fire()
-	fires.erase(fire)
-	if fires.size() == 0:
-		$StateMachinePlayer.set_trigger("exctinct_all_fires")
-
-
-func _on_state_machine_player_transited(_from, to):
-	match to:
-		"waiting":
-			waiting()
-		"fire":
-			fire()
-		"bring_exctinctor":
-			bring_exctinctor()
-		"return_exctinctor":
-			return_exctinctor()
-
+#func exctinct_fire(fire: Fire):
+	#fire.disconnect("extinguish", exctinct_fire)
+	#fire.hide_fire()
+	#fires.erase(fire)
+	#if fires.size() == 0:
+		#state_machine.trigger("exctinct_all_fires")
