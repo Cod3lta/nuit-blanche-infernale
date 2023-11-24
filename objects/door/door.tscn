@@ -159,19 +159,17 @@ libraries = {
 [node name="StateMachine" parent="." node_paths=PackedStringArray("entry_state") instance=ExtResource("2_x7gai")]
 entry_state = NodePath("Closed")
 
-[node name="Opened" type="Node" parent="StateMachine" node_paths=PackedStringArray("door", "animation_player", "closed_state", "state_machine")]
+[node name="Opened" type="Node" parent="StateMachine" node_paths=PackedStringArray("door", "animation_player", "closed_state")]
 script = ExtResource("3_2tu7d")
 door = NodePath("../..")
 animation_player = NodePath("../../AnimationPlayer")
 closed_state = NodePath("../Closed")
-state_machine = NodePath("..")
 
-[node name="Closed" type="Node" parent="StateMachine" node_paths=PackedStringArray("door", "animation_player", "opened_state", "state_machine")]
+[node name="Closed" type="Node" parent="StateMachine" node_paths=PackedStringArray("door", "animation_player", "opened_state")]
 script = ExtResource("4_bse0q")
 door = NodePath("../..")
 animation_player = NodePath("../../AnimationPlayer")
 opened_state = NodePath("../Opened")
-state_machine = NodePath("..")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_player_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_player_exited"]
