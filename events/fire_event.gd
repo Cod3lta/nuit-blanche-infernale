@@ -30,45 +30,8 @@ func start_event():
 	state_machine.trigger("new_fire")
 
 
-"""********************************************
-			STATE MACHINE HANDLING
-********************************************"""
-
-
-#func fire() -> void:
-#	exctinctor_trigger.connect("click_exctinctor", get_exctinctor)
-
-
-#func get_exctinctor() -> void:
-	## Can't get the exctinctor if the player is already holding something
-	#if Accesser.get_player().is_holding(): return
-	#exctinctor_trigger.hide_exctinctor()
-	#Accesser.get_player().hold_node(exctinctor_ressource.instantiate())
-	#state_machine.trigger("get_exctinctor")
-
-
-#func can_extinguish() -> void:
-	#exctinctor_trigger.disconnect("click_exctinctor", bring_back_exctinctor)
-	#exctinctor_trigger.disconnect("click_exctinctor", get_exctinctor)
-	#for fire in fires:
-		#fire.connect("extinguish", exctinct_fire)
-
-
-#func no_more_fire() -> void:
-	#exctinctor_trigger.connect("click_exctinctor", bring_back_exctinctor)
-
-
+# used by multiple states
 func bring_back_exctinctor() -> void:
 	exctinctor_trigger.show_exctinctor()
-	print("exctinctor back")
-	exctinctor_trigger.disconnect("click_exctinctor", bring_back_exctinctor)
 	Accesser.get_player().hold_stop()
-	state_machine.trigger("bring_back_exctinctor")
-
-
-#func exctinct_fire(fire: Fire):
-	#fire.disconnect("extinguish", exctinct_fire)
-	#fire.hide_fire()
-	#fires.erase(fire)
-	#if fires.size() == 0:
-		#state_machine.trigger("exctinct_all_fires")
+	state_machine.trigger("bring_back_extinctor")

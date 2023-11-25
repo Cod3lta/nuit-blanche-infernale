@@ -26,5 +26,4 @@ func hide_fire():
 	$OmniLight3D.set_visible(false)
 
 func _on_area_3d_clicked():
-	print("fire detected the click")
 	emit_signal("extinguish", self)

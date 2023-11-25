@@ -75,7 +75,7 @@ mesh = SubResource("SphereMesh_kyc4c")
 transform = Transform3D(1, 0, 0, 0, 0.929584, -0.368611, 0, 0.368611, 0.929584, 0.42891, 1.09737, -0.533518)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "walk"
 libraries = {
 "": SubResource("AnimationLibrary_62suo")
 }
+autoplay = "walk"

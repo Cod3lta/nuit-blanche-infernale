@@ -9,7 +9,7 @@ func enter() -> void:
 
 
 func exit() -> void:
-	pass
+	parent.exctinctor_trigger.disconnect("click_exctinctor", get_exctinctor)
 
 
 func get_exctinctor() -> void:

@@ -42,7 +42,7 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		rotation.y -= deg_to_rad(event.relative.x * ROTATION_SPEED)
 		camera.rotation.x -= deg_to_rad(event.relative.y * ROTATION_SPEED)
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton and event.is_pressed():
 		var collider: Node = $Camera3D/RayCast3D.get_collider()
 		if collider and collider.has_method("click"):
 			collider.click()

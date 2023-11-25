@@ -10,7 +10,7 @@ func enter() -> void:
 
 
 func exit() -> void:
-	pass
+	parent.exctinctor_trigger.disconnect("click_exctinctor", parent.bring_back_exctinctor)
 
 
 func trigger(trigger: String):

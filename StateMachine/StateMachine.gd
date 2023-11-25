@@ -42,8 +42,8 @@ func change_state(new_state: MyState):
 	transited.emit(state, new_state)
 	new_state.parent = parent
 	state.exit()
-	new_state.enter()
 	state = new_state
+	state.enter()
 	transitionning = false
 
 func get_current() -> MyState:

@@ -6,23 +6,23 @@ extends MyState
 
 
 func enter() -> void:
-	parent.exctinctor_trigger.disconnect("click_exctinctor", parent.bring_back_exctinctor)
-	parent.exctinctor_trigger.disconnect("click_exctinctor", parent.get_exctinctor)
+	parent.exctinctor_trigger.connect("click_exctinctor", parent.bring_back_exctinctor)
 	for fire in parent.fires:
 		fire.connect("extinguish", exctinct_fire)
 
 
 func exit() -> void:
-	pass
+	parent.exctinctor_trigger.disconnect("click_exctinctor", parent.bring_back_exctinctor)
+	for fire in parent.fires:
+		fire.disconnect("extinguish", exctinct_fire)
 
 
 func exctinct_fire(fire: Fire):
-	print("fireEvent recieved the extinct_fire signal")
 	fire.disconnect("extinguish", exctinct_fire)
 	fire.hide_fire()
 	parent.fires.erase(fire)
 	if parent.fires.size() == 0:
-		state_machine.trigger("exctinct_all_fires")
+		state_machine.trigger("extinct_all_fires")
 
 
 func trigger(trigger: String):
