@@ -30,3 +30,5 @@ no_more_fire_state = NodePath("../NoMoreFire")
 script = ExtResource("11_5c28m")
 can_extinguish_state = NodePath("../CanExtinguish")
 waiting_state = NodePath("../Waiting")
+
+[connection signal="transited" from="StateMachine" to="." method="_on_state_machine_transited"]

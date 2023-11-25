@@ -1,4 +1,4 @@
-extends Node
+extends Event
 
 # Sound
 # @export var event_start_hungry: EventAsset

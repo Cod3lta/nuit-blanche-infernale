@@ -1,4 +1,4 @@
-extends Node
+extends Event
 
 
 #@export var event_fire_start: EventAsset

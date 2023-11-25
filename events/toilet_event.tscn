@@ -20,3 +20,5 @@ broken_state = NodePath("../Broken")
 [node name="Broken" type="Node" parent="StateMachine" node_paths=PackedStringArray("waiting_state")]
 script = ExtResource("9_kirls")
 waiting_state = NodePath("../Waiting")
+
+[connection signal="transited" from="StateMachine" to="." method="_on_state_machine_transited"]

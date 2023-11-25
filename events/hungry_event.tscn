@@ -27,3 +27,5 @@ script = ExtResource("10_10o7i")
 hungry_state = NodePath("../Hungry")
 waiting_state = NodePath("../Waiting")
 hungry_event = NodePath("../..")
+
+[connection signal="transited" from="StateMachine" to="." method="_on_state_machine_transited"]

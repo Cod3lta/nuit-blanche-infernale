@@ -1,4 +1,4 @@
-extends Node
+extends Event
 
 var hungry_developers : Array[Developer]
 var pizza_ressource = preload("res://objects/pizza/Pizza.tscn")
@@ -42,3 +42,5 @@ func feed_developer(dev: Developer):
 		state_machine.trigger("still_hungry")
 	else:
 		state_machine.trigger("fed_everyone")
+
+
