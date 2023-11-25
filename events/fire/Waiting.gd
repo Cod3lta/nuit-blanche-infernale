@@ -8,10 +8,14 @@ func enter() -> void:
 	pass
 
 
+func exit() -> void:
+	pass
+
+
 func trigger(trigger: String) -> bool:
 	match trigger:
 		"new_fire":
-			state_machine.set_state(fire_state)
+			state_machine.change_state(fire_state)
 			return true
 	return false
 

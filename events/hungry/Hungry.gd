@@ -11,10 +11,14 @@ func enter() -> void:
 		dev.disconnect("feed", parent.feed_developer)
 
 
+func exit() -> void:
+	pass
+
+
 func trigger(trigger: String):
 	match trigger:
 		"get_pizza":
-			state_machine.set_state(bring_food_state)
+			state_machine.change_state(bring_food_state)
 			return true
 	return false
 

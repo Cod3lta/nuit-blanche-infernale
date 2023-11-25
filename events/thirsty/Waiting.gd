@@ -8,10 +8,14 @@ func enter() -> void:
 	pass
 
 
+func exit() -> void:
+	pass
+
+
 func trigger(trigger: String) -> bool:
 	match trigger:
 		"break":
-			state_machine.set_state(broken_state)
+			state_machine.change_state(broken_state)
 			return true
 	return false
 

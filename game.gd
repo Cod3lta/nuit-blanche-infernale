@@ -24,8 +24,8 @@ var events_queue: Array[Node] = []
 # The last dict of each level always happens first when leveling up 
 @onready var levels = [
 	[
-		{"node": $Events/HungryEvent, "occurence": 1},
-		#{"node": $Events/FireEvent, "occurence": 1},
+		#{"node": $Events/HungryEvent, "occurence": 1},
+		{"node": $Events/FireEvent, "occurence": 1},
 	],
 	[
 		{"node": $Events/HungryEvent, "occurence": 0.8},

@@ -9,6 +9,9 @@ func enter() -> void:
 	assert(false, "The enter function isn't re-implemented")
 
 
+func exit() -> void:
+	assert(false, "The exit function isn't re-implemented")
+
 
 # Triggers a change to a new state
 # The return value is true if the new state exists

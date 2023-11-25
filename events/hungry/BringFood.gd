@@ -12,12 +12,16 @@ func enter() -> void:
 		dev.connect("feed", parent.feed_developer)
 
 
+func exit() -> void:
+	pass
+
+
 func trigger(trigger: String):
 	match trigger:
 		"still_hungry":
-			state_machine.set_state(hungry_state)
+			state_machine.change_state(hungry_state)
 			return true
 		"fed_everyone":
-			state_machine.set_state(waiting_state)
+			state_machine.change_state(waiting_state)
 			return true
 	return false

@@ -8,6 +8,10 @@ func enter() -> void:
 	parent.exctinctor_trigger.connect("click_exctinctor", get_exctinctor)
 
 
+func exit() -> void:
+	pass
+
+
 func get_exctinctor() -> void:
 	# Can't get the exctinctor if the player is already holding something
 	if Accesser.get_player().is_holding(): return
@@ -18,8 +22,8 @@ func get_exctinctor() -> void:
 
 func trigger(trigger: String):
 	match trigger:
-		"get_extinctor":
-			state_machine.set_state(can_extinguish_state)
+		"get_exctinctor":
+			state_machine.change_state(can_extinguish_state)
 			return true
 	return false
 

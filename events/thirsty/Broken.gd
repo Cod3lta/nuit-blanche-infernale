@@ -8,9 +8,13 @@ func enter() -> void:
 	pass
 
 
+func exit() -> void:
+	pass
+
+
 func trigger(trigger: String) -> bool:
 	match trigger:
 		"repair":
-			state_machine.set_state(waiting_state)
+			state_machine.change_state(waiting_state)
 			return true
 	return false

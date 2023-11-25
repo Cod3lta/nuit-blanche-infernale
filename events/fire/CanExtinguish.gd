@@ -12,6 +12,10 @@ func enter() -> void:
 		fire.connect("extinguish", exctinct_fire)
 
 
+func exit() -> void:
+	pass
+
+
 func exctinct_fire(fire: Fire):
 	print("fireEvent recieved the extinct_fire signal")
 	fire.disconnect("extinguish", exctinct_fire)
@@ -24,11 +28,11 @@ func exctinct_fire(fire: Fire):
 func trigger(trigger: String):
 	match trigger:
 		"bring_back_extinctor":
-			state_machine.set_state(fire_state)
+			state_machine.change_state(fire_state)
 			return true
 		
 		"extinct_all_fires":
-			state_machine.set_state(no_more_fire_state)
+			state_machine.change_state(no_more_fire_state)
 			return true
 	return false
 
