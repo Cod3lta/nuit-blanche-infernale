@@ -14,6 +14,7 @@ config/name="nuit-blanche-infernale"
 config/tags=PackedStringArray("3d", "game_jam")
 run/main_scene="res://ui/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/image="res://assets/icon.png"
 config/icon="res://icon.svg"
 
 [autoload]

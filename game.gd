@@ -5,32 +5,36 @@ var game_started: bool = false
 #@export var music_event: EventAsset
 #var music_instance: EventInstance
 
-var level_duration: int = 20
+
+var level_duration: int = 20		# The duration of each level
 var current_level: int = 1
 var events_queue: Array[Node] = []
+# from 0 to 1, where 1 means the game is finished (6:00AM)
+var game_progression: float = 0
+# 1 = full life, 0 = dead
+var health_bar: float = 1
 
 signal music_progressed(progression: float)
 
 # The last dict of each level always happens first when leveling up 
 @onready var levels = [
 	[
-		#{"node": $Events/HungryEvent, "occurence": 1},
-		{"node": $Events/FireEvent, "occurence": 1},
+		{"node": $Events/HungryEvent, "occurence": 1},
+	],
+	[
+		{"node": $Events/HungryEvent, "occurence": 0.9},
+		{"node": $Events/ThirstyEvent, "occurence": 0.1},
 	],
 	[
 		{"node": $Events/HungryEvent, "occurence": 0.8},
 		{"node": $Events/ThirstyEvent, "occurence": 0.2},
 	],
 	[
-		{"node": $Events/HungryEvent, "occurence": 0.6},
-		{"node": $Events/ThirstyEvent, "occurence": 0.4},
-	],
-	[
-		{"node": $Events/HungryEvent, "occurence": 0.5},
-		{"node": $Events/ThirstyEvent, "occurence": 0.2},
-		{"node": $Events/ToiletEvent, "occurence": 0.1},
-		{"node": $Events/ToiletEvent2, "occurence": 0.1},
-		{"node": $Events/ToiletEvent3, "occurence": 0.1},
+		{"node": $Events/HungryEvent, "occurence": 0.45},
+		{"node": $Events/ThirstyEvent, "occurence": 0.1},
+		{"node": $Events/ToiletEvent, "occurence": 0.15},
+		{"node": $Events/ToiletEvent2, "occurence": 0.15},
+		{"node": $Events/ToiletEvent3, "occurence": 0.15},
 	],
 	[
 		{"node": $Events/HungryEvent, "occurence": 0.4},
@@ -42,8 +46,7 @@ signal music_progressed(progression: float)
 	],
 ]
 
-#var level_timeouts: Array[int] = [ 7, 7, 5, 3, 2 ]
-var level_timeouts: Array[int] = [ 3, 7, 5, 3, 2 ]
+var level_timeouts: Array[int] = [ 7, 7, 5, 3, 2 ]
 
 @onready var events_timer: Timer = $EventTimer
 @onready var level_timer: Timer = $LevelTimer
