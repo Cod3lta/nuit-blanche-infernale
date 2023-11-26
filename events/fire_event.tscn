@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbtxhws78pdgp"]
+
+[ext_resource type="Script" path="res://events/fire_event.gd" id="1_4btyr"]
+[ext_resource type="PackedScene" uid="uid://nmp5pnolk5h0" path="res://StateMachine/StateMachine.tscn" id="7_gi2yh"]
+[ext_resource type="Script" path="res://events/fire/Waiting.gd" id="8_m3l7s"]
+[ext_resource type="Script" path="res://events/fire/Fire.gd" id="9_y1n16"]
+[ext_resource type="Script" path="res://events/fire/CanExtinguish.gd" id="10_v7y7f"]
+[ext_resource type="Script" path="res://events/fire/NoMoreFire.gd" id="11_5c28m"]
+
+[node name="FireEvent" type="Node"]
+script = ExtResource("1_4btyr")
+
+[node name="StateMachine" parent="." node_paths=PackedStringArray("entry_state") instance=ExtResource("7_gi2yh")]
+entry_state = NodePath("Waiting")
+
+[node name="Waiting" type="Node" parent="StateMachine" node_paths=PackedStringArray("fire_state")]
+script = ExtResource("8_m3l7s")
+fire_state = NodePath("../Fire")
+
+[node name="Fire" type="Node" parent="StateMachine" node_paths=PackedStringArray("can_extinguish_state")]
+script = ExtResource("9_y1n16")
+can_extinguish_state = NodePath("../CanExtinguish")
+
+[node name="CanExtinguish" type="Node" parent="StateMachine" node_paths=PackedStringArray("fire_state", "no_more_fire_state")]
+script = ExtResource("10_v7y7f")
+fire_state = NodePath("../Fire")
+no_more_fire_state = NodePath("../NoMoreFire")
+
+[node name="NoMoreFire" type="Node" parent="StateMachine" node_paths=PackedStringArray("can_extinguish_state", "waiting_state")]
+script = ExtResource("11_5c28m")
+can_extinguish_state = NodePath("../CanExtinguish")
+waiting_state = NodePath("../Waiting")
+
+[connection signal="transited" from="StateMachine" to="." method="_on_state_machine_transited"]

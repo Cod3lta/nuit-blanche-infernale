@@ -1,41 +1,13 @@
 extends Node3D
 
-@export_enum("POSITIVE", "NEGATIVE") var open_side: int
-@export var open: bool:
-	set(val): 
-		# C'est dégeulasse mais bon hein ok
-		if val:
-			if open_side == 0:
-				$AnimationPlayer.play("opening_positive")
-			else: 
-				$AnimationPlayer.play("opening_negative")
-		else:
-			if open_side == 0:
-				$AnimationPlayer.play("closing_positive")
-			else: 
-				$AnimationPlayer.play("closing_negative")
+enum opening_sides {POSITIVE, NEGATIVE}
 
-
-func _on_state_machine_player_transited(from, to):
-	match to:
-		"opening":
-			open = true
-		"closing":
-			open = false
-	
-
-func on_close():
-	$StateMachinePlayer.set_trigger("closed")
-
-
-func on_open():
-	$StateMachinePlayer.set_trigger("opened")
+@export var opening_side: opening_sides
 
 
 func _on_area_3d_player_entered(body):
-	$StateMachinePlayer.set_trigger("open")
+	$StateMachine.trigger("opening")
 
 
 func _on_area_3d_player_exited(body):
-	$StateMachinePlayer.set_trigger("close")
-
+	$StateMachine.trigger("closing")

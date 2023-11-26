@@ -1,0 +1,104 @@
+[gd_scene load_steps=12 format=3 uid="uid://qhjqdjj3v1xi"]
+
+[ext_resource type="Script" path="res://objects/fountain/fountain.gd" id="1_plik2"]
+[ext_resource type="PackedScene" uid="uid://c26xqob6phqri" path="res://objects/fountain/fountain.glb" id="1_qykl4"]
+[ext_resource type="PackedScene" uid="uid://dm0n1lgblhgtm" path="res://triggers/clickable_area_3d.tscn" id="2_u8ixx"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_06ld0"]
+direction = Vector3(0, -1, 1)
+initial_velocity_min = 3.24
+initial_velocity_max = 3.24
+linear_accel_min = 0.41
+linear_accel_max = 0.41
+scale_min = 0.0
+scale_max = 2.11
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.15
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kdrrd"]
+albedo_color = Color(1, 1, 0.12549, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_2u6ja"]
+material = SubResource("StandardMaterial3D_kdrrd")
+radius = 0.04
+height = 0.08
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sa1ct"]
+albedo_color = Color(1, 1, 0.956863, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_18h3a"]
+material = SubResource("StandardMaterial3D_sa1ct")
+radius = 0.04
+height = 0.08
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1ggt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j3372"]
+albedo_color = Color(1, 1, 0.117647, 1)
+metallic = 0.71
+roughness = 0.42
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_px2dl"]
+size = Vector3(1.23336, 1.51035, 1.41531)
+
+[node name="ThirstyTrigger" type="Node3D"]
+script = ExtResource("1_plik2")
+
+[node name="ClickableArea3D" parent="." instance=ExtResource("2_u8ixx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0306857, 1.66886, 0.109459)
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00568572, 0.702, 0)
+size = Vector3(1.23296, 1.52629, 1.40452)
+
+[node name="GPUParticlesCollisionBox3D2" type="GPUParticlesCollisionBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00568572, -0.266419, 0.701669)
+size = Vector3(4.8479, 0.527702, 4.89429)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0406492, 1.94554, -0.204352)
+amount = 150
+lifetime = 0.69
+visibility_aabb = AABB(-2.88972, -3.10678, -2.84222, 5.77943, 6.21357, 5.68445)
+process_material = SubResource("ParticleProcessMaterial_06ld0")
+draw_pass_1 = SubResource("SphereMesh_2u6ja")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0406492, 1.94554, -0.204352)
+amount = 40
+lifetime = 0.17
+visibility_aabb = AABB(-2.88972, -3.10678, -2.84222, 5.77943, 6.21357, 5.68445)
+process_material = SubResource("ParticleProcessMaterial_06ld0")
+draw_pass_1 = SubResource("SphereMesh_18h3a")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
+radius = 3.0
+height = 0.079958
+sides = 15
+material = SubResource("StandardMaterial3D_i1ggt")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0134592, 0)
+radius = 2.67379
+height = 0.079958
+sides = 10
+material = SubResource("StandardMaterial3D_j3372")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.04705)
+operation = 1
+size = Vector3(6.64715, 0.397137, 4.01085)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.704727, 0)
+shape = SubResource("BoxShape3D_px2dl")
+
+[node name="fountain" parent="." instance=ExtResource("1_qykl4")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -0.0127147, -1.19209e-07, 0.0084362)
+
+[connection signal="clicked" from="ClickableArea3D" to="." method="_on_clickable_area_3d_clicked"]

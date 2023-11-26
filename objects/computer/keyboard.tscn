@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bimkwxg8w3a0w"]
+
+[ext_resource type="PackedScene" uid="uid://cmvh57sjmvny7" path="res://objects/computer/Keyboard.glb" id="1_mjev5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qejxm"]
+size = Vector3(0.362031, 0.0378134, 0.759415)
+
+[node name="Node3D" type="StaticBody3D"]
+
+[node name="Keyboard" parent="." instance=ExtResource("1_mjev5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.022745, 0.167072)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0247805, 0.031418, -0.0104205)
+shape = SubResource("BoxShape3D_qejxm")

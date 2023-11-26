@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfuqxxa87bwdq"]
+
+[ext_resource type="PackedScene" uid="uid://bh0olivu8atvw" path="res://objects/computer/Mouse.glb" id="1_5qvli"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ym042"]
+radius = 0.111666
+height = 0.423292
+
+[node name="Node3D" type="StaticBody3D"]
+
+[node name="Mouse" parent="." instance=ExtResource("1_5qvli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0310738, 0, 0.00607805)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.023715, 0.062834, 0)
+shape = SubResource("CapsuleShape3D_ym042")

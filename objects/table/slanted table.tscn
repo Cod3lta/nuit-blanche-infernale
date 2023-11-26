@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://0a4neq1y0jgu"]
+
+[ext_resource type="ArrayMesh" uid="uid://ckl6p7jimh4pw" path="res://objects/table/Slanted Table.obj" id="1_s1j7a"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e0so8"]
+size = Vector3(3.6, 1.8, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4xx3n"]
+size = Vector3(2.8, 1.8, 1.4)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fcqqx"]
+height = 1.83015
+
+[node name="Node3D" type="StaticBody3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="SlantedTable" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+mesh = ExtResource("1_s1j7a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81248, 0.86977, 1.03383)
+shape = SubResource("BoxShape3D_e0so8")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.503961, 0.86977, 0.521844)
+shape = SubResource("BoxShape3D_4xx3n")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 1.59901, 0.887201, -1.09022)
+shape = SubResource("CylinderShape3D_fcqqx")

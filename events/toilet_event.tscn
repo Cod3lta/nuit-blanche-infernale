@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccyth2r01l6xy"]
+
+[ext_resource type="Script" path="res://events/toilet_event.gd" id="1_s8g4e"]
+[ext_resource type="Script" path="res://StateMachine/StateMachine.gd" id="7_xrxik"]
+[ext_resource type="Script" path="res://events/toilet/Waiting.gd" id="8_kkje2"]
+[ext_resource type="Script" path="res://events/toilet/Broken.gd" id="9_kirls"]
+
+[node name="ToiletEvent" type="Node"]
+script = ExtResource("1_s8g4e")
+toilet_path = NodePath("")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("entry_state")]
+script = ExtResource("7_xrxik")
+entry_state = NodePath("Waiting")
+
+[node name="Waiting" type="Node" parent="StateMachine" node_paths=PackedStringArray("broken_state")]
+script = ExtResource("8_kkje2")
+broken_state = NodePath("../Broken")
+
+[node name="Broken" type="Node" parent="StateMachine" node_paths=PackedStringArray("waiting_state")]
+script = ExtResource("9_kirls")
+waiting_state = NodePath("../Waiting")
+
+[connection signal="transited" from="StateMachine" to="." method="_on_state_machine_transited"]

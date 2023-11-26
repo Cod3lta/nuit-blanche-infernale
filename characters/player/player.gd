@@ -3,14 +3,14 @@ extends CharacterBody3D
 class_name Player
 
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 5.5
+const SPEED = 6.5
+const JUMP_VELOCITY = 5.0
 const ROTATION_SPEED = 0.1
 
 @onready var camera: Camera3D = $Camera3D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 1.5
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -42,7 +42,7 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		rotation.y -= deg_to_rad(event.relative.x * ROTATION_SPEED)
 		camera.rotation.x -= deg_to_rad(event.relative.y * ROTATION_SPEED)
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton and event.is_pressed():
 		var collider: Node = $Camera3D/RayCast3D.get_collider()
 		if collider and collider.has_method("click"):
 			collider.click()
@@ -55,3 +55,6 @@ func hold_node(node: Node3D) -> void:
 func hold_stop() -> void:
 	for item in $Hand.get_children():
 		item.queue_free()
+
+func is_holding() -> bool:
+	return $Hand.get_child_count() > 0
