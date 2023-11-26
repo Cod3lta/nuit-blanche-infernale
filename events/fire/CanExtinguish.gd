@@ -30,9 +30,11 @@ func trigger(trigger: String):
 		"bring_back_extinctor":
 			state_machine.change_state(fire_state)
 			return true
-		
 		"extinct_all_fires":
 			state_machine.change_state(no_more_fire_state)
 			return true
+		"can_extinguish":
+			# connect the new fire to the extinct_fire() function
+			parent.fires[-1].connect("extinguish", exctinct_fire)
 	return false
 

@@ -6,13 +6,19 @@ extends MyState
 
 
 func enter() -> void:
-	parent.pizza_trigger.connect("get_pizza", parent.get_pizza)
-	for dev in parent.hungry_developers:
-		dev.disconnect("feed", parent.feed_developer)
+	parent.pizza_trigger.connect("get_pizza", get_pizza)
 
 
 func exit() -> void:
-	pass
+	parent.pizza_trigger.disconnect("get_pizza", get_pizza)
+
+
+func get_pizza() -> void:
+	# Can't get the exctinctor if the player is already holding something
+	if Accesser.get_player().is_holding(): return
+	parent.pizza_trigger.remove_pizza()
+	Accesser.get_player().hold_node(parent.pizza_ressource.instantiate())
+	state_machine.trigger("get_pizza")
 
 
 func trigger(trigger: String):

@@ -8,18 +8,8 @@ var game_started: bool = false
 var level_duration: int = 20
 var current_level: int = 1
 var events_queue: Array[Node] = []
-# The order is important!
-# @onready var events = [
-# 	[$Events/HungryEvent],
-# 	[$Events/ThirstyEvent],
-# 	[$Events/ThirstyEvent],
-# 	[
-# 		$Events/ToiletEvent,
-# 		$Events/ToiletEvent2,
-# 		$Events/ToiletEvent3,
-# 	],
-# 	[$Events/FireEvent],
-# ]
+
+signal music_progressed(progression: float)
 
 # The last dict of each level always happens first when leveling up 
 @onready var levels = [
@@ -52,7 +42,8 @@ var events_queue: Array[Node] = []
 	],
 ]
 
-var level_timeouts: Array[int] = [ 7, 7, 5, 3, 2 ]
+#var level_timeouts: Array[int] = [ 7, 7, 5, 3, 2 ]
+var level_timeouts: Array[int] = [ 3, 7, 5, 3, 2 ]
 
 @onready var events_timer: Timer = $EventTimer
 @onready var level_timer: Timer = $LevelTimer
@@ -82,6 +73,7 @@ func _process(delta):
 	progression *= nb_levels - 1
 	progression += 1
 	#music_instance.set_parameter_by_name("intensity", progression, false)
+	emit_signal("music_progressed", progression)
 
 # Returns the wait time between events based on the current level
 func get_event_wait_time() -> int:

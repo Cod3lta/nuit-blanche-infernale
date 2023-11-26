@@ -24,9 +24,6 @@ func start_event():
 	fires.push_back(fire)
 	# Play sound
 	# FMODRuntime.play_one_shot(event_fire_start, fire)
-	# Make the exctinguisher interactible if we have the extinctor in hand
-	if state_machine.get_current() == state_machine.get_node("CanExtinguish"):
-		fire.connect("extinguish", state_machine.get_current().exctinct_fire)
 	state_machine.trigger("new_fire")
 
 
